@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prasan Global Service | Tech, Civil & Home Solutions</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-black: #080808;
+            --maroon-dark: #4a0404;
+            --maroon-light: #800020;
+            --accent-gold: #d4af37;
+            --glass: rgba(255, 255, 255, 0.05);
+        }
+
+        body {
+            background-color: var(--bg-black);
+            color: #ffffff;
+            font-family: 'Outfit', sans-serif;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        section { scroll-margin-top: 100px; }
+
+        /* Navbar */
+        .navbar-logo-container {
+            width: 55px; height: 55px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid var(--maroon-light);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+            display: flex; align-items: center; justify-content: center;
+            background: #111;
+        }
+        .navbar-logo { width: 100%; height: 100%; object-fit: cover; }
+        
+        .navbar {
+            background: rgba(8, 8, 8, 0.95);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--maroon-dark);
+            z-index: 2000;
+        }
+
+        /* Hero Slider */
+        #home {
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            padding: 120px 0 60px 0;
+        }
+        .hero-slider { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+        .slide {
+            position: absolute; width: 100%; height: 100%;
+            background-size: cover; background-position: center;
+            opacity: 0; transition: opacity 1.5s ease-in-out;
+        }
+        .slide.active { opacity: 1; }
+
+        /* Card Styles */
+        .glass-card {
+            background: var(--glass);
+            border: 1px solid rgba(128, 0, 32, 0.15);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            height: 100%; text-align: center;
+            backdrop-filter: blur(10px);
+        }
+        .glass-card:hover {
+            transform: translateY(-12px);
+            border-color: var(--accent-gold);
+            background: rgba(128, 0, 32, 0.12);
+        }
+        
+        .service-img-preview {
+            width: 100%; height: 160px;
+            border-radius: 12px;
+            object-fit: cover;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .icon-circle {
+            width: 55px; height: 55px;
+            background: var(--maroon-light);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: -45px auto 15px; font-size: 20px; color: white;
+            border: 3px solid var(--bg-black);
+            position: relative; z-index: 5;
+        }
+
+        /* FAQ Styling */
+        .accordion-item {
+            background: transparent !important;
+            border: none !important;
+        }
+        .accordion-button {
+            background: transparent !important;
+            color: white !important;
+            box-shadow: none !important;
+        }
+        .accordion-button:not(.collapsed) {
+            color: var(--accent-gold) !important;
+            background: rgba(128, 0, 32, 0.05) !important;
+        }
+        .accordion-button::after { filter: invert(1); }
+        .accordion-body { color: rgba(255, 255, 255, 0.7); }
+
+        .gold-text { color: var(--accent-gold); }
+        .text-neon { color: var(--maroon-light); text-shadow: 0 0 10px rgba(128, 0, 32, 0.5); }
+        .section-padding { padding: 100px 0; }
+        
+        .founder-img {
+            width: 120px; height: 120px;
+            border-radius: 50%;
+            border: 3px solid var(--maroon-light);
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .whatsapp-btn {
+            position: fixed; bottom: 30px; right: 30px;
+            background: #25d366; color: white; width: 65px; height: 65px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 32px; z-index: 5000; box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            transition: transform 0.3s;
+        }
+        .whatsapp-btn:hover { transform: scale(1.1); color: white; }
+
+        footer { background: #030303; padding: 80px 0 30px; border-top: 2px solid var(--maroon-dark); }
+        .footer-logo-circle {
+            width: 80px; height: 80px;
+            border-radius: 50%; overflow: hidden;
+            border: 3px solid var(--maroon-light);
+            margin-bottom: 20px; background: #111;
+        }
+
+        .modal-content {
+            background: #111;
+            border: 1px solid var(--maroon-light);
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<a href="https://wa.me/919884050379" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="#home">
+            <div class="navbar-logo-container me-3"><img src="logopra.jpg" class="navbar-logo" alt="Logo"></div>
+            <span class="fw-bold gold-text">PRASAN GLOBAL</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto fw-bold text-uppercase small">
+                <li class="nav-item"><a class="nav-link px-3" href="#about">About Us</a></li>
+                <li class="nav-item"><a class="nav-link px-3" href="#it">IT Solutions</a></li>
+                <li class="nav-item"><a class="nav-link px-3" href="#portal">Online Services</a></li>
+                <li class="nav-item"><a class="nav-link px-3" href="#civil">Civil & Home</a></li>
+                <li class="nav-item"><a class="nav-link px-3" href="#faq">FAQ</a></li>
+                <li class="nav-item"><a class="nav-link px-3" href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section id="home">
+    <div class="hero-slider">
+        <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600');"></div>
+        <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1541888946425-d81bb19480c5?q=80&w=1600');"></div>
+    </div>
+    <div class="container text-center position-relative" style="z-index: 10;">
+        <h1 class="display-2 fw-bold mb-4" data-aos="zoom-out">Infinite <span class="text-neon">Innovation</span>. <br>Rooted in <span class="gold-text">Excellence</span>.</h1>
+        <p class="lead mb-5 px-3">Leading IT Solutions, Educational Support, and Civil Infrastructure since 2022.</p>
+        <div>
+            <a href="#portal" class="btn btn-danger rounded-pill px-5 py-3 fw-bold me-lg-3 mb-3 mb-lg-0" style="background: var(--maroon-light);">Online Services</a>
+            <a href="#contact" class="btn btn-outline-light rounded-pill px-5 py-3 fw-bold">Contact Us</a>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="section-padding">
+    <div class="container text-center">
+        <div class="row mb-5" data-aos="fade-up">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="fw-bold">About <span class="text-neon">Prasan Global Solutions</span></h2>
+                <p class="lead text-secondary mt-3">Founded in 2022, we started with a simple mission: to provide high-quality, reliable, and innovative services under one roof. From custom software to civil construction, we are committed to excellence in every project we touch.</p>
+            </div>
+        </div>
+        <div class="row g-4 mt-4">
+            <div class="col-md-6" data-aos="fade-right">
+                <div class="glass-card">
+                    <img src="logopra.jpg" class="founder-img" alt="Praveen Kumar">
+                    <h4 class="gold-text fw-bold">Praveen Kumar</h4>
+                    <p class="small text-uppercase tracking-widest text-secondary">Founder & CEO</p>
+                    <p class="small opacity-75">Spearheading our technical vision and software innovations, Praveen ensures that every IT solution we deliver is world-class.</p>
+                </div>
+            </div>
+            <div class="col-md-6" data-aos="fade-left">
+                <div class="glass-card">
+                    <img src="logopra.jpg" class="founder-img" alt="Santhosh">
+                    <h4 class="gold-text fw-bold">Santhosh</h4>
+                    <p class="small text-uppercase tracking-widest text-secondary">Founder & CEO</p>
+                    <p class="small opacity-75">Leading our operations and civil projects, Santhosh drives our commitment to community service and structural integrity.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="portal" class="section-padding bg-dark">
+    <div class="container text-center">
+        <h2 class="fw-bold mb-5" data-aos="fade-down">Online Portal & <span class="text-neon">Education Services</span></h2>
+        <div class="row g-4 justify-content-center">
+            <div class="col-lg-3 col-6" data-aos="zoom-in" data-bs-toggle="modal" data-bs-target="#passportModal" style="cursor: pointer;">
+                <div class="glass-card"><div class="icon-circle"><i class="fas fa-id-card"></i></div><h6>Passport & PAN</h6><p class="small gold-text mt-2">View Documents</p></div>
+            </div>
+            <div class="col-lg-3 col-6" data-aos="zoom-in" data-bs-toggle="modal" data-bs-target="#pfModal" style="cursor: pointer;">
+                <div class="glass-card"><div class="icon-circle"><i class="fas fa-university"></i></div><h6>PF Services</h6><p class="small gold-text mt-2">View Documents</p></div>
+            </div>
+            <div class="col-lg-3 col-6" data-aos="zoom-in" data-bs-toggle="modal" data-bs-target="#jobModal" style="cursor: pointer;">
+                <div class="glass-card"><div class="icon-circle"><i class="fas fa-briefcase"></i></div><h6>Private Job App</h6><p class="small gold-text mt-2">View Documents</p></div>
+            </div>
+            <div class="col-lg-3 col-6" data-aos="zoom-in" data-bs-toggle="modal" data-bs-target="#admissionModal" style="cursor: pointer;">
+                <div class="glass-card"><div class="icon-circle"><i class="fas fa-graduation-cap"></i></div><h6>College Admission</h6><p class="small gold-text mt-2">View Documents</p></div>
+            </div>
+            <div class="col-lg-3 col-6" data-aos="zoom-in" data-bs-toggle="modal" data-bs-target="#rationModal" style="cursor: pointer;">
+                <div class="glass-card"><div class="icon-circle"><i class="fas fa-file-invoice"></i></div><h6>Ration Card</h6><p class="small gold-text mt-2">View Documents</p></div>
+            </div>
+            <div class="col-lg-3 col-6" data-aos="zoom-in" data-bs-toggle="modal" data-bs-target="#billModal" style="cursor: pointer;">
+                <div class="glass-card"><div class="icon-circle"><i class="fas fa-receipt"></i></div><h6>Tax & EB Bills</h6><p class="small gold-text mt-2">View Documents</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="it" class="section-padding">
+    <div class="container text-center">
+        <h2 class="fw-bold mb-5" data-aos="fade-up">Software & <span class="gold-text">IT Excellence</span></h2>
+        <div class="row g-4">
+            <div class="col-md-4"><div class="glass-card">
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=500" class="service-img-preview">
+                <div class="icon-circle"><i class="fas fa-code"></i></div>
+                <h5>Web & POS Development</h5>
+                <p class="small text-secondary">Custom billing software and business websites.</p>
+            </div></div>
+            <div class="col-md-4"><div class="glass-card">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500" class="service-img-preview">
+                <div class="icon-circle"><i class="fas fa-chart-line"></i></div>
+                <h5>Digital Marketing</h5>
+                <p class="small text-secondary">SEO, Social Media, and local branding.</p>
+            </div></div>
+            <div class="col-md-4"><div class="glass-card">
+                <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=500" class="service-img-preview">
+                <div class="icon-circle"><i class="fas fa-laptop-code"></i></div>
+                <h5>IT Consultancy</h5>
+                <p class="small text-secondary">Automation and technical infrastructure.</p>
+            </div></div>
+        </div>
+    </div>
+</section>
+
+<section id="civil" class="section-padding bg-dark">
+    <div class="container text-center">
+        <h2 class="fw-bold mb-5">Civil, Electrical & <span class="gold-text">Home Needs</span></h2>
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6"><div class="glass-card">
+                <img src="Civil_Construction.png" class="service-img-preview">
+                <div class="icon-circle"><i class="fas fa-trowel-bricks"></i></div>
+                <h5>Civil Construction</h5>
+                <p class="small text-secondary">Building plans and modern renovations.</p>
+            </div></div>
+            <div class="col-lg-4 col-md-6"><div class="glass-card">
+                <img src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=500" class="service-img-preview">
+                <div class="icon-circle"><i class="fas fa-bolt"></i></div>
+                <h5>Electrical & Plumbing</h5>
+                <p class="small text-secondary">House wiring and maintenance.</p>
+            </div></div>
+            <div class="col-lg-4 col-md-6"><div class="glass-card">
+                <img src="ac.png" class="service-img-preview">
+                <div class="icon-circle"><i class="fas fa-snowflake"></i></div>
+                <h5>AC & Deep Cleaning</h5>
+                <p class="small text-secondary">Expert AC service and sanitization.</p>
+            </div></div>
+        </div>
+    </div>
+</section>
+
+<section id="frames" class="section-padding">
+    <div class="container text-center">
+        <h2 class="fw-bold mb-5">Custom <span class="gold-text">Photo Frames</span></h2>
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6"><div class="glass-card">
+                <img src="frame2.png" class="service-img-preview">
+                <div class="icon-circle"><i class="fas fa-images"></i></div>
+                <h5>Collage & Mosaic</h5>
+            </div></div>
+            <div class="col-lg-4 col-md-6"><div class="glass-card">
+                <img src="frame1.png" class="service-img-preview">
+                <div class="icon-circle"><i class="fas fa-certificate"></i></div>
+                <h5>Premium Synthetic</h5>
+            </div></div>
+            <div class="col-lg-4 col-md-6"><div class="glass-card">
+                <img src="frame3.png" class="service-img-preview">
+                <div class="icon-circle"><i class="fas fa-gift"></i></div>
+                <h5>Personalized Gifting</h5>
+            </div></div>
+        </div>
+    </div>
+</section>
+
+<section id="faq" style="padding: 40px 0;">
+    <div class="container">
+        <div class="text-center mb-4" data-aos="fade-up">
+            <h2 class="fw-bold mb-1">Frequently Asked <span class="text-neon">Questions</span></h2>
+            <p class="text-secondary small">Quick answers to common inquiries about our services.</p>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+                <div class="accordion accordion-flush" id="faqAccordion">
+                    <div class="accordion-item glass-card mb-2" data-aos="fade-up">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed py-3" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                <span class="gold-text me-3">01.</span> What IT services do you offer for local businesses?
+                            </button>
+                        </h2>
+                        <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body pb-3">
+                                We specialize in Web Development, POS Billing Software, SEO Marketing, and general IT consultancy to help local shops and firms go digital.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item glass-card mb-2" data-aos="fade-up" data-aos-delay="100">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed py-3" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                <span class="gold-text me-3">02.</span> How can I apply for Online Services?
+                            </button>
+                        </h2>
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body pb-3">
+                                Simply click on the specific service in our Online Portal section to view required documents, then use the "Apply & Contact" button to visit our office or send details via WhatsApp.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item glass-card mb-2" data-aos="fade-up" data-aos-delay="200">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed py-3" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                <span class="gold-text me-3">03.</span> Do you handle Home Renovation projects?
+                            </button>
+                        </h2>
+                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body pb-3">
+                                Yes! Our Civil team provides end-to-end services, including construction planning, electrical wiring, plumbing, and deep cleaning services.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="section-padding bg-dark">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-5" data-aos="fade-right">
+                <h2 class="mb-4">Get In <span class="text-neon">Touch</span></h2>
+                <p class="lead mb-2"><i class="fas fa-map-marker-alt gold-text me-2"></i>SVM Nagar 2nd Street Ennore, Chennai - 600057</p>
+                <p class="mb-2"><i class="fas fa-phone gold-text me-2"></i> +91 98840 50379</p>
+                <p class="mb-4"><i class="fas fa-envelope gold-text me-2"></i> prasanglobalsolution@gmail.com</p>
+                <div class="d-flex flex-wrap gap-2">
+                    <a href="mailto:prasanglobalsolution@gmail.com" class="btn btn-outline-warning rounded-pill px-4">Email Us</a>
+                    <a href="https://wa.me/919884050379" class="btn btn-outline-success rounded-pill px-4">WhatsApp</a>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3883.674332884241!2d80.320499!3d13.21449!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDEyJzUyLjIiTiA4MMKwMTknMTMuOCJF!5e0!3m2!1sen!2sin!4v1648000000000!5m2!1sen!2sin" width="100%" height="350" style="border-radius:20px; border:2px solid var(--maroon-light);" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4 text-center text-lg-start">
+                <div class="footer-logo-circle mx-auto mx-lg-0"><img src="logopra.jpg" class="navbar-logo" alt="Logo"></div>
+                <h4 class="gold-text fw-bold">PRASAN GLOBAL</h4>
+                <p class="small text-secondary">A multidisciplinary firm dedicated to quality service in technology, educational support, and civil engineering since 2022.</p>
+            </div>
+            <div class="col-lg-2 ms-auto">
+                <h6 class="fw-bold mb-4">Tech Services</h6>
+                <p class="small text-secondary mb-2">Web Design</p>
+                <p class="small text-secondary mb-2">POS Billing</p>
+                <p class="small text-secondary mb-2">SEO Marketing</p>
+            </div>
+            <div class="col-lg-2">
+                <h6 class="fw-bold mb-4">Civil & Home</h6>
+                <p class="small text-secondary mb-2">Construction</p>
+                <p class="small text-secondary mb-2">Electrical</p>
+                <p class="small text-secondary mb-2">AC Repair</p>
+            </div>
+            <div class="col-lg-3 text-center text-lg-start">
+                <h6 class="fw-bold mb-4">Stay Connected</h6>
+                <div class="d-flex justify-content-center justify-content-lg-start">
+                    <a href="mailto:prasanglobalsolution@gmail.com" class="btn btn-outline-light btn-sm rounded-circle me-2"><i class="fas fa-envelope"></i></a>
+                    <a href="#" class="btn btn-outline-light btn-sm rounded-circle me-2"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="btn btn-outline-light btn-sm rounded-circle me-2"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/919884050379" class="btn btn-outline-light btn-sm rounded-circle"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <hr class="mt-5 border-secondary opacity-25">
+        <div class="text-center small text-secondary">
+            <p class="mb-1">© 2026 Prasan Global Service. Developed By Prasan Global Solutions.</p>
+            <p class="mb-0">GSTIN: 33PHXPS6095C1ZD</p>
+        </div>
+    </div>
+</footer>
+
+<div class="modal fade" id="passportModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header border-0"><h5 class="gold-text">Passport & PAN</h5><button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button></div><div class="modal-body text-start"><ul><li>Aadhaar Card (Original)</li><li>10th Marksheet</li><li>Bank Passbook / Voter ID</li></ul></div><div class="modal-footer border-0"><button data-scroll-to="#contact" class="btn btn-danger w-100" style="background:var(--maroon-light)">Apply & Contact</button></div></div></div></div>
+<div class="modal fade" id="pfModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header border-0"><h5 class="gold-text">PF (Provident Fund) Services</h5><button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button></div><div class="modal-body text-start"><ul><li>UAN Activation</li><li>PF Withdrawal Claim</li><li>KYC Update</li></ul></div><div class="modal-footer border-0"><button data-scroll-to="#contact" class="btn btn-danger w-100" style="background:var(--maroon-light)">Consult & Contact</button></div></div></div></div>
+<div class="modal fade" id="jobModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header border-0"><h5 class="gold-text">Private Job Application</h5><button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button></div><div class="modal-body text-start"><ul><li>Updated Resume / CV</li><li>Passport Size Photo</li><li>Qualification Certificates</li></ul></div><div class="modal-footer border-0"><button data-scroll-to="#contact" class="btn btn-danger w-100" style="background:var(--maroon-light)">Apply & Contact</button></div></div></div></div>
+<div class="modal fade" id="admissionModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header border-0"><h5 class="gold-text">College Admission</h5><button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button></div><div class="modal-body text-start"><ul><li>10th & 12th Marksheets</li><li>Transfer Certificate (TC)</li><li>Community Certificate</li></ul></div><div class="modal-footer border-0"><button data-scroll-to="#contact" class="btn btn-danger w-100" style="background:var(--maroon-light)">Get Guidance & Contact</button></div></div></div></div>
+<div class="modal fade" id="rationModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header border-0"><h5 class="gold-text">Ration Card Support</h5><button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button></div><div class="modal-body text-start"><ul><li>Family Photo</li><li>Aadhaar Copies</li></ul></div><div class="modal-footer border-0"><button data-scroll-to="#contact" class="btn btn-danger w-100" style="background:var(--maroon-light)">Contact Us Now</button></div></div></div></div>
+<div class="modal fade" id="billModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header border-0"><h5 class="gold-text">Tax & EB Bills</h5><button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button></div><div class="modal-body text-start"><ul><li>EB Service Number</li><li>Property Tax Bill</li></ul></div><div class="modal-footer border-0"><button data-scroll-to="#contact" class="btn btn-danger w-100" style="background:var(--maroon-light)">Pay & Contact</button></div></div></div></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 1000, once: true });
+    document.querySelectorAll('[data-scroll-to]').forEach(button => {
+        button.addEventListener('click', function() {
+            const targetId = this.getAttribute('data-scroll-to');
+            const targetElement = document.querySelector(targetId);
+            const modalElement = this.closest('.modal');
+            const modalInstance = bootstrap.Modal.getInstance(modalElement);
+            modalInstance.hide();
+            setTimeout(() => { if (targetElement) targetElement.scrollIntoView({ behavior: 'smooth' }); }, 350);
+        });
+    });
+    const slides = document.querySelectorAll('.slide');
+    let cur = 0;
+    setInterval(() => {
+        slides[cur].classList.remove('active');
+        cur = (cur + 1) % slides.length;
+        slides[cur].classList.add('active');
+    }, 5000);
+</script>
+</body>
+</html>
