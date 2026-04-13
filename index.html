@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prasan Global Service | Tech, Civil & Home Solutions</title>
+    <title>Prasan Global Service | Tech, BPO, Civil & Home Solutions</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -12,165 +12,315 @@
 
     <style>
         :root {
-            --bg-black: #080808;
-            --maroon-dark: #4a0404;
-            --maroon-light: #800020;
-            --accent-gold: #d4af37;
-            --glass: rgba(255, 255, 255, 0.05);
+            --bg-deep: #050505;
+            --surface: #0d0d0d;
+            --maroon-prime: #800020;
+            --gold-prime: #d4af37;
+            --gold-light: #f1d382;
+            --text-bright: #ffffff;
+            --text-dim: #b0b0b0;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(212, 175, 55, 0.2);
         }
 
         body {
-            background-color: var(--bg-black);
-            color: #ffffff;
+            background-color: var(--bg-deep);
+            color: var(--text-bright);
             font-family: 'Outfit', sans-serif;
-            scroll-behavior: smooth;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
-        section { scroll-margin-top: 100px; }
-
-        /* Navbar */
+        /* --- NAVIGATION --- */
+        .navbar {
+            background: rgba(5, 5, 5, 0.9);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 12px 0;
+            z-index: 2000;
+        }
         .navbar-logo-container {
-            width: 55px; height: 55px;
+            width: 45px; height: 45px;
             border-radius: 50%;
             overflow: hidden;
-            border: 2px solid var(--maroon-light);
-            box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
-            display: flex; align-items: center; justify-content: center;
+            border: 2px solid var(--gold-prime);
+            margin-right: 12px;
             background: #111;
         }
         .navbar-logo { width: 100%; height: 100%; object-fit: cover; }
-        
-        .navbar {
-            background: rgba(8, 8, 8, 0.95);
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid var(--maroon-dark);
-            z-index: 2000;
-        }
+        .nav-link { font-size: 0.85rem; letter-spacing: 1px; color: var(--text-dim) !important; transition: 0.3s; }
+        .nav-link:hover { color: var(--gold-prime) !important; }
 
-        /* Hero Slider */
-        #home {
-            min-height: 100vh;
+        /* Mobile Menu Toggle Animation (Hamburger to X) */
+        .navbar-toggler {
+            border: none !important;
+            padding: 0;
+            width: 30px;
+            height: 30px;
             position: relative;
-            overflow: hidden;
-            display: flex; 
-            align-items: center; 
+            display: flex;
             justify-content: center;
-            padding: 120px 0 60px 0;
+            align-items: center;
         }
-        .hero-slider { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
-        .slide {
-            position: absolute; width: 100%; height: 100%;
-            background-size: cover; background-position: center;
-            opacity: 0; transition: opacity 1.5s ease-in-out;
+        .navbar-toggler:focus { box-shadow: none; }
+        
+        .toggler-icon {
+            width: 24px;
+            height: 2px;
+            background-color: var(--gold-prime);
+            display: block;
+            transition: all 0.3s ease-in-out;
+            position: relative;
         }
-        .slide.active { opacity: 1; }
+        .toggler-icon::before, .toggler-icon::after {
+            content: '';
+            width: 24px;
+            height: 2px;
+            background-color: var(--gold-prime);
+            display: block;
+            position: absolute;
+            transition: all 0.3s ease-in-out;
+        }
+        .toggler-icon::before { top: -8px; }
+        .toggler-icon::after { top: 8px; }
 
-        /* Card Styles */
+        /* When the menu is open */
+        .navbar-toggler[aria-expanded="true"] .toggler-icon {
+            background-color: transparent;
+        }
+        .navbar-toggler[aria-expanded="true"] .toggler-icon::before {
+            transform: rotate(45deg);
+            top: 0;
+        }
+        .navbar-toggler[aria-expanded="true"] .toggler-icon::after {
+            transform: rotate(-45deg);
+            top: 0;
+        }
+
+        /* --- HERO SECTION --- */
+        #home {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background-color: #000;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), 
+                        url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600');
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+            animation: kenBurns 20s infinite alternate ease-in-out;
+        }
+
+        @keyframes kenBurns {
+            from { transform: scale(1); }
+            to { transform: scale(1.15); }
+        }
+
+        #home .container { position: relative; z-index: 10; }
+        .typed-cursor { color: var(--gold-prime); font-weight: 300; }
+
+        /* --- CLIENT MARQUEE --- */
+        .clients-marquee {
+            background: var(--surface);
+            border-top: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 25px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+        }
+        .marquee-content {
+            display: inline-flex;
+            animation: marqueeScroll 30s linear infinite;
+        }
+        .client-item {
+            display: flex;
+            align-items: center;
+            margin: 0 40px;
+            color: var(--text-dim);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 1.1rem;
+        }
+        .client-item i {
+            color: var(--gold-prime);
+            margin-right: 12px;
+            font-size: 0.9rem;
+        }
+        @keyframes marqueeScroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+        .clients-marquee:hover .marquee-content {
+            animation-play-state: paused;
+        }
+
+        /* --- GLASS CARDS --- */
         .glass-card {
             background: var(--glass);
-            border: 1px solid rgba(128, 0, 32, 0.15);
+            border: 1px solid var(--glass-border);
             border-radius: 20px;
-            padding: 2rem;
+            padding: 30px;
+            height: 100%;
             transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            height: 100%; text-align: center;
             backdrop-filter: blur(10px);
-        }
-        .glass-card:hover {
-            transform: translateY(-12px);
-            border-color: var(--accent-gold);
-            background: rgba(128, 0, 32, 0.12);
-        }
-        
-        .service-img-preview {
-            width: 100%; height: 160px;
-            border-radius: 12px;
-            object-fit: cover;
-            margin-bottom: 20px;
-            display: block;
+            position: relative;
+            overflow: hidden;
         }
 
-        .icon-circle {
-            width: 55px; height: 55px;
-            background: var(--maroon-light);
+        .card-bg-img {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            opacity: 0.12;
+            transition: 0.6s ease;
+            filter: grayscale(100%);
+        }
+
+        .glass-card:hover .card-bg-img {
+            transform: scale(1.1);
+            opacity: 0.22;
+            filter: grayscale(0%);
+        }
+
+        .glass-card > div, .glass-card > h5, .glass-card > h6, .glass-card > p, .glass-card > ul {
+            position: relative;
+            z-index: 5;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold-prime);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+        }
+
+        .icon-box {
+            width: 65px; height: 65px;
+            background: linear-gradient(135deg, var(--maroon-prime), #4a0404);
             border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            margin: -45px auto 15px; font-size: 20px; color: white;
-            border: 3px solid var(--bg-black);
-            position: relative; z-index: 5;
+            margin: 0 auto 20px;
+            font-size: 26px; color: var(--gold-prime);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.3);
         }
 
-        /* FAQ Styling */
-        .accordion-item {
-            background: transparent !important;
-            border: none !important;
-        }
-        .accordion-button {
-            background: transparent !important;
-            color: white !important;
-            box-shadow: none !important;
-        }
-        .accordion-button:not(.collapsed) {
-            color: var(--accent-gold) !important;
-            background: rgba(128, 0, 32, 0.05) !important;
-        }
-        .accordion-button::after { filter: invert(1); }
-        .accordion-body { color: rgba(255, 255, 255, 0.7); }
-
-        .gold-text { color: var(--accent-gold); }
-        .text-neon { color: var(--maroon-light); text-shadow: 0 0 10px rgba(128, 0, 32, 0.5); }
+        /* --- UI ELEMENTS --- */
+        .gold-text { color: var(--gold-prime); }
+        .text-dim { color: var(--text-dim); }
         .section-padding { padding: 100px 0; }
         
-        .founder-img {
-            width: 120px; height: 120px;
+        .btn-gold {
+            background: var(--gold-prime);
+            color: #000;
+            font-weight: 700;
+            padding: 14px 35px;
+            border-radius: 50px;
+            border: none;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-gold:hover { background: var(--gold-light); transform: scale(1.05); color: #000; }
+
+        .stat-item h2 { font-weight: 700; color: var(--gold-prime); margin-bottom: 5px; display: inline-block; }
+        .stat-item p { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-dim); margin-bottom: 0; }
+
+        /* --- FAQ --- */
+        .accordion-item { background: transparent !important; border: none !important; margin-bottom: 15px; }
+        .accordion-button {
+            background: var(--glass) !important;
+            color: var(--text-bright) !important;
+            border: 1px solid var(--glass-border) !important;
+            border-radius: 15px !important;
+            padding: 20px;
+        }
+        .accordion-button:not(.collapsed) { color: var(--gold-prime) !important; box-shadow: none; }
+        .accordion-button::after { filter: invert(1); }
+
+        /* --- FOOTER & CONTACT --- */
+        .map-container {
+            border-radius: 25px;
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        footer {
+            background: #030303;
+            padding: 80px 0 30px;
+            border-top: 1px solid var(--glass-border);
+        }
+        .footer-title { color: var(--gold-prime); font-weight: 700; margin-bottom: 25px; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; }
+        .footer-links { list-style: none; padding: 0; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a { color: var(--text-dim); text-decoration: none; transition: 0.3s; font-size: 0.9rem; }
+        .footer-links a:hover { color: var(--gold-prime); padding-left: 5px; }
+
+        .leader-avatar {
+            width: 45px; height: 45px;
             border-radius: 50%;
-            border: 3px solid var(--maroon-light);
+            border: 1px solid var(--gold-prime);
             object-fit: cover;
-            margin-bottom: 15px;
+            margin-right: 12px;
+            background: #222;
         }
 
-        .whatsapp-btn {
+        .wa-float {
             position: fixed; bottom: 30px; right: 30px;
-            background: #25d366; color: white; width: 65px; height: 65px;
+            background: #25d366; color: white; width: 60px; height: 60px;
             border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-size: 32px; z-index: 5000; box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-            transition: transform 0.3s;
-        }
-        .whatsapp-btn:hover { transform: scale(1.1); color: white; }
-
-        footer { background: #030303; padding: 80px 0 30px; border-top: 2px solid var(--maroon-dark); }
-        .footer-logo-circle {
-            width: 80px; height: 80px;
-            border-radius: 50%; overflow: hidden;
-            border: 3px solid var(--maroon-light);
-            margin-bottom: 20px; background: #111;
+            font-size: 30px; z-index: 5000; box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+            text-decoration: none;
         }
 
-        .modal-content {
-            background: #111;
-            border: 1px solid var(--maroon-light);
-            border-radius: 20px;
+        @media (max-width: 768px) {
+            #home h1 { font-size: 2.5rem; }
+            .section-padding { padding: 60px 0; }
+            footer { text-align: center; }
+            .leader-avatar { margin-bottom: 10px; }
+            /* Mobile dropdown background */
+            .navbar-collapse {
+                background: rgba(13, 13, 13, 0.98);
+                margin-top: 10px;
+                border-radius: 15px;
+                padding: 20px;
+                border: 1px solid var(--glass-border);
+            }
         }
     </style>
 </head>
 <body>
 
-<a href="https://wa.me/919884050379" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<a href="https://wa.me/919884050379" class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
         <a class="navbar-brand d-flex align-items-center" href="#home">
-            <div class="navbar-logo-container me-3"><img src="logopra.jpg" class="navbar-logo" alt="Logo"></div>
-            <span class="fw-bold gold-text">PRASAN GLOBAL</span>
+            <div class="navbar-logo-container"><img src="logopra.jpg" class="navbar-logo" alt="Logo"></div>
+            <span class="gold-text fw-bold">PRASAN GLOBAL</span>
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="toggler-icon"></span>
+        </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto fw-bold text-uppercase small">
-                <li class="nav-item"><a class="nav-link px-3" href="#about">About Us</a></li>
+            <ul class="navbar-nav ms-auto fw-bold text-uppercase">
+                <li class="nav-item"><a class="nav-link px-3" href="#home">Home</a></li>
+                <li class="nav-item"><a class="nav-link px-3" href="#about">About</a></li>
                 <li class="nav-item"><a class="nav-link px-3" href="#it">IT Solutions</a></li>
-                <li class="nav-item"><a class="nav-link px-3" href="#portal">Online Services</a></li>
+                <li class="nav-item"><a class="nav-link px-3" href="#bpo">BPO Services</a></li>
                 <li class="nav-item"><a class="nav-link px-3" href="#civil">Civil & Home</a></li>
-                <li class="nav-item"><a class="nav-link px-3" href="#faq">FAQ</a></li>
                 <li class="nav-item"><a class="nav-link px-3" href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -178,217 +328,271 @@
 </nav>
 
 <section id="home">
-    <div class="hero-slider">
-        <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600');"></div>
-        <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1541888946425-d81bb19480c5?q=80&w=1600');"></div>
-    </div>
-    <div class="container text-center position-relative" style="z-index: 10;">
-        <h1 class="display-2 fw-bold mb-4" data-aos="zoom-out">Infinite <span class="text-neon">Innovation</span>. <br>Rooted in <span class="gold-text">Excellence</span>.</h1>
-        <p class="lead mb-5 px-3">Leading IT Solutions, Educational Support, and Civil Infrastructure since 2022.</p>
-        <div>
-            <a href="#portal" class="btn btn-danger rounded-pill px-5 py-3 fw-bold me-lg-3 mb-3 mb-lg-0" style="background: var(--maroon-light);">Online Services</a>
-            <a href="#contact" class="btn btn-outline-light rounded-pill px-5 py-3 fw-bold">Contact Us</a>
+    <div class="hero-bg"></div>
+    <div class="container">
+        <h6 class="gold-text text-uppercase fw-bold mb-3" data-aos="fade-down" style="letter-spacing: 4px;">Since 2022</h6>
+        <h1 class="display-2 fw-bold mb-4" data-aos="zoom-in">
+            Infinite <span class="gold-text" id="typed-text"></span>
+        </h1>
+        <h2 class="h4 fw-light text-dim mb-5" data-aos="fade-up">Rooted in <span class="text-white fw-bold">Excellence.</span></h2>
+        <p class="lead text-dim mb-5 mx-auto px-3" style="max-width: 800px;">
+            A Global Leader delivering high-end <span class="gold-text">IT Development</span>, 
+            premium <span class="gold-text">BPO Operations</span>, and reliable 
+            <span class="gold-text">Civil Infrastructure</span> solutions.
+        </p>
+        <div class="d-flex flex-wrap justify-content-center gap-3">
+            <a href="#contact" class="btn btn-gold shadow-lg">Get A Quote</a>
+            <a href="#it" class="btn btn-outline-light rounded-pill px-5 py-3 fw-bold text-decoration-none border-opacity-25">Our Expertise</a>
         </div>
     </div>
 </section>
+
+<div class="clients-marquee">
+    <div class="marquee-content">
+        <div class="client-item"><i class="fas fa-star"></i> Nithya amirtham</div>
+        <div class="client-item"><i class="fas fa-star"></i> Raji Info Tech</div>
+        <div class="client-item"><i class="fas fa-star"></i> Aaron garments</div>
+        <div class="client-item"><i class="fas fa-star"></i> Shanti gold house</div>
+        <div class="client-item"><i class="fas fa-star"></i> Nithya amirtham</div>
+        <div class="client-item"><i class="fas fa-star"></i> Raji Info Tech</div>
+        <div class="client-item"><i class="fas fa-star"></i> Aaron garments</div>
+        <div class="client-item"><i class="fas fa-star"></i> Shanti gold house</div>
+        <div class="client-item"><i class="fas fa-star"></i> Nithya amirtham</div>
+        <div class="client-item"><i class="fas fa-star"></i> Raji Info Tech</div>
+        <div class="client-item"><i class="fas fa-star"></i> Aaron garments</div>
+        <div class="client-item"><i class="fas fa-star"></i> Shanti gold house</div>
+    </div>
+</div>
 
 <section id="about" class="section-padding">
-    <div class="container text-center">
-        <div class="row mb-5" data-aos="fade-up">
-            <div class="col-lg-8 mx-auto">
-                <h2 class="fw-bold">About <span class="text-neon">Prasan Global Solutions</span></h2>
-                <p class="lead text-secondary mt-3">Founded in 2022, we started with a simple mission: to provide high-quality, reliable, and innovative services under one roof. From custom software to civil construction, we are committed to excellence in every project we touch.</p>
-            </div>
-        </div>
-        <div class="row g-4 mt-4">
-            <div class="col-md-6" data-aos="fade-right">
-                <div class="glass-card">
-                    <img src="logopra.jpg" class="founder-img" alt="Praveen Kumar">
-                    <h4 class="gold-text fw-bold">Praveen Kumar</h4>
-                    <p class="small text-uppercase tracking-widest text-secondary">Founder & CEO</p>
-                    <p class="small opacity-75">Spearheading our technical vision and software innovations, Praveen ensures that every IT solution we deliver is world-class.</p>
-                </div>
-            </div>
-            <div class="col-md-6" data-aos="fade-left">
-                <div class="glass-card">
-                    <img src="logopra.jpg" class="founder-img" alt="Santhosh">
-                    <h4 class="gold-text fw-bold">Santhosh</h4>
-                    <p class="small text-uppercase tracking-widest text-secondary">Founder & CEO</p>
-                    <p class="small opacity-75">Leading our operations and civil projects, Santhosh drives our commitment to community service and structural integrity.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="portal" class="section-padding bg-dark">
-    <div class="container text-center">
-        <h2 class="fw-bold mb-5" data-aos="fade-down">Online Portal & <span class="text-neon">Education Services</span></h2>
-        <div class="row g-4 justify-content-center">
-            <div class="col-lg-3 col-6" data-aos="zoom-in" data-bs-toggle="modal" data-bs-target="#passportModal" style="cursor: pointer;">
-                <div class="glass-card"><div class="icon-circle"><i class="fas fa-id-card"></i></div><h6>Passport & PAN</h6><p class="small gold-text mt-2">View Documents</p></div>
-            </div>
-            <div class="col-lg-3 col-6" data-aos="zoom-in" data-bs-toggle="modal" data-bs-target="#pfModal" style="cursor: pointer;">
-                <div class="glass-card"><div class="icon-circle"><i class="fas fa-university"></i></div><h6>PF Services</h6><p class="small gold-text mt-2">View Documents</p></div>
-            </div>
-            <div class="col-lg-3 col-6" data-aos="zoom-in" data-bs-toggle="modal" data-bs-target="#jobModal" style="cursor: pointer;">
-                <div class="glass-card"><div class="icon-circle"><i class="fas fa-briefcase"></i></div><h6>Private Job App</h6><p class="small gold-text mt-2">View Documents</p></div>
-            </div>
-            <div class="col-lg-3 col-6" data-aos="zoom-in" data-bs-toggle="modal" data-bs-target="#admissionModal" style="cursor: pointer;">
-                <div class="glass-card"><div class="icon-circle"><i class="fas fa-graduation-cap"></i></div><h6>College Admission</h6><p class="small gold-text mt-2">View Documents</p></div>
-            </div>
-            <div class="col-lg-3 col-6" data-aos="zoom-in" data-bs-toggle="modal" data-bs-target="#rationModal" style="cursor: pointer;">
-                <div class="glass-card"><div class="icon-circle"><i class="fas fa-file-invoice"></i></div><h6>Ration Card</h6><p class="small gold-text mt-2">View Documents</p></div>
-            </div>
-            <div class="col-lg-3 col-6" data-aos="zoom-in" data-bs-toggle="modal" data-bs-target="#billModal" style="cursor: pointer;">
-                <div class="glass-card"><div class="icon-circle"><i class="fas fa-receipt"></i></div><h6>Tax & EB Bills</h6><p class="small gold-text mt-2">View Documents</p></div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="it" class="section-padding">
-    <div class="container text-center">
-        <h2 class="fw-bold mb-5" data-aos="fade-up">Software & <span class="gold-text">IT Excellence</span></h2>
-        <div class="row g-4">
-            <div class="col-md-4"><div class="glass-card">
-                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=500" class="service-img-preview">
-                <div class="icon-circle"><i class="fas fa-code"></i></div>
-                <h5>Web & POS Development</h5>
-                <p class="small text-secondary">Custom billing software and business websites.</p>
-            </div></div>
-            <div class="col-md-4"><div class="glass-card">
-                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500" class="service-img-preview">
-                <div class="icon-circle"><i class="fas fa-chart-line"></i></div>
-                <h5>Digital Marketing</h5>
-                <p class="small text-secondary">SEO, Social Media, and local branding.</p>
-            </div></div>
-            <div class="col-md-4"><div class="glass-card">
-                <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=500" class="service-img-preview">
-                <div class="icon-circle"><i class="fas fa-laptop-code"></i></div>
-                <h5>IT Consultancy</h5>
-                <p class="small text-secondary">Automation and technical infrastructure.</p>
-            </div></div>
-        </div>
-    </div>
-</section>
-
-<section id="civil" class="section-padding bg-dark">
-    <div class="container text-center">
-        <h2 class="fw-bold mb-5">Civil, Electrical & <span class="gold-text">Home Needs</span></h2>
-        <div class="row g-4">
-            <div class="col-lg-4 col-md-6"><div class="glass-card">
-                <img src="Civil_Construction.png" class="service-img-preview">
-                <div class="icon-circle"><i class="fas fa-trowel-bricks"></i></div>
-                <h5>Civil Construction</h5>
-                <p class="small text-secondary">Building plans and modern renovations.</p>
-            </div></div>
-            <div class="col-lg-4 col-md-6"><div class="glass-card">
-                <img src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=500" class="service-img-preview">
-                <div class="icon-circle"><i class="fas fa-bolt"></i></div>
-                <h5>Electrical & Plumbing</h5>
-                <p class="small text-secondary">House wiring and maintenance.</p>
-            </div></div>
-            <div class="col-lg-4 col-md-6"><div class="glass-card">
-                <img src="ac.png" class="service-img-preview">
-                <div class="icon-circle"><i class="fas fa-snowflake"></i></div>
-                <h5>AC & Deep Cleaning</h5>
-                <p class="small text-secondary">Expert AC service and sanitization.</p>
-            </div></div>
-        </div>
-    </div>
-</section>
-
-<section id="frames" class="section-padding">
-    <div class="container text-center">
-        <h2 class="fw-bold mb-5">Custom <span class="gold-text">Photo Frames</span></h2>
-        <div class="row g-4">
-            <div class="col-lg-4 col-md-6"><div class="glass-card">
-                <img src="frame2.png" class="service-img-preview">
-                <div class="icon-circle"><i class="fas fa-images"></i></div>
-                <h5>Collage & Mosaic</h5>
-            </div></div>
-            <div class="col-lg-4 col-md-6"><div class="glass-card">
-                <img src="frame1.png" class="service-img-preview">
-                <div class="icon-circle"><i class="fas fa-certificate"></i></div>
-                <h5>Premium Synthetic</h5>
-            </div></div>
-            <div class="col-lg-4 col-md-6"><div class="glass-card">
-                <img src="frame3.png" class="service-img-preview">
-                <div class="icon-circle"><i class="fas fa-gift"></i></div>
-                <h5>Personalized Gifting</h5>
-            </div></div>
-        </div>
-    </div>
-</section>
-
-<section id="faq" style="padding: 40px 0;">
-    <div class="container">
-        <div class="text-center mb-4" data-aos="fade-up">
-            <h2 class="fw-bold mb-1">Frequently Asked <span class="text-neon">Questions</span></h2>
-            <p class="text-secondary small">Quick answers to common inquiries about our services.</p>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-lg-9">
-                <div class="accordion accordion-flush" id="faqAccordion">
-                    <div class="accordion-item glass-card mb-2" data-aos="fade-up">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed py-3" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-                                <span class="gold-text me-3">01.</span> What IT services do you offer for local businesses?
-                            </button>
-                        </h2>
-                        <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body pb-3">
-                                We specialize in Web Development, POS Billing Software, SEO Marketing, and general IT consultancy to help local shops and firms go digital.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item glass-card mb-2" data-aos="fade-up" data-aos-delay="100">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed py-3" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-                                <span class="gold-text me-3">02.</span> How can I apply for Online Services?
-                            </button>
-                        </h2>
-                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body pb-3">
-                                Simply click on the specific service in our Online Portal section to view required documents, then use the "Apply & Contact" button to visit our office or send details via WhatsApp.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item glass-card mb-2" data-aos="fade-up" data-aos-delay="200">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed py-3" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
-                                <span class="gold-text me-3">03.</span> Do you handle Home Renovation projects?
-                            </button>
-                        </h2>
-                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body pb-3">
-                                Yes! Our Civil team provides end-to-end services, including construction planning, electrical wiring, plumbing, and deep cleaning services.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="contact" class="section-padding bg-dark">
     <div class="container">
         <div class="row g-5 align-items-center">
+            <div class="col-lg-6" data-aos="fade-right">
+                <h6 class="gold-text text-uppercase fw-bold mb-3">Our Identity</h6>
+                <h2 class="display-5 fw-bold mb-4">Unified Solutions for a <span class="gold-text">Digital World</span>.</h2>
+                <p class="text-dim mb-4">Prasan Global Service is a multidisciplinary firm based in Chennai, dedicated to providing premium technology and essential structural services under one roof.</p>
+                
+                <div class="row g-3 mb-4">
+                    <div class="col-6">
+                        <div class="glass-card p-3">
+                            <h6 class="gold-text mb-2"><i class="fas fa-bullseye me-2"></i>Mission</h6>
+                            <p class="small text-dim mb-0">Empowering businesses through automated technology and quality support.</p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="glass-card p-3">
+                            <h6 class="gold-text mb-2"><i class="fas fa-eye me-2"></i>Vision</h6>
+                            <p class="small text-dim mb-0">Setting the global standard for integrated outsourcing excellence.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-center">
+                    <img src="sam.jpeg" class="leader-avatar" style="width: 60px; height: 60px;" alt="CEO">
+                    <div>
+                        <p class="small mb-0 italic text-dim">"Quality is our foundation; innovation is our future."</p>
+                        <span class="gold-text fw-bold small">— Sam Santhosh, CEO</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="row g-4 text-center">
+                    <div class="col-6"><div class="glass-card stat-item"><h2 class="counter" data-target="200">0</h2><span class="gold-text h2">+</span><p>Clients</p></div></div>
+                    <div class="col-6"><div class="glass-card stat-item"><h2 class="counter" data-target="150">0</h2><span class="gold-text h2">+</span><p>Projects</p></div></div>
+                    <div class="col-6"><div class="glass-card stat-item"><h2 class="counter" data-target="24">0</h2><span class="gold-text h2">/7</span><p>Support</p></div></div>
+                    <div class="col-6"><div class="glass-card stat-item"><h2 class="counter" data-target="100">0</h2><span class="gold-text h2">%</span><p>Quality</p></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="it" class="section-padding" style="background: var(--surface);">
+    <div class="container text-center">
+        <h6 class="gold-text text-uppercase fw-bold mb-3">Technology</h6>
+        <h2 class="fw-bold mb-5" data-aos="fade-up">Software & <span class="gold-text">IT Excellence</span></h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="glass-card">
+                    <img src="https://images.unsplash.com/photo-1556742044-3c52d6e88c62?q=80&w=600" class="card-bg-img" alt="POS">
+                    <div class="icon-box"><i class="fas fa-code"></i></div>
+                    <h5>Web & POS Systems</h5>
+                    <p class="small text-dim">Premium e-commerce and POS billing software designed for business growth and retail automation.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="glass-card">
+                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=600" class="card-bg-img" alt="Marketing">
+                    <div class="icon-box"><i class="fas fa-chart-line"></i></div>
+                    <h5>Digital Marketing</h5>
+                    <p class="small text-dim">Advanced SEO, social media management, and professional high-end branding for the digital age.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="glass-card">
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=600" class="card-bg-img" alt="Consultancy">
+                    <div class="icon-box"><i class="fas fa-laptop-code"></i></div>
+                    <h5>IT Consultancy</h5>
+                    <p class="small text-dim">Tailored automation and technical strategies to modernize your infrastructure and operations.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="bpo" class="section-padding">
+    <div class="container text-center">
+        <h6 class="gold-text text-uppercase fw-bold mb-3">Operations</h6>
+        <h2 class="fw-bold mb-5" data-aos="fade-up">Global <span class="gold-text">BPO Services</span></h2>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="glass-card p-4">
+                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=400" class="card-bg-img" alt="Support">
+                    <div class="icon-box mb-3"><i class="fas fa-headset"></i></div>
+                    <h6>Customer Support</h6>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="glass-card p-4">
+                    <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=400" class="card-bg-img" alt="Data">
+                    <div class="icon-box mb-3"><i class="fas fa-database"></i></div>
+                    <h6>Data Entry</h6>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="glass-card p-4">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=400" class="card-bg-img" alt="Backoffice">
+                    <div class="icon-box mb-3"><i class="fas fa-file-invoice"></i></div>
+                    <h6>Back Office</h6>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="glass-card p-4">
+                    <img src="https://images.unsplash.com/photo-1504386106331-3e4e71712b38?q=80&w=400" class="card-bg-img" alt="Archive">
+                    <div class="icon-box mb-3"><i class="fas fa-archive"></i></div>
+                    <h6>Data Archiving</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="civil" class="section-padding" style="background: var(--surface);">
+    <div class="container">
+        <h6 class="gold-text text-uppercase fw-bold mb-3 text-center">Infrastructure</h6>
+        <h2 class="fw-bold text-center mb-5" data-aos="fade-up">Civil & <span class="gold-text">Home Solutions</span></h2>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="glass-card d-flex align-items-center">
+                    <div class="icon-box mb-0 me-4"><i class="fas fa-trowel-bricks"></i></div>
+                    <div>
+                        <h5>General Construction</h5>
+                        <p class="small text-dim mb-0">Quality building, renovations, and structural maintenance.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="glass-card d-flex align-items-center">
+                    <div class="icon-box mb-0 me-4"><i class="fas fa-bolt"></i></div>
+                    <div>
+                        <h5>Electrical & AC</h5>
+                        <p class="small text-dim mb-0">Professional wiring, maintenance, and cooling services.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="glass-card d-flex align-items-center">
+                    <div class="icon-box mb-0 me-4"><i class="fas fa-broom"></i></div>
+                    <div>
+                        <h5>Deep Cleaning</h5>
+                        <p class="small text-dim mb-0">Premium industrial and residential cleaning solutions.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="glass-card d-flex align-items-center">
+                    <div class="icon-box mb-0 me-4"><i class="fas fa-paint-roller"></i></div>
+                    <div>
+                        <h5>Interior & Painting</h5>
+                        <p class="small text-dim mb-0">Custom interior designs and high-quality finish painting.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="faq" class="section-padding">
+    <div class="container" style="max-width: 900px;">
+        <h2 class="fw-bold text-center mb-5" data-aos="fade-up">Expert <span class="gold-text">Insights (FAQ)</span></h2>
+        <div class="accordion" id="faqAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f1">
+                        01. What is the Aaron Billing Software?
+                    </button>
+                </h2>
+                <div id="f1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body text-dim">
+                        Aaron Billing Software is our custom-built multi-store POS management system designed for garments, retail shops, and e-commerce integration.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f2">
+                        02. Do you provide documentation services?
+                    </button>
+                </h2>
+                <div id="f2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body text-dim">
+                        Yes, we assist with GST registration, professional online documentation, and government-related applications through our service center.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f3">
+                        03. Are your BPO services available 24/7?
+                    </button>
+                </h2>
+                <div id="f3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body text-dim">
+                        Absolutely. We provide round-the-clock customer support and back-office operations to ensure global business continuity.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="section-padding bg-black">
+    <div class="container">
+        <div class="row g-5">
             <div class="col-lg-5" data-aos="fade-right">
-                <h2 class="mb-4">Get In <span class="text-neon">Touch</span></h2>
-                <p class="lead mb-2"><i class="fas fa-map-marker-alt gold-text me-2"></i>SVM Nagar 2nd Street Ennore, Chennai - 600057</p>
-                <p class="mb-2"><i class="fas fa-phone gold-text me-2"></i> +91 98840 50379</p>
-                <p class="mb-4"><i class="fas fa-envelope gold-text me-2"></i> prasanglobalsolution@gmail.com</p>
-                <div class="d-flex flex-wrap gap-2">
+                <h2 class="fw-bold mb-4">Let's <span class="gold-text">Connect</span></h2>
+                <p class="text-dim mb-3"><i class="fas fa-map-marker-alt gold-text me-2"></i> SVM Nagar 2nd Street Ennore, Chennai - 600057</p>
+                <p class="text-dim mb-3"><i class="fas fa-phone-alt gold-text me-2"></i> +91 98840 50379</p>
+                <p class="text-dim mb-3"><i class="fas fa-envelope gold-text me-2"></i> prasanglobalsolution@gmail.com</p>
+                <p class="gold-text fw-bold mb-4 small">GSTIN: 33PHXPS6095C1ZD</p>
+                <div class="d-flex gap-3">
                     <a href="mailto:prasanglobalsolution@gmail.com" class="btn btn-outline-warning rounded-pill px-4">Email Us</a>
                     <a href="https://wa.me/919884050379" class="btn btn-outline-success rounded-pill px-4">WhatsApp</a>
                 </div>
             </div>
-            <div class="col-lg-7">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3883.674332884241!2d80.320499!3d13.21449!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDEyJzUyLjIiTiA4MMKwMTknMTMuOCJF!5e0!3m2!1sen!2sin!4v1648000000000!5m2!1sen!2sin" width="100%" height="350" style="border-radius:20px; border:2px solid var(--maroon-light);" allowfullscreen="" loading="lazy"></iframe>
-            </div>
+            <div class="col-lg-7" data-aos="fade-left">
+    <div class="map-container">
+        <iframe 
+            src="https://www.google.com/maps?q=Chennai&output=embed"
+            width="100%" 
+            height="350" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy">
+        </iframe>
+    </div>
+</div>
         </div>
     </div>
 </section>
@@ -396,69 +600,142 @@
 <footer>
     <div class="container">
         <div class="row g-4">
-            <div class="col-lg-4 text-center text-lg-start">
-                <div class="footer-logo-circle mx-auto mx-lg-0"><img src="logopra.jpg" class="navbar-logo" alt="Logo"></div>
-                <h4 class="gold-text fw-bold">PRASAN GLOBAL</h4>
-                <p class="small text-secondary">A multidisciplinary firm dedicated to quality service in technology, educational support, and civil engineering since 2022.</p>
+            <div class="col-lg-4">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="navbar-logo-container"><img src="logopra.jpg" class="navbar-logo" alt="Logo"></div>
+                    <h4 class="gold-text fw-bold mb-0">PRASAN GLOBAL</h4>
+                </div>
+                <p class="small text-dim mb-4">Integrated firm providing elite digital services and civil infrastructure. We bridge the gap between technology and structural excellence.</p>
+                
+                <h6 class="footer-title">Leadership</h6>
+                <div class="mb-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="sam.jpeg" class="leader-avatar" alt="Sam Santhosh">
+                        <div>
+                            <p class="small mb-0 fw-bold gold-text">Sam Santhosh</p>
+                            <p class="x-small text-dim mb-0">Founder & CEO</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <img src="logopra.jpg" class="leader-avatar" alt="Praveen Kumar">
+                        <div>
+                            <p class="small mb-0 fw-bold gold-text">Praveen Kumar</p>
+                            <p class="x-small text-dim mb-0">Managing Director</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-2 ms-auto">
-                <h6 class="fw-bold mb-4">Tech Services</h6>
-                <p class="small text-secondary mb-2">Web Design</p>
-                <p class="small text-secondary mb-2">POS Billing</p>
-                <p class="small text-secondary mb-2">SEO Marketing</p>
+
+            <div class="col-6 col-lg-2 ms-lg-auto">
+                <h6 class="footer-title">Navigation</h6>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Identity</a></li>
+                    <li><a href="#it">IT Expertise</a></li>
+                    <li><a href="#bpo">BPO Division</a></li>
+                    <li><a href="#civil">Civil Solutions</a></li>
+                </ul>
             </div>
-            <div class="col-lg-2">
-                <h6 class="fw-bold mb-4">Civil & Home</h6>
-                <p class="small text-secondary mb-2">Construction</p>
-                <p class="small text-secondary mb-2">Electrical</p>
-                <p class="small text-secondary mb-2">AC Repair</p>
+
+            <div class="col-6 col-lg-2">
+                <h6 class="footer-title">Our Services</h6>
+                <ul class="footer-links">
+                    <li><a href="#it">POS Software</a></li>
+                    <li><a href="#it">Web Apps</a></li>
+                    <li><a href="#bpo">Data Entry</a></li>
+                    <li><a href="#civil">Electrical/AC</a></li>
+                    <li><a href="#civil">Deep Cleaning</a></li>
+                </ul>
             </div>
-            <div class="col-lg-3 text-center text-lg-start">
-                <h6 class="fw-bold mb-4">Stay Connected</h6>
-                <div class="d-flex justify-content-center justify-content-lg-start">
-                    <a href="mailto:prasanglobalsolution@gmail.com" class="btn btn-outline-light btn-sm rounded-circle me-2"><i class="fas fa-envelope"></i></a>
-                    <a href="#" class="btn btn-outline-light btn-sm rounded-circle me-2"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="btn btn-outline-light btn-sm rounded-circle me-2"><i class="fab fa-instagram"></i></a>
-                    <a href="https://wa.me/919884050379" class="btn btn-outline-light btn-sm rounded-circle"><i class="fab fa-whatsapp"></i></a>
+
+            <div class="col-lg-3">
+                <h6 class="footer-title">Office</h6>
+                <p class="small text-dim">Ennore, Chennai, Tamil Nadu - 600057</p>
+                <p class="gold-text fw-bold mb-4">+91 98840 50379</p>
+                
+                <h6 class="footer-title">Social Connect</h6>
+                <div class="d-flex gap-3">
+                    <a href="#" class="gold-text fs-5"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="gold-text fs-5"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="gold-text fs-5"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="gold-text fs-5"><i class="fab fa-twitter"></i></a>
                 </div>
             </div>
         </div>
-        <hr class="mt-5 border-secondary opacity-25">
-        <div class="text-center small text-secondary">
-            <p class="mb-1">© 2026 Prasan Global Service. Developed By Prasan Global Solutions.</p>
-            <p class="mb-0">GSTIN: 33PHXPS6095C1ZD</p>
+
+        <hr class="my-5 opacity-25" style="border-color: var(--gold-prime);">
+        
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center text-md-start">
+                <p class="small text-dim mb-0">© 2026 Prasan Global Service. Developed By <span class="gold-text">Prasan Global Solutions</span></p>
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+                <p class="x-small text-dim mb-0 uppercase" style="letter-spacing: 1px;">Quality • Innovation • Reliability</p>
+            </div>
         </div>
     </div>
 </footer>
 
-<div class="modal fade" id="passportModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header border-0"><h5 class="gold-text">Passport & PAN</h5><button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button></div><div class="modal-body text-start"><ul><li>Aadhaar Card (Original)</li><li>10th Marksheet</li><li>Bank Passbook / Voter ID</li></ul></div><div class="modal-footer border-0"><button data-scroll-to="#contact" class="btn btn-danger w-100" style="background:var(--maroon-light)">Apply & Contact</button></div></div></div></div>
-<div class="modal fade" id="pfModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header border-0"><h5 class="gold-text">PF (Provident Fund) Services</h5><button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button></div><div class="modal-body text-start"><ul><li>UAN Activation</li><li>PF Withdrawal Claim</li><li>KYC Update</li></ul></div><div class="modal-footer border-0"><button data-scroll-to="#contact" class="btn btn-danger w-100" style="background:var(--maroon-light)">Consult & Contact</button></div></div></div></div>
-<div class="modal fade" id="jobModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header border-0"><h5 class="gold-text">Private Job Application</h5><button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button></div><div class="modal-body text-start"><ul><li>Updated Resume / CV</li><li>Passport Size Photo</li><li>Qualification Certificates</li></ul></div><div class="modal-footer border-0"><button data-scroll-to="#contact" class="btn btn-danger w-100" style="background:var(--maroon-light)">Apply & Contact</button></div></div></div></div>
-<div class="modal fade" id="admissionModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header border-0"><h5 class="gold-text">College Admission</h5><button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button></div><div class="modal-body text-start"><ul><li>10th & 12th Marksheets</li><li>Transfer Certificate (TC)</li><li>Community Certificate</li></ul></div><div class="modal-footer border-0"><button data-scroll-to="#contact" class="btn btn-danger w-100" style="background:var(--maroon-light)">Get Guidance & Contact</button></div></div></div></div>
-<div class="modal fade" id="rationModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header border-0"><h5 class="gold-text">Ration Card Support</h5><button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button></div><div class="modal-body text-start"><ul><li>Family Photo</li><li>Aadhaar Copies</li></ul></div><div class="modal-footer border-0"><button data-scroll-to="#contact" class="btn btn-danger w-100" style="background:var(--maroon-light)">Contact Us Now</button></div></div></div></div>
-<div class="modal fade" id="billModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header border-0"><h5 class="gold-text">Tax & EB Bills</h5><button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button></div><div class="modal-body text-start"><ul><li>EB Service Number</li><li>Property Tax Bill</li></ul></div><div class="modal-footer border-0"><button data-scroll-to="#contact" class="btn btn-danger w-100" style="background:var(--maroon-light)">Pay & Contact</button></div></div></div></div>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
 <script>
+    // Initialize Animations
     AOS.init({ duration: 1000, once: true });
-    document.querySelectorAll('[data-scroll-to]').forEach(button => {
-        button.addEventListener('click', function() {
-            const targetId = this.getAttribute('data-scroll-to');
-            const targetElement = document.querySelector(targetId);
-            const modalElement = this.closest('.modal');
-            const modalInstance = bootstrap.Modal.getInstance(modalElement);
-            modalInstance.hide();
-            setTimeout(() => { if (targetElement) targetElement.scrollIntoView({ behavior: 'smooth' }); }, 350);
+
+    // Hero Text Typing Effect
+    new Typed('#typed-text', {
+        strings: ['Innovation.', 'Solutions.', 'Engineering.', 'Support.'],
+        typeSpeed: 60,
+        backSpeed: 40,
+        backDelay: 2000,
+        loop: true,
+        showCursor: true,
+        cursorChar: '_'
+    });
+
+    // Auto-close menu when a link is clicked (Mobile Only)
+    const navLinks = document.querySelectorAll('.nav-link');
+    const menuToggle = document.getElementById('navbarNav');
+    const bsCollapse = new bootstrap.Collapse(menuToggle, {toggle:false});
+    
+    navLinks.forEach((l) => {
+        l.addEventListener('click', () => { 
+            if (window.innerWidth < 992) {
+                bsCollapse.hide();
+            }
         });
     });
-    const slides = document.querySelectorAll('.slide');
-    let cur = 0;
-    setInterval(() => {
-        slides[cur].classList.remove('active');
-        cur = (cur + 1) % slides.length;
-        slides[cur].classList.add('active');
-    }, 5000);
+
+    // Statistics Counter Animation
+    const counters = document.querySelectorAll('.counter');
+    const startCounters = () => {
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const speed = 100;
+                const inc = target / speed;
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + inc);
+                    setTimeout(updateCount, 30);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            updateCount();
+        });
+    };
+
+    let countStarted = false;
+    window.addEventListener('scroll', () => {
+        const section = document.querySelector('#about');
+        if (section && window.scrollY >= (section.offsetTop - 500) && !countStarted) {
+            startCounters();
+            countStarted = true;
+        }
+    });
 </script>
 </body>
 </html>
