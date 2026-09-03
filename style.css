@@ -553,9 +553,27 @@ footer {
     opacity: 1;
 }
 
-/* MOBILE & RESPONSIVE MEDIA QUERIES */
+/* MOBILE & RESPONSIVE MEDIA QUERIES (FULL FIX FOR OVERFLOW & OVERLAPPING TEXT) */
+html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    position: relative;
+}
+
+/* Global Heading Overlap Safeguards */
+h1, h2, h3, h4, h5, h6,
+.display-1, .display-2, .display-3, .display-4, .display-5, .display-6 {
+    overflow-wrap: break-word !important;
+    word-wrap: break-word !important;
+    word-break: break-word !important;
+    hyphens: auto;
+    line-height: 1.35 !important;
+}
+
 @media (max-width: 991px) {
-    #home { padding: 120px 0 60px; text-align: center; }
+    #home { padding: 120px 0 50px !important; text-align: center; }
+    
     .navbar-collapse {
         background: rgba(11, 13, 27, 0.98);
         border: 1px solid var(--glass-border-gold);
@@ -563,63 +581,118 @@ footer {
         padding: 20px;
         margin-top: 12px;
         box-shadow: 0 15px 35px rgba(0,0,0,0.8);
+        max-width: 100%;
     }
     .nav-link { padding: 10px 16px !important; text-align: center; }
     .nav-link.active::after { display: none; }
     .leader-avatar { margin-bottom: 5px; }
+
+    /* Hide / Clip heavy background ambient glowing orbs to prevent lateral zoom-out scrollbar */
+    .orb {
+        display: none !important;
+    }
 }
 
 @media (max-width: 768px) {
     body { font-size: 0.95rem; }
-    h1.display-3, h1.display-4 { font-size: 2.2rem !important; }
-    h2.display-5, h2.display-6 { font-size: 1.75rem !important; }
     
+    /* Overlap & Typography Fixes for Mobile */
+    h1, .display-1, .display-2, .display-3, .display-4 { 
+        font-size: 1.75rem !important; 
+        line-height: 1.35 !important;
+        letter-spacing: -0.3px !important;
+        margin-top: 0.75rem !important;
+        margin-bottom: 0.75rem !important;
+    }
+    h2, .display-5, .display-6 { 
+        font-size: 1.4rem !important; 
+        line-height: 1.35 !important;
+        letter-spacing: normal !important;
+        margin-top: 0.6rem !important;
+        margin-bottom: 0.6rem !important;
+    }
+    h3 {
+        font-size: 1.2rem !important;
+        line-height: 1.35 !important;
+    }
+    p, .lead {
+        font-size: 0.95rem !important;
+        line-height: 1.55 !important;
+    }
+    
+    /* Container & Card Padding Fixes (Overrides Bootstrap .p-5 / .p-4 on Mobile) */
+    .vibrant-card, .vibrant-card.p-5, .vibrant-card.p-4, .p-5, .p-4 {
+        padding: 20px !important;
+        border-radius: 20px !important;
+    }
+
     .btn-vibrant-gold, .btn-vibrant-cyan, .btn-vibrant-magenta, .btn-outline-vibrant {
         width: 100%;
         justify-content: center;
-        padding: 12px 24px;
-        font-size: 0.9rem;
+        padding: 12px 20px !important;
+        font-size: 0.9rem !important;
     }
 
-    .vibrant-card { padding: 24px; border-radius: 20px; }
-    .icon-badge { width: 55px; height: 55px; font-size: 22px; margin-bottom: 16px; }
+    .icon-badge { width: 50px !important; height: 50px !important; font-size: 20px !important; margin-bottom: 14px !important; }
 
-    /* Hero Badges on Mobile */
-    .position-absolute.top-0.start-0.translate-middle-y {
+    /* Neutralize Floating Badges & Negative Margins on Mobile */
+    .position-absolute.top-0,
+    .position-absolute.bottom-0 {
         position: relative !important;
-        top: 0 !important; transform: none !important;
-        margin: 15px 0 0 0 !important;
+        top: auto !important;
+        bottom: auto !important;
+        left: auto !important;
+        right: auto !important;
+        transform: none !important;
+        margin: 12px 0 0 0 !important;
+        width: 100% !important;
     }
-    .position-absolute.bottom-0.end-0.translate-middle-y {
-        position: relative !important;
-        bottom: 0 !important; transform: none !important;
-        margin: 10px 0 0 0 !important;
+
+    .ms-n3, .me-n3, .ms-n4, .me-n4 {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
     }
 
     /* Floating Chatbot & WhatsApp on Mobile */
     .wa-float-btn {
-        bottom: 20px; left: 16px;
-        width: 52px; height: 52px; font-size: 26px;
+        bottom: 18px; left: 16px;
+        width: 50px; height: 50px; font-size: 24px;
     }
     .chatbot-trigger {
-        bottom: 20px; right: 16px;
-        width: 55px; height: 55px; font-size: 24px;
+        bottom: 18px; right: 16px;
+        width: 52px; height: 52px; font-size: 22px;
     }
     .chatbot-drawer {
-        bottom: 85px; right: 15px;
+        bottom: 80px; right: 15px; left: 15px;
         width: calc(100vw - 30px);
-        height: 480px;
+        max-width: calc(100vw - 30px);
+        height: 460px;
         border-radius: 22px;
+    }
+
+    /* Code Snippet Box on Mobile */
+    .code-body {
+        font-size: 0.75rem !important;
+        padding: 12px !important;
+        white-space: pre-wrap !important;
+        word-break: break-all !important;
     }
 
     /* Modal on Mobile */
     .modal-content { border-radius: 20px !important; }
     .modal-body { padding: 18px !important; }
+
+    /* Brand Logo / Header Responsiveness */
+    .navbar-brand { max-width: 75%; }
+    .brand-title-prasan { font-size: 0.95rem !important; }
+    .brand-subtitle-tags { font-size: 0.55rem !important; letter-spacing: 0.5px !important; }
+    .navbar-logo-container { width: 38px !important; height: 38px !important; margin-right: 8px !important; }
 }
 
 @media (max-width: 480px) {
-    h1.display-4, h1.display-3 { font-size: 1.85rem !important; }
-    .code-body { font-size: 0.78rem; padding: 14px; }
+    h1, .display-1, .display-2, .display-3, .display-4 { font-size: 1.5rem !important; line-height: 1.35 !important; }
+    h2, .display-5, .display-6 { font-size: 1.25rem !important; line-height: 1.35 !important; }
+    .brand-subtitle-tags { display: none !important; }
     .chatbot-footer input { font-size: 0.8rem; padding: 8px 14px; }
 }
 
