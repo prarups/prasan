@@ -340,6 +340,35 @@
         });
     });
 
+    // Universal FAQ Accordion Click Handler
+    document.querySelectorAll('.accordion-button').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('data-bs-target');
+            const target = document.querySelector(targetId);
+            if (!target) return;
+
+            const isCollapsed = this.classList.contains('collapsed');
+            const parentId = target.getAttribute('data-bs-parent');
+
+            if (parentId) {
+                const parent = document.querySelector(parentId);
+                if (parent) {
+                    parent.querySelectorAll('.accordion-collapse').forEach(item => item.classList.remove('show'));
+                    parent.querySelectorAll('.accordion-button').forEach(b => b.classList.add('collapsed'));
+                }
+            }
+
+            if (isCollapsed) {
+                this.classList.remove('collapsed');
+                target.classList.add('show');
+            } else {
+                this.classList.add('collapsed');
+                target.classList.remove('show');
+            }
+        });
+    });
+
     window.addEventListener('scroll', () => {
         const nav = document.querySelector('.navbar');
         if (window.scrollY > 50) nav.classList.add('scrolled');
