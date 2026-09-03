@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global BPO, Voice/Chat Lead Gen & Jira-like Project Tracker | Prasan Global</title>
+    <meta name="description" content="Global BPO Outsourcing, Voice & Chat Lead Generation, 24/7 Call Center, Data Entry, and Jira-like Issue Tracking Application by Prasan Global.">
+    
+    <!-- High-Speed Resource Hints & Preconnects for Low Data -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="orb orb-emerald"></div>
+<div class="orb orb-gold"></div>
+
+<a href="https://wa.me/919884050379?text=Hi%20Prasan%20Global!%20I%20want%20BPO/Lead%20Gen%20quote." class="wa-float-btn" target="_blank" title="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- Floating AI Chatbot -->
+<div class="chatbot-trigger" id="chatbotTrigger" onclick="toggleChatbot()" title="Open AI Chat Support">
+    <i class="fas fa-robot"></i>
+</div>
+
+<div class="chatbot-drawer" id="chatbotDrawer">
+    <div class="chatbot-header">
+        <div class="d-flex align-items-center gap-2">
+            <div class="bot-avatar"><i class="fas fa-brain"></i></div>
+            <div>
+                <h6 class="mb-0 fw-bold text-white" style="font-size:0.95rem;">Prasan AI Assistant</h6>
+                <span class="small text-success d-flex align-items-center gap-1" style="font-size: 0.75rem;"><i class="fas fa-circle" style="font-size: 8px;"></i> Online • BPO & Lead Gen Support</span>
+            </div>
+        </div>
+        <button class="bg-transparent border-0 text-white fs-5 cursor-pointer" onclick="toggleChatbot()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="chatbot-messages" id="chatMessages">
+        <div class="chat-msg bot">
+            👋 Welcome to **BPO & Lead Generation Division**!<br>Select a service below for direct quote:
+            <div class="chat-chips">
+                <button class="chip-btn" onclick="sendChip('Voice Lead Generation')">📞 Voice Tele-calling</button>
+                <button class="chip-btn" onclick="sendChip('Chat Lead Generation')">💬 Chat & WhatsApp Bots</button>
+                <button class="chip-btn" onclick="sendChip('Jira-like Tracking App')">📋 Issue Tracking App</button>
+            </div>
+        </div>
+    </div>
+    <div class="chatbot-footer">
+        <input type="text" id="chatInput" placeholder="Type your BPO question..." onkeypress="handleChatKey(event)">
+        <button onclick="sendChatMessage()"><i class="fas fa-paper-plane"></i></button>
+    </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+            <div class="navbar-logo-container"><img src="logopra.jpg" class="navbar-logo" alt="Prasan Global Logo"></div>
+            <div>
+                <span class="fs-5 tracking-wider brand-title-prasan">PRASAN <span class="brand-title-global">GLOBAL</span></span>
+                <span class="d-block brand-subtitle-tags"><span class="text-white fw-bold">TECH</span> <span style="color:var(--gold);">•</span> SOFTWARE <span style="color:var(--gold);">•</span> BPO <span style="color:var(--gold);">•</span> CIVIL</span>
+            </div>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-center gap-1">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="software.html">Products</a></li>
+                <li class="nav-item"><a class="nav-link" href="digital-ai.html">Solutions</a></li>
+                <li class="nav-item"><a class="nav-link active" href="services.html">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#technical-resources">Tech Stack</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#portfolio">Case Studies</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<section style="padding: 150px 0 60px; text-align: center;">
+    <div class="container">
+        <span class="px-4 py-2 rounded-pill fw-bold text-uppercase small" style="background: rgba(0, 245, 160, 0.15); border: 1.5px solid var(--emerald); color: var(--emerald); letter-spacing: 2px;">
+            <i class="fas fa-headset me-2"></i> Voice & Chat Lead Generation • Jira-like Tracker
+        </span>
+        <h1 class="display-4 fw-extrabold my-3 text-white">Global BPO & <span style="color:var(--emerald);">Lead Generation</span> Operations</h1>
+        <p class="lead text-dim mx-auto" style="max-width: 760px;">We drive high-converting B2B & B2C leads using Voice Call Centers, Omni-channel Chat Automation, Data Management, and custom Jira-like Project & Issue Tracking Software.</p>
+    </div>
+</section>
+
+<!-- NEW SECTION: JIRA-LIKE PROJECT & ISSUE TRACKING APPLICATION -->
+<section class="py-4">
+    <div class="container py-3">
+        <div class="vibrant-card card-cyan p-5">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="icon-badge badge-cyan"><i class="fas fa-tasks"></i></div>
+                    <span class="fw-bold text-uppercase small" style="color:var(--cyan);">In-House Project Management Software</span>
+                    <h2 class="display-6 fw-bold my-3 text-white">Custom <span style="color:var(--cyan);">Jira-like Issue & Lead Tracker</span></h2>
+                    <p class="text-dim mb-4">Our proprietary Project & Ticket Management Platform built for BPO teams and enterprise clients. Track lead pipelines, agent task statuses, ticket escalations, sprint progress, and SLA compliance in real-time.</p>
+                    
+                    <div class="row g-3 mb-4">
+                        <div class="col-6"><div class="p-3 rounded-4" style="background:rgba(255,255,255,0.04); border:1px solid var(--glass-border);"><i class="fas fa-columns me-2" style="color:var(--cyan);"></i> <strong>Kanban & Sprint Boards</strong></div></div>
+                        <div class="col-6"><div class="p-3 rounded-4" style="background:rgba(255,255,255,0.04); border:1px solid var(--glass-border);"><i class="fas fa-filter me-2" style="color:var(--cyan);"></i> <strong>Lead Pipeline Tracking</strong></div></div>
+                        <div class="col-6"><div class="p-3 rounded-4" style="background:rgba(255,255,255,0.04); border:1px solid var(--glass-border);"><i class="fas fa-clock me-2" style="color:var(--cyan);"></i> <strong>Agent Time & SLA Tracking</strong></div></div>
+                        <div class="col-6"><div class="p-3 rounded-4" style="background:rgba(255,255,255,0.04); border:1px solid var(--glass-border);"><i class="fas fa-bell me-2" style="color:var(--cyan);"></i> <strong>Automated Escalations</strong></div></div>
+                    </div>
+
+                    <a href="https://wa.me/919884050379?text=Hi%20Prasan%20Global!%20I%20want%20a%20demo%20for%20the%20Jira-like%20Tracking%20App." target="_blank" class="btn-vibrant-cyan">
+                        Request Tracker Demo <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="position-relative rounded-4 overflow-hidden shadow-lg mb-3" style="border: 2px solid var(--cyan);">
+                        <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=800" class="img-fluid w-100" style="max-height: 320px; object-fit: cover;" alt="Jira-like Issue & Lead Tracker Real Dashboard">
+                        <span class="badge position-absolute top-0 end-0 m-3 px-3 py-2 bg-dark text-cyan border border-info fw-bold" style="backdrop-filter:blur(10px);"><i class="fas fa-desktop me-1"></i> Live Agile Kanban Board</span>
+                    </div>
+
+                    <!-- KANBAN COLUMNS DASHBOARD MOCKUP -->
+                    <div class="p-3 rounded-4" style="background: rgba(11, 13, 27, 0.95); border: 1px solid var(--glass-border-cyan);">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="small fw-bold text-white"><i class="fas fa-columns me-1" style="color:var(--cyan);"></i> Sprint 14 Lead & Issue Board</span>
+                            <span class="badge rounded-pill bg-success text-black fw-bold" style="font-size:0.7rem;">99.4% SLA Compliance</span>
+                        </div>
+                        <div class="row g-2 text-start">
+                            <div class="col-3"><div class="p-2 rounded bg-dark border border-secondary"><span class="d-block x-small text-dim">TO DO (12)</span><span class="x-small fw-bold text-white">New Leads</span></div></div>
+                            <div class="col-3"><div class="col-12 p-2 rounded bg-dark border border-info"><span class="d-block x-small text-cyan">IN PROGRESS (8)</span><span class="x-small fw-bold text-white">Voice Call</span></div></div>
+                            <div class="col-3"><div class="p-2 rounded bg-dark border border-warning"><span class="d-block x-small text-warning">IN REVIEW (5)</span><span class="x-small fw-bold text-white">Quote Sent</span></div></div>
+                            <div class="col-3"><div class="p-2 rounded bg-dark border border-success"><span class="d-block x-small text-success">CLOSED (24)</span><span class="x-small fw-bold text-white">Deal Won</span></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 1: VOICE LEAD GENERATION (CALL CENTER) -->
+<section class="py-4">
+    <div class="container py-3">
+        <div class="vibrant-card card-emerald p-5">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6 text-center order-lg-1 order-2" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=800" class="img-fluid rounded-4 shadow-lg" style="border: 2px solid var(--emerald); max-height: 400px; width: 100%; object-fit: cover;" alt="Voice Lead Generation Call Center">
+                </div>
+                <div class="col-lg-6 order-lg-2 order-1" data-aos="fade-left">
+                    <div class="icon-badge badge-emerald"><i class="fas fa-phone-volume"></i></div>
+                    <span class="fw-bold text-uppercase small" style="color:var(--emerald);">Outbound & Inbound Voice Division</span>
+                    <h2 class="display-6 fw-bold my-3 text-white">Voice Lead Generation <span style="color:var(--emerald);">& Tele-calling</span></h2>
+                    <p class="text-dim mb-4">Our dedicated Tele-calling & Voice BPO team connects directly with target business decision-makers and retail buyers. We qualify leads, book B2B sales appointments, conduct market surveys, and close high-ticket sales over voice calls.</p>
+                    
+                    <div class="row g-3 mb-4">
+                        <div class="col-6"><div class="p-3 rounded-4" style="background:rgba(255,255,255,0.04); border:1px solid var(--glass-border);"><i class="fas fa-bullseye me-2" style="color:var(--emerald);"></i> <strong>Outbound Cold Calling & Pitch</strong></div></div>
+                        <div class="col-6"><div class="p-3 rounded-4" style="background:rgba(255,255,255,0.04); border:1px solid var(--glass-border);"><i class="fas fa-calendar-check me-2" style="color:var(--emerald);"></i> <strong>B2B Appointment Setting</strong></div></div>
+                        <div class="col-6"><div class="p-3 rounded-4" style="background:rgba(255,255,255,0.04); border:1px solid var(--glass-border);"><i class="fas fa-headset me-2" style="color:var(--emerald);"></i> <strong>24/7 Inbound Helpline Support</strong></div></div>
+                        <div class="col-6"><div class="p-3 rounded-4" style="background:rgba(255,255,255,0.04); border:1px solid var(--glass-border);"><i class="fas fa-microphone-alt me-2" style="color:var(--emerald);"></i> <strong>Call Recording & Quality Audit</strong></div></div>
+                    </div>
+
+                    <a href="https://wa.me/919884050379?text=Hi%20Prasan%20Global!%20I%20want%20Voice%20Lead%20Generation%20services." target="_blank" class="btn-vibrant-magenta" style="background: linear-gradient(135deg, #00f5a0, #007a50); color:#000;">
+                        Setup Voice Lead Gen <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 2: CHAT & WHATSAPP LEAD GENERATION -->
+<section class="py-4">
+    <div class="container py-3">
+        <div class="vibrant-card card-magenta p-5">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="icon-badge badge-magenta"><i class="fas fa-comments"></i></div>
+                    <span class="fw-bold text-uppercase small" style="color:var(--magenta);">Digital Omni-Channel Chat</span>
+                    <h2 class="display-6 fw-bold my-3 text-white">Chat Lead Generation <span style="color:var(--magenta);">& AI Automation</span></h2>
+                    <p class="text-dim mb-4">We combine AI Chatbot Automation with Live Human Chat Agents. Our hybrid chat system greets website visitors 24/7, answers questions instantly, captures lead phone numbers, and transfers hot buyers to live agents.</p>
+                    
+                    <div class="row g-3 mb-4">
+                        <div class="col-6"><div class="p-3 rounded-4" style="background:rgba(255,255,255,0.04); border:1px solid var(--glass-border);"><i class="fab fa-whatsapp me-2" style="color:var(--magenta);"></i> <strong>WhatsApp Business Auto-Funnel</strong></div></div>
+                        <div class="col-6"><div class="p-3 rounded-4" style="background:rgba(255,255,255,0.04); border:1px solid var(--glass-border);"><i class="fas fa-user-headset me-2" style="color:var(--magenta);"></i> <strong>Live Chat Agent Escalation</strong></div></div>
+                        <div class="col-6"><div class="p-3 rounded-4" style="background:rgba(255,255,255,0.04); border:1px solid var(--glass-border);"><i class="fas fa-bolt me-2" style="color:var(--magenta);"></i> <strong>Instant Under 1-Sec Response</strong></div></div>
+                        <div class="col-6"><div class="p-3 rounded-4" style="background:rgba(255,255,255,0.04); border:1px solid var(--glass-border);"><i class="fas fa-chart-line me-2" style="color:var(--magenta);"></i> <strong>Conversion CRM Sync</strong></div></div>
+                    </div>
+
+                    <a href="https://wa.me/919884050379?text=Hi%20Prasan%20Global!%20I%20want%20Chat%20Lead%20Generation%20services." target="_blank" class="btn-vibrant-magenta">
+                        Setup Chat Lead Gen <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="col-lg-6 text-center" data-aos="fade-left">
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=800" class="img-fluid rounded-4 shadow-lg" style="border: 2px solid var(--magenta); max-height: 400px; width: 100%; object-fit: cover;" alt="Chat & WhatsApp Lead Generation">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CLIENT MEETING PRESENTATION / HOW WE DO IT GUIDE -->
+<section class="py-5" style="background: rgba(11, 13, 27, 0.8); border-top: 1px solid var(--glass-border);">
+    <div class="container py-4">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <span class="fw-bold text-uppercase tracking-wider small" style="color:var(--gold);">Client Meeting Presentation Guide</span>
+            <h2 class="display-6 fw-bold text-white mt-2">How We Deliver <span style="color:var(--gold);">Lead Generation Results</span></h2>
+            <p class="text-dim mx-auto" style="max-width: 700px;">Use this 3-step execution model during your client meetings to demonstrate how Prasan Global delivers high ROI leads!</p>
+        </div>
+
+        <div class="row g-4 text-center">
+            <div class="col-md-4" data-aos="zoom-in">
+                <div class="vibrant-card p-4">
+                    <div class="icon-badge badge-gold mx-auto mb-3"><i class="fas fa-filter"></i></div>
+                    <h4 class="fw-bold text-white">1. Omnichannel Capture</h4>
+                    <p class="small text-dim mb-0">We combine Facebook/Instagram Meta Ads, Google search traffic, 24/7 AI Website Chatbots, and Inbound Call Helplines to capture buyer inquiries.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+                <div class="vibrant-card card-cyan p-4">
+                    <div class="icon-badge badge-cyan mx-auto mb-3"><i class="fas fa-tasks"></i></div>
+                    <h4 class="fw-bold text-white">2. Jira-like Tracking & Qualification</h4>
+                    <p class="small text-dim mb-0">Every inquiry flows automatically into our Jira-like Issue & Lead Tracker. Voice agents call the prospect to verify budget, requirement, and buying timeline.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+                <div class="vibrant-card card-emerald p-4">
+                    <div class="icon-badge badge-emerald mx-auto mb-3"><i class="fas fa-handshake"></i></div>
+                    <h4 class="fw-bold text-white">3. Verified Lead Transfer</h4>
+                    <p class="small text-dim mb-0">High-intent qualified buyers are transferred directly to your sales team's phone and WhatsApp with 100% verified lead data and notes.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 3: CIVIL & HOME SOLUTIONS -->
+<section class="py-5" style="border-top:1px solid var(--glass-border);">
+    <div class="container py-4">
+        <div class="text-center mb-5">
+            <span class="fw-bold text-uppercase small" style="color:var(--gold);">Infrastructure & Maintenance</span>
+            <h2 class="display-6 fw-bold text-white mt-2">Civil & <span style="color:var(--gold);">Home Solutions</span></h2>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6" data-aos="fade-right">
+                <div class="vibrant-card d-flex align-items-center">
+                    <div class="icon-badge badge-gold mb-0 me-4 flex-shrink-0"><i class="fas fa-building-columns"></i></div>
+                    <div>
+                        <h5 class="fw-bold text-white mb-2">General Civil Construction</h5>
+                        <p class="small text-dim mb-0">Building construction, structural maintenance, and residential/commercial remodeling.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6" data-aos="fade-left">
+                <div class="vibrant-card d-flex align-items-center">
+                    <div class="icon-badge badge-gold mb-0 me-4 flex-shrink-0"><i class="fas fa-bolt"></i></div>
+                    <div>
+                        <h5 class="fw-bold text-white mb-2">Electrical & AC Services</h5>
+                        <p class="small text-dim mb-0">3-Phase electrical wiring, panel setup, and commercial AC installation & servicing.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6" data-aos="fade-right">
+                <div class="vibrant-card d-flex align-items-center">
+                    <div class="icon-badge badge-gold mb-0 me-4 flex-shrink-0"><i class="fas fa-broom"></i></div>
+                    <div>
+                        <h5 class="fw-bold text-white mb-2">Deep Cleaning Solutions</h5>
+                        <p class="small text-dim mb-0">Factory deep cleaning, office sanitation, and post-construction site cleaning.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6" data-aos="fade-left">
+                <div class="vibrant-card d-flex align-items-center">
+                    <div class="icon-badge badge-gold mb-0 me-4 flex-shrink-0"><i class="fas fa-paint-roller"></i></div>
+                    <div>
+                        <h5 class="fw-bold text-white mb-2">Interior & Painting</h5>
+                        <p class="small text-dim mb-0">False ceiling setup, custom modular interior design, and weather-proof painting.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="navbar-logo-container"><img src="logopra.jpg" class="navbar-logo" alt="Logo"></div>
+                    <h4 class="fw-bold mb-0 text-white">PRASAN <span style="color:var(--gold);">GLOBAL</span></h4>
+                </div>
+                <p class="small text-dim mb-4">Empowering clients with Voice/Chat Lead Generation, Jira-like Tracking software, BPO operations, and Civil infrastructure.</p>
+                <p class="small text-dim mb-0"><i class="fas fa-envelope me-2" style="color:var(--gold);"></i> prasan@prasanglobal.in</p>
+                <p class="small text-dim mb-4"><i class="fas fa-phone-alt me-2" style="color:var(--gold);"></i> +91 98840 50379</p>
+            </div>
+            <div class="col-6 col-lg-2 ms-lg-auto">
+                <h6 class="footer-title">Pages</h6>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="software.html">Software POS</a></li>
+                    <li><a href="digital-ai.html">Meta Ads & AI</a></li>
+                    <li><a href="services.html">BPO & Civil</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3">
+                <h6 class="footer-title">Contact Us</h6>
+                <p class="small text-dim">SVM Nagar 2nd Street Ennore, Chennai - 600057</p>
+                <p class="fw-bold mb-3" style="color:var(--gold);">+91 98840 50379</p>
+            </div>
+        </div>
+        <hr class="my-5 opacity-25" style="border-color: var(--gold);">
+        <p class="small text-dim text-center mb-0">© 2026 Prasan Global Service. BPO & Lead Gen Division. Contact: prasan@prasanglobal.in</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 900, once: true });
+    window.addEventListener('scroll', () => {
+        const nav = document.querySelector('.navbar');
+        if (window.scrollY > 50) nav.classList.add('scrolled');
+        else nav.classList.remove('scrolled');
+    });
+    function toggleChatbot() { document.getElementById('chatbotDrawer').classList.toggle('active'); }
+    function sendChatMessage() {
+        const input = document.getElementById('chatInput');
+        const text = input.value.trim();
+        if(!text) return;
+        addMessage(text, 'user');
+        input.value = '';
+        setTimeout(() => botReply(text), 500);
+    }
+    function handleChatKey(e) { if(e.key === 'Enter') sendChatMessage(); }
+    function sendChip(chipText) { addMessage(chipText, 'user'); setTimeout(() => botReply(chipText), 400); }
+    function addMessage(msg, sender) {
+        const container = document.getElementById('chatMessages');
+        const div = document.createElement('div');
+        div.className = `chat-msg ${sender}`;
+        div.innerHTML = msg;
+        container.appendChild(div);
+        container.scrollTop = container.scrollHeight;
+    }
+    function botReply(userMsg) {
+        addMessage(`Thank you for inquiring about BPO & Lead Generation! Contact us directly:<br>📱 WhatsApp: <a href="https://wa.me/919884050379" target="_blank" style="color:var(--gold);">+91 98840 50379</a>`, 'bot');
+    }
+</script>
+</body>
+</html>

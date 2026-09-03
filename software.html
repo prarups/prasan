@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software POS, HRMS & Barcode Generator | Prasan Global Service</title>
+    <meta name="description" content="Food & Restaurant Billing POS, Garments Retail POS, HR Attendance Software, and Custom Barcode Generator Application by Prasan Global.">
+    
+    <!-- High-Speed Resource Hints & Preconnects for Low Data -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="orb orb-gold"></div>
+<div class="orb orb-cyan"></div>
+<div class="orb orb-magenta"></div>
+
+<a href="https://wa.me/919884050379?text=Hi%20Prasan%20Global!%20I%20want%20Software%20Demo." class="wa-float-btn" target="_blank" title="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- Floating AI Chatbot -->
+<div class="chatbot-trigger" id="chatbotTrigger" onclick="toggleChatbot()" title="Open AI Chat Support">
+    <i class="fas fa-robot"></i>
+</div>
+
+<div class="chatbot-drawer" id="chatbotDrawer">
+    <div class="chatbot-header">
+        <div class="d-flex align-items-center gap-2">
+            <div class="bot-avatar"><i class="fas fa-brain"></i></div>
+            <div>
+                <h6 class="mb-0 fw-bold text-white" style="font-size:0.95rem;">Prasan AI Assistant</h6>
+                <span class="small text-success d-flex align-items-center gap-1" style="font-size: 0.75rem;"><i class="fas fa-circle" style="font-size: 8px;"></i> Online • Software Desk</span>
+            </div>
+        </div>
+        <button class="bg-transparent border-0 text-white fs-5 cursor-pointer" onclick="toggleChatbot()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="chatbot-messages" id="chatMessages">
+        <div class="chat-msg bot">
+            👋 Welcome to **Software Products**!<br>Select a software demo below:
+            <div class="chat-chips">
+                <button class="chip-btn" onclick="sendChip('Barcode Generator App')">🏷️ Barcode Generator</button>
+                <button class="chip-btn" onclick="sendChip('Food Billing Software')">🍔 Food Billing POS</button>
+                <button class="chip-btn" onclick="sendChip('Garment Billing Software')">👕 Garments POS</button>
+                <button class="chip-btn" onclick="sendChip('HR Attendance System')">👥 HR & Attendance</button>
+            </div>
+        </div>
+    </div>
+    <div class="chatbot-footer">
+        <input type="text" id="chatInput" placeholder="Type your software question..." onkeypress="handleChatKey(event)">
+        <button onclick="sendChatMessage()"><i class="fas fa-paper-plane"></i></button>
+    </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+            <div class="navbar-logo-container"><img src="logopra.jpg" class="navbar-logo" alt="Prasan Global Logo"></div>
+            <div>
+                <span class="fs-5 tracking-wider brand-title-prasan">PRASAN <span class="brand-title-global">GLOBAL</span></span>
+                <span class="d-block brand-subtitle-tags"><span class="text-white fw-bold">TECH</span> <span style="color:var(--gold);">•</span> SOFTWARE <span style="color:var(--gold);">•</span> BPO <span style="color:var(--gold);">•</span> CIVIL</span>
+            </div>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-center gap-1">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link active" href="software.html">Products</a></li>
+                <li class="nav-item"><a class="nav-link" href="digital-ai.html">Solutions</a></li>
+                <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#technical-resources">Tech Stack</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#portfolio">Case Studies</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<section style="padding: 150px 0 50px; text-align: center;">
+    <div class="container">
+        <span class="px-4 py-2 rounded-pill fw-bold text-uppercase small" style="background: rgba(255, 184, 0, 0.15); border: 1.5px solid var(--gold); color: var(--gold); letter-spacing: 2px;">
+            <i class="fas fa-cubes me-2"></i> Custom Software & POS Division
+        </span>
+        <h1 class="display-5 fw-extrabold my-3 text-white">Custom Software & <span style="color:var(--gold);">Enterprise POS</span></h1>
+        <p class="lead text-dim mx-auto" style="max-width: 680px;">We build custom POS billing, barcode tools, HRMS, healthcare suites, and tailor-made enterprise software for all industries.</p>
+    </div>
+</section>
+
+<!-- PRODUCT 1: BARCODE GENERATION APPLICATION (NEW!) -->
+<section class="py-4">
+    <div class="container py-3">
+        <div class="vibrant-card card-emerald p-5">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="icon-badge badge-emerald"><i class="fas fa-barcode"></i></div>
+                    <span class="fw-bold text-uppercase small" style="color:var(--emerald);">Retail & Inventory Tool</span>
+                    <h2 class="display-6 fw-bold my-3 text-white">Barcode Generation & <span style="color:var(--emerald);">Sticker Printing Software</span></h2>
+                    <p class="text-dim mb-4">High-performance custom Barcode & QR Code Generation Application. Create EAN-13, UPC, Code-128, and custom product barcodes in bulk. Print stickers directly to thermal label printers for garments, retail shops, and warehouses.</p>
+                    
+                    <div class="row g-3 mb-4">
+                        <div class="col-6"><div class="p-3 rounded-4" style="background:rgba(255,255,255,0.04); border:1px solid var(--glass-border);"><i class="fas fa-layer-group me-2" style="color:var(--emerald);"></i> <strong>Bulk Barcode Batching</strong></div></div>
+                        <div class="col-6"><div class="p-3 rounded-4" style="background:rgba(255,255,255,0.04); border:1px solid var(--glass-border);"><i class="fas fa-print me-2" style="color:var(--emerald);"></i> <strong>Thermal Printer Support</strong></div></div>
+                        <div class="col-6"><div class="p-3 rounded-4" style="background:rgba(255,255,255,0.04); border:1px solid var(--glass-border);"><i class="fas fa-qrcode me-2" style="color:var(--emerald);"></i> <strong>QR & 2D Code Generation</strong></div></div>
+                        <div class="col-6"><div class="p-3 rounded-4" style="background:rgba(255,255,255,0.04); border:1px solid var(--glass-border);"><i class="fas fa-sliders me-2" style="color:var(--emerald);"></i> <strong>Custom Sticker Layouts</strong></div></div>
+                    </div>
+
+                    <a href="https://wa.me/919884050379?text=Hi%20Prasan%20Global!%20I%20want%20a%20demo%20for%20Barcode%20Generation%20App." target="_blank" class="btn-vibrant-magenta" style="background: linear-gradient(135deg, #00f5a0, #007a50); color:#000;">
+                        Request Barcode Software Demo <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="position-relative rounded-4 overflow-hidden shadow-lg mb-3" style="border: 2px solid var(--emerald);">
+                        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=800" class="img-fluid w-100" style="max-height: 320px; object-fit: cover;" alt="Thermal Barcode Sticker Printing System">
+                        <span class="badge position-absolute top-0 end-0 m-3 px-3 py-2 bg-dark text-emerald border border-success fw-bold" style="backdrop-filter:blur(10px);"><i class="fas fa-print me-1"></i> Thermal Label Sticker Printer</span>
+                    </div>
+
+                    <!-- REAL BARCODE STICKER SAMPLE MOCKUP WIDGET -->
+                    <div class="p-3 rounded-4" style="background: rgba(11, 13, 27, 0.95); border: 1px solid var(--glass-border-emerald);">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="small fw-bold text-white"><i class="fas fa-barcode me-1" style="color:var(--emerald);"></i> Generated Price Tag Sticker (EAN-13 / Code-128)</span>
+                            <span class="badge rounded-pill bg-success text-black fw-bold" style="font-size:0.7rem;">ESC/POS Ready</span>
+                        </div>
+                        <div class="p-3 rounded bg-white text-black text-center" style="font-family: monospace;">
+                            <div class="fw-bold x-small text-uppercase">SHANTI GARMENTS • CHENNAI</div>
+                            <div class="small fw-extrabold text-danger">MRP: ₹ 1,499.00 (Incl. Taxes)</div>
+                            <!-- Barcode visual representation -->
+                            <div class="my-1 py-1 px-3 bg-dark text-white rounded d-inline-block fw-bold tracking-widest fs-5" style="letter-spacing:4px; font-family:'Courier New', monospace;">
+                                ||||| | |||| ||| |||||
+                            </div>
+                            <div class="x-small text-muted">SKU: GAR-2026-BLK-XL • 8901234567890</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PRODUCT 2: FOOD BILLING POS -->
+<section class="py-4">
+    <div class="container py-3">
+        <div class="vibrant-card p-5">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="icon-badge badge-gold"><i class="fas fa-utensils"></i></div>
+                    <span class="fw-bold text-uppercase small" style="color:var(--gold);">Food Industry Solution</span>
+                    <h2 class="display-6 fw-bold my-3 text-white">Food & Restaurant <span style="color:var(--gold);">Billing POS</span></h2>
+                    <p class="text-dim mb-4">Aaron Food Billing POS is tailored for Restaurants, Bakeries, Food Courts, Cafes, and Sweet Shops. Includes instant KOT printing, table layout management, and online aggregator order sync.</p>
+                    
+                    <div class="row g-3 mb-4">
+                        <div class="col-6"><div class="p-3 rounded-4" style="background:rgba(255,255,255,0.04); border:1px solid var(--glass-border);"><i class="fas fa-print me-2" style="color:var(--gold);"></i> <strong>Instant KOT Printing</strong></div></div>
+                        <div class="col-6"><div class="p-3 rounded-4" style="background:rgba(255,255,255,0.04); border:1px solid var(--glass-border);"><i class="fas fa-chair me-2" style="color:var(--gold);"></i> <strong>Table & Dine-in Layout</strong></div></div>
+                        <div class="col-6"><div class="p-3 rounded-4" style="background:rgba(255,255,255,0.04); border:1px solid var(--glass-border);"><i class="fas fa-motorcycle me-2" style="color:var(--gold);"></i> <strong>Swiggy/Zomato Sync</strong></div></div>
+                        <div class="col-6"><div class="p-3 rounded-4" style="background:rgba(255,255,255,0.04); border:1px solid var(--glass-border);"><i class="fas fa-receipt me-2" style="color:var(--gold);"></i> <strong>GST & Non-GST Bills</strong></div></div>
+                    </div>
+
+                    <a href="https://wa.me/919884050379?text=Hi%20Prasan%20Global!%20I%20want%20Food%20POS%20Demo." target="_blank" class="btn-vibrant-gold">
+                        Request Food POS Demo <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="col-lg-6 text-center" data-aos="fade-left">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=800" class="img-fluid rounded-4 shadow-lg" style="border: 2px solid var(--gold); max-height: 400px; width: 100%; object-fit: cover;" alt="Food & Restaurant POS Billing Software">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PRODUCT 3: GARMENTS POS -->
+<section class="py-4">
+    <div class="container py-3">
+        <div class="vibrant-card card-cyan p-5">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6 text-center order-lg-1 order-2" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=800" class="img-fluid rounded-4 shadow-lg" style="border: 2px solid var(--cyan); max-height: 400px; width: 100%; object-fit: cover;" alt="Garments POS Software">
+                </div>
+                <div class="col-lg-6 order-lg-2 order-1" data-aos="fade-left">
+                    <div class="icon-badge badge-cyan"><i class="fas fa-tags"></i></div>
+                    <span class="fw-bold text-uppercase small" style="color:var(--cyan);">Retail & Textile Solution</span>
+                    <h2 class="display-6 fw-bold my-3 text-white">Garments & Retail <span style="color:var(--cyan);">POS Billing Software</span></h2>
+                    <p class="text-dim mb-4">Aaron Retail POS for Garment Shops, Textile Showrooms, Footwear Stores, and Supermarkets. Features fast barcode scanning, stock inventory management, and multi-store chain control.</p>
+                    
+                    <div class="row g-3 mb-4">
+                        <div class="col-6"><div class="p-3 rounded-4" style="background:rgba(255,255,255,0.04); border:1px solid var(--glass-border);"><i class="fas fa-barcode me-2" style="color:var(--cyan);"></i> <strong>High-Speed Barcode Scan</strong></div></div>
+                        <div class="col-6"><div class="p-3 rounded-4" style="background:rgba(255,255,255,0.04); border:1px solid var(--glass-border);"><i class="fas fa-boxes me-2" style="color:var(--cyan);"></i> <strong>Stock & Inventory Control</strong></div></div>
+                        <div class="col-6"><div class="p-3 rounded-4" style="background:rgba(255,255,255,0.04); border:1px solid var(--glass-border);"><i class="fas fa-percent me-2" style="color:var(--cyan);"></i> <strong>Discount & Offer Engine</strong></div></div>
+                        <div class="col-6"><div class="p-3 rounded-4" style="background:rgba(255,255,255,0.04); border:1px solid var(--glass-border);"><i class="fas fa-store me-2" style="color:var(--cyan);"></i> <strong>Multi-Store Chain Sync</strong></div></div>
+                    </div>
+
+                    <a href="https://wa.me/919884050379?text=Hi%20Prasan%20Global!%20I%20want%20Garment%20POS%20Demo." target="_blank" class="btn-vibrant-cyan">
+                        Request Garment POS Demo <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PRODUCT 5: MEDIFY HEALTHCARE SUITE (HMS, PMS & TELECONSULTATION) -->
+<section class="py-4">
+    <div class="container py-3">
+        <div class="vibrant-card card-cyan p-5">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="icon-badge badge-cyan"><i class="fas fa-hospital-user"></i></div>
+                    <span class="fw-bold text-uppercase small" style="color:var(--cyan);">Healthcare & Medical Software</span>
+                    <h2 class="display-6 fw-bold my-3 text-white">Medify <span style="color:var(--cyan);">Healthcare Suite (HMS, PMS & Teleconsultation)</span></h2>
+                    <p class="text-dim mb-4">Complete Hospital & Patient Management Platform. Streamlines OPD/IPD admissions, electronic health records (EHR), pharmacy stocks, lab test reports, patient scheduling, and encrypted video teleconsultations.</p>
+                    
+                    <div class="row g-3 mb-4">
+                        <div class="col-6"><div class="p-3 rounded-4" style="background:rgba(255,255,255,0.04); border:1px solid var(--glass-border);"><i class="fas fa-hospital me-2" style="color:var(--cyan);"></i> <strong>Integrated Hospital (HMS)</strong></div></div>
+                        <div class="col-6"><div class="p-3 rounded-4" style="background:rgba(255,255,255,0.04); border:1px solid var(--glass-border);"><i class="fas fa-notes-medical me-2" style="color:var(--cyan);"></i> <strong>Patient Records (PMS)</strong></div></div>
+                        <div class="col-6"><div class="p-3 rounded-4" style="background:rgba(255,255,255,0.04); border:1px solid var(--glass-border);"><i class="fas fa-video me-2" style="color:var(--cyan);"></i> <strong>Doctor Teleconsultation</strong></div></div>
+                        <div class="col-6"><div class="p-3 rounded-4" style="background:rgba(255,255,255,0.04); border:1px solid var(--glass-border);"><i class="fas fa-file-prescription me-2" style="color:var(--cyan);"></i> <strong>Digital Prescriptions</strong></div></div>
+                    </div>
+
+                    <a href="https://wa.me/919884050379?text=Hi%20Prasan%20Global!%20I%20want%20a%20demo%20for%20Medify%20Healthcare%20Suite." target="_blank" class="btn-vibrant-cyan">
+                        Request Medify Healthcare Demo <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="col-lg-6 text-center" data-aos="fade-left">
+                    <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=800" class="img-fluid rounded-4 shadow-lg" style="border: 2px solid var(--cyan); max-height: 400px; width: 100%; object-fit: cover;" alt="Medify Healthcare Suite">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="py-4">
+    <div class="container py-3">
+        <div class="vibrant-card card-magenta p-5">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="icon-badge badge-magenta"><i class="fas fa-id-card-clip"></i></div>
+                    <span class="fw-bold text-uppercase small" style="color:var(--magenta);">Workforce Solution</span>
+                    <h2 class="display-6 fw-bold my-3 text-white">HR & Attendance <span style="color:var(--magenta);">Management (HRMS)</span></h2>
+                    <p class="text-dim mb-4">Complete employee workforce platform. Capture attendance via Biometric facial recognition or Mobile Geo-fencing, process monthly automated payroll, and manage shift leaves easily.</p>
+                    
+                    <div class="row g-3 mb-4">
+                        <div class="col-6"><div class="p-3 rounded-4" style="background:rgba(255,255,255,0.04); border:1px solid var(--glass-border);"><i class="fas fa-fingerprint me-2" style="color:var(--magenta);"></i> <strong>Biometric Integration</strong></div></div>
+                        <div class="col-6"><div class="p-3 rounded-4" style="background:rgba(255,255,255,0.04); border:1px solid var(--glass-border);"><i class="fas fa-location-dot me-2" style="color:var(--magenta);"></i> <strong>Mobile Geo-Fencing</strong></div></div>
+                        <div class="col-6"><div class="p-3 rounded-4" style="background:rgba(255,255,255,0.04); border:1px solid var(--glass-border);"><i class="fas fa-calculator me-2" style="color:var(--magenta);"></i> <strong>Automated Payroll</strong></div></div>
+                        <div class="col-6"><div class="p-3 rounded-4" style="background:rgba(255,255,255,0.04); border:1px solid var(--glass-border);"><i class="fas fa-calendar-check me-2" style="color:var(--magenta);"></i> <strong>Leave Approvals</strong></div></div>
+                    </div>
+
+                    <a href="https://wa.me/919884050379?text=Hi%20Prasan%20Global!%20I%20want%20HRMS%20Software%20Demo." target="_blank" class="btn-vibrant-magenta">
+                        Request HRMS Software Demo <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="col-lg-6 text-center" data-aos="fade-left">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800" class="img-fluid rounded-4 shadow-lg" style="border: 2px solid var(--magenta); max-height: 400px; width: 100%; object-fit: cover;" alt="HR & Attendance Software">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SOFTWARE TECHNOLOGIES & TOOLS STACK -->
+<section class="py-5" style="border-top: 1px solid var(--glass-border);">
+    <div class="container py-4">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <span class="fw-bold text-uppercase tracking-wider small" style="color:var(--emerald);">Software Architecture</span>
+            <h2 class="display-6 fw-bold text-white mt-2">Technologies & <span style="color:var(--emerald);">Software Stack</span></h2>
+            <p class="text-dim mx-auto" style="max-width: 680px;">Built using industrial software SDKs, cloud database engines, and high-speed printer protocols.</p>
+        </div>
+
+        <div class="row g-4 text-center">
+            <div class="col-6 col-md-3" data-aos="zoom-in">
+                <div class="vibrant-card card-emerald p-4">
+                    <div class="icon-badge badge-emerald mx-auto mb-3"><i class="fas fa-barcode"></i></div>
+                    <h5 class="fw-bold text-white">EAN-13 & Code-128</h5>
+                    <p class="x-small text-dim mb-0">High-density barcode generation engines.</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="100">
+                <div class="vibrant-card card-cyan p-4">
+                    <div class="icon-badge badge-cyan mx-auto mb-3"><i class="fas fa-print"></i></div>
+                    <h5 class="fw-bold text-white">ESC/POS Printer SDK</h5>
+                    <p class="x-small text-dim mb-0">Direct thermal receipt & label printer drivers.</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="200">
+                <div class="vibrant-card card-magenta p-4">
+                    <div class="icon-badge badge-magenta mx-auto mb-3"><i class="fas fa-fingerprint"></i></div>
+                    <h5 class="fw-bold text-white">Biometric Facial SDK</h5>
+                    <p class="x-small text-dim mb-0">High-accuracy facial punch & fingerprint reader.</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="300">
+                <div class="vibrant-card p-4">
+                    <div class="icon-badge badge-gold mx-auto mb-3"><i class="fas fa-cloud flex-shrink-0"></i></div>
+                    <h5 class="fw-bold text-white">Cloud Sync & MySQL</h5>
+                    <p class="x-small text-dim mb-0">Multi-branch automatic cloud synchronization.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SOFTWARE FAQ (Q&A) -->
+<section class="py-5" style="background: rgba(11, 13, 27, 0.8); border-top: 1px solid var(--glass-border);">
+    <div class="container py-4" style="max-width: 900px;">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <span class="fw-bold text-uppercase tracking-wider small" style="color:var(--gold);">Software Support Q&A</span>
+            <h2 class="display-6 fw-bold text-white mt-2">Software POS & HRMS <span style="color:var(--gold);">Questions & Answers</span></h2>
+        </div>
+
+        <div class="accordion accordion-flush" id="softwareFaqAccordion" data-aos="fade-up">
+            <div class="accordion-item bg-transparent mb-3 border rounded-4 overflow-hidden" style="border-color: var(--glass-border) !important;">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-dark text-white fw-bold p-4" type="button" data-bs-toggle="collapse" data-bs-target="#sf1">
+                        Q1. What label printers are supported by the Barcode Generation Application?
+                    </button>
+                </h2>
+                <div id="sf1" class="accordion-collapse collapse" data-bs-parent="#softwareFaqAccordion">
+                    <div class="accordion-body bg-dark text-dim p-4 border-top border-secondary">
+                        Our <strong>Barcode Generator Software</strong> supports all major thermal sticker printers (TVS, Zebra, Xprinter, TSC, Godex, Honeywell). It prints custom 1-up, 2-up, and 3-up garment price tag stickers.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item bg-transparent mb-3 border rounded-4 overflow-hidden" style="border-color: var(--glass-border) !important;">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-dark text-white fw-bold p-4" type="button" data-bs-toggle="collapse" data-bs-target="#sf2">
+                        Q2. Does Aaron Food Billing POS work offline without internet?
+                    </button>
+                </h2>
+                <div id="sf2" class="accordion-collapse collapse" data-bs-parent="#softwareFaqAccordion">
+                    <div class="accordion-body bg-dark text-dim p-4 border-top border-secondary">
+                        Yes! Aaron Food Billing POS operates 100% offline for instant billing and KOT printing. When internet connects, it automatically syncs sales reports to your cloud dashboard.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item bg-transparent mb-3 border rounded-4 overflow-hidden" style="border-color: var(--glass-border) !important;">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-dark text-white fw-bold p-4" type="button" data-bs-toggle="collapse" data-bs-target="#sf3">
+                        Q3. How does employee attendance tracking work for field staff in HRMS?
+                    </button>
+                </h2>
+                <div id="sf3" class="accordion-collapse collapse" data-bs-parent="#softwareFaqAccordion">
+                    <div class="accordion-body bg-dark text-dim p-4 border-top border-secondary">
+                        For field workers, our HRMS Android/iOS app captures GPS Geo-location with selfie verification. Office staff use Biometric facial or fingerprint scanners connected to the system.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer>
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="navbar-logo-container"><img src="logopra.jpg" class="navbar-logo" alt="Logo"></div>
+                    <h4 class="fw-bold mb-0 text-white">PRASAN <span style="color:var(--gold);">GLOBAL</span></h4>
+                </div>
+                <p class="small text-dim mb-4">Empowering businesses with Barcode Generation, Food POS, Garments POS, and HRMS Attendance Software.</p>
+                <p class="small text-dim mb-0"><i class="fas fa-envelope me-2" style="color:var(--gold);"></i> prasan@prasanglobal.in</p>
+                <p class="small text-dim mb-4"><i class="fas fa-phone-alt me-2" style="color:var(--gold);"></i> +91 98840 50379</p>
+            </div>
+            <div class="col-6 col-lg-2 ms-lg-auto">
+                <h6 class="footer-title">Pages</h6>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="software.html">Software POS</a></li>
+                    <li><a href="digital-ai.html">Meta Ads & AI</a></li>
+                    <li><a href="services.html">BPO & Civil</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3">
+                <h6 class="footer-title">Contact Us</h6>
+                <p class="small text-dim">SVM Nagar 2nd Street Ennore, Chennai - 600057</p>
+                <p class="fw-bold mb-3" style="color:var(--gold);">+91 98840 50379</p>
+            </div>
+        </div>
+        <hr class="my-5 opacity-25" style="border-color: var(--gold);">
+        <p class="small text-dim text-center mb-0">© 2026 Prasan Global Service. Software POS Division. Contact: prasan@prasanglobal.in</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 900, once: true });
+    window.addEventListener('scroll', () => {
+        const nav = document.querySelector('.navbar');
+        if (window.scrollY > 50) nav.classList.add('scrolled');
+        else nav.classList.remove('scrolled');
+    });
+    function toggleChatbot() { document.getElementById('chatbotDrawer').classList.toggle('active'); }
+    function sendChatMessage() {
+        const input = document.getElementById('chatInput');
+        const text = input.value.trim();
+        if(!text) return;
+        addMessage(text, 'user');
+        input.value = '';
+        setTimeout(() => botReply(text), 500);
+    }
+    function handleChatKey(e) { if(e.key === 'Enter') sendChatMessage(); }
+    function sendChip(chipText) { addMessage(chipText, 'user'); setTimeout(() => botReply(chipText), 400); }
+    function addMessage(msg, sender) {
+        const container = document.getElementById('chatMessages');
+        const div = document.createElement('div');
+        div.className = `chat-msg ${sender}`;
+        div.innerHTML = msg;
+        container.appendChild(div);
+        container.scrollTop = container.scrollHeight;
+    }
+    function botReply(userMsg) {
+        addMessage(`Thank you for inquiring about our Software Solutions! Contact us directly:<br>📱 WhatsApp: <a href="https://wa.me/919884050379" target="_blank" style="color:var(--gold);">+91 98840 50379</a>`, 'bot');
+    }
+</script>
+</body>
+</html>

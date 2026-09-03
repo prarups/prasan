@@ -3,671 +3,926 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prasan Global Service | Tech, BPO, Civil & Home Solutions</title>
+    <title>Prasan Global | Tech, Meta Ads, AI Chatbots, POS & Civil Solutions</title>
+    <meta name="description" content="Prasan Global provides elite Meta Ads Campaigns, Custom AI Chatbots, Food & Garment Billing Software, HR Attendance Systems, Web Apps, BPO, and Civil Solutions in Chennai.">
     
+    <!-- OpenGraph Meta Tags -->
+    <meta property="og:title" content="Prasan Global | Innovative Tech & Business Solutions">
+    <meta property="og:description" content="We provide Meta Ads, AI Chatbots, POS Software, and Civil Solutions to empower your business growth.">
+    <meta property="og:url" content="https://prasanglobal.in">
+    <meta property="og:type" content="website">
+
+    <!-- High-Speed Resource Hints & Preconnects for Low Data -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://unpkg.com">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <style>
-        :root {
-            --bg-deep: #050505;
-            --surface: #0d0d0d;
-            --maroon-prime: #800020;
-            --gold-prime: #d4af37;
-            --gold-light: #f1d382;
-            --text-bright: #ffffff;
-            --text-dim: #b0b0b0;
-            --glass: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(212, 175, 55, 0.2);
-        }
-
-        body {
-            background-color: var(--bg-deep);
-            color: var(--text-bright);
-            font-family: 'Outfit', sans-serif;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
-
-        /* --- NAVIGATION --- */
-        .navbar {
-            background: rgba(5, 5, 5, 0.9);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border-bottom: 1px solid var(--glass-border);
-            padding: 12px 0;
-            z-index: 2000;
-        }
-        .navbar-logo-container {
-            width: 45px; height: 45px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 2px solid var(--gold-prime);
-            margin-right: 12px;
-            background: #111;
-        }
-        .navbar-logo { width: 100%; height: 100%; object-fit: cover; }
-        .nav-link { font-size: 0.85rem; letter-spacing: 1px; color: var(--text-dim) !important; transition: 0.3s; }
-        .nav-link:hover { color: var(--gold-prime) !important; }
-
-        /* Mobile Menu Toggle Animation (Hamburger to X) */
-        .navbar-toggler {
-            border: none !important;
-            padding: 0;
-            width: 30px;
-            height: 30px;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .navbar-toggler:focus { box-shadow: none; }
-        
-        .toggler-icon {
-            width: 24px;
-            height: 2px;
-            background-color: var(--gold-prime);
-            display: block;
-            transition: all 0.3s ease-in-out;
-            position: relative;
-        }
-        .toggler-icon::before, .toggler-icon::after {
-            content: '';
-            width: 24px;
-            height: 2px;
-            background-color: var(--gold-prime);
-            display: block;
-            position: absolute;
-            transition: all 0.3s ease-in-out;
-        }
-        .toggler-icon::before { top: -8px; }
-        .toggler-icon::after { top: 8px; }
-
-        /* When the menu is open */
-        .navbar-toggler[aria-expanded="true"] .toggler-icon {
-            background-color: transparent;
-        }
-        .navbar-toggler[aria-expanded="true"] .toggler-icon::before {
-            transform: rotate(45deg);
-            top: 0;
-        }
-        .navbar-toggler[aria-expanded="true"] .toggler-icon::after {
-            transform: rotate(-45deg);
-            top: 0;
-        }
-
-        /* --- HERO SECTION --- */
-        #home {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            background-color: #000;
-            text-align: center;
-            overflow: hidden;
-        }
-
-        .hero-bg {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), 
-                        url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600');
-            background-size: cover;
-            background-position: center;
-            z-index: 1;
-            animation: kenBurns 20s infinite alternate ease-in-out;
-        }
-
-        @keyframes kenBurns {
-            from { transform: scale(1); }
-            to { transform: scale(1.15); }
-        }
-
-        #home .container { position: relative; z-index: 10; }
-        .typed-cursor { color: var(--gold-prime); font-weight: 300; }
-
-        /* --- CLIENT MARQUEE --- */
-        .clients-marquee {
-            background: var(--surface);
-            border-top: 1px solid var(--glass-border);
-            border-bottom: 1px solid var(--glass-border);
-            padding: 25px 0;
-            overflow: hidden;
-            white-space: nowrap;
-            position: relative;
-        }
-        .marquee-content {
-            display: inline-flex;
-            animation: marqueeScroll 30s linear infinite;
-        }
-        .client-item {
-            display: flex;
-            align-items: center;
-            margin: 0 40px;
-            color: var(--text-dim);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 1.1rem;
-        }
-        .client-item i {
-            color: var(--gold-prime);
-            margin-right: 12px;
-            font-size: 0.9rem;
-        }
-        @keyframes marqueeScroll {
-            from { transform: translateX(0); }
-            to { transform: translateX(-50%); }
-        }
-        .clients-marquee:hover .marquee-content {
-            animation-play-state: paused;
-        }
-
-        /* --- GLASS CARDS --- */
-        .glass-card {
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 30px;
-            height: 100%;
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            backdrop-filter: blur(10px);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card-bg-img {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            object-fit: cover;
-            z-index: 1;
-            opacity: 0.12;
-            transition: 0.6s ease;
-            filter: grayscale(100%);
-        }
-
-        .glass-card:hover .card-bg-img {
-            transform: scale(1.1);
-            opacity: 0.22;
-            filter: grayscale(0%);
-        }
-
-        .glass-card > div, .glass-card > h5, .glass-card > h6, .glass-card > p, .glass-card > ul {
-            position: relative;
-            z-index: 5;
-        }
-
-        .glass-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--gold-prime);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
-        }
-
-        .icon-box {
-            width: 65px; height: 65px;
-            background: linear-gradient(135deg, var(--maroon-prime), #4a0404);
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 26px; color: var(--gold-prime);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.3);
-        }
-
-        /* --- UI ELEMENTS --- */
-        .gold-text { color: var(--gold-prime); }
-        .text-dim { color: var(--text-dim); }
-        .section-padding { padding: 100px 0; }
-        
-        .btn-gold {
-            background: var(--gold-prime);
-            color: #000;
-            font-weight: 700;
-            padding: 14px 35px;
-            border-radius: 50px;
-            border: none;
-            transition: 0.3s;
-            text-decoration: none;
-            display: inline-block;
-        }
-        .btn-gold:hover { background: var(--gold-light); transform: scale(1.05); color: #000; }
-
-        .stat-item h2 { font-weight: 700; color: var(--gold-prime); margin-bottom: 5px; display: inline-block; }
-        .stat-item p { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-dim); margin-bottom: 0; }
-
-        /* --- FAQ --- */
-        .accordion-item { background: transparent !important; border: none !important; margin-bottom: 15px; }
-        .accordion-button {
-            background: var(--glass) !important;
-            color: var(--text-bright) !important;
-            border: 1px solid var(--glass-border) !important;
-            border-radius: 15px !important;
-            padding: 20px;
-        }
-        .accordion-button:not(.collapsed) { color: var(--gold-prime) !important; box-shadow: none; }
-        .accordion-button::after { filter: invert(1); }
-
-        /* --- FOOTER & CONTACT --- */
-        .map-container {
-            border-radius: 25px;
-            overflow: hidden;
-            border: 1px solid var(--glass-border);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-
-        footer {
-            background: #030303;
-            padding: 80px 0 30px;
-            border-top: 1px solid var(--glass-border);
-        }
-        .footer-title { color: var(--gold-prime); font-weight: 700; margin-bottom: 25px; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; }
-        .footer-links { list-style: none; padding: 0; }
-        .footer-links li { margin-bottom: 12px; }
-        .footer-links a { color: var(--text-dim); text-decoration: none; transition: 0.3s; font-size: 0.9rem; }
-        .footer-links a:hover { color: var(--gold-prime); padding-left: 5px; }
-
-        .leader-avatar {
-            width: 45px; height: 45px;
-            border-radius: 50%;
-            border: 1px solid var(--gold-prime);
-            object-fit: cover;
-            margin-right: 12px;
-            background: #222;
-        }
-
-        .wa-float {
-            position: fixed; bottom: 30px; right: 30px;
-            background: #25d366; color: white; width: 60px; height: 60px;
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-size: 30px; z-index: 5000; box-shadow: 0 10px 20px rgba(0,0,0,0.4);
-            text-decoration: none;
-        }
-
-        @media (max-width: 768px) {
-            #home h1 { font-size: 2.5rem; }
-            .section-padding { padding: 60px 0; }
-            footer { text-align: center; }
-            .leader-avatar { margin-bottom: 10px; }
-            /* Mobile dropdown background */
-            .navbar-collapse {
-                background: rgba(13, 13, 13, 0.98);
-                margin-top: 10px;
-                border-radius: 15px;
-                padding: 20px;
-                border: 1px solid var(--glass-border);
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <!-- SEO Structured Data Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Prasan Global Service",
+      "url": "https://prasanglobal.in",
+      "logo": "https://prasanglobal.in/logopra.jpg",
+      "email": "prasan@prasanglobal.in",
+      "telephone": "+919884050379",
+      "vatID": "33PHXPS6095C1ZD",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "SVM Nagar 2nd Street Ennore",
+        "addressLocality": "Chennai",
+        "addressRegion": "TN",
+        "postalCode": "600057",
+        "addressCountry": "IN"
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Sam Santhosh",
+        "jobTitle": "CEO & Founder"
+      },
+      "knowsAbout": ["Meta Ads", "Custom AI Chatbots", "Food Billing POS", "Garments Billing POS", "HR Attendance Systems", "Barcode Generation Software"]
+    }
+    </script>
 </head>
 <body>
 
-<a href="https://wa.me/919884050379" class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<div class="orb orb-gold"></div>
+<div class="orb orb-magenta"></div>
+<div class="orb orb-cyan"></div>
 
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+<!-- TECHNOLOGIES INTERACTIVE MODAL POPUP -->
+<div class="modal fade" id="techDetailModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content text-white" style="background:#0b0d1e; border: 2px solid var(--gold); border-radius: 28px; box-shadow: 0 25px 60px rgba(0,0,0,0.9), 0 0 35px var(--gold-glow);">
+            <div class="modal-header border-0 pb-0 px-4 pt-4">
+                <div class="d-flex align-items-center gap-3">
+                    <div class="icon-badge badge-gold mb-0" id="modalTechIcon" style="width:55px; height:55px; font-size:24px;"><i class="fab fa-react"></i></div>
+                    <div>
+                        <h4 class="modal-title fw-bold text-white mb-0" id="modalTechTitle">React JS & Vite</h4>
+                        <span class="small fw-semibold" style="color:var(--gold);" id="modalTechCategory">Frontend Architecture</span>
+                    </div>
+                </div>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-4">
+                <!-- Real-World Production Image -->
+                <div class="position-relative rounded-4 overflow-hidden mb-4" style="border: 1.5px solid var(--glass-border-cyan);">
+                    <img id="modalTechImage" src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=800" class="img-fluid w-100" style="max-height: 260px; object-fit: cover;" alt="Real World Production Dashboard">
+                    <span class="badge position-absolute top-0 start-0 m-3 px-3 py-2 bg-dark text-cyan border border-info fw-bold" style="backdrop-filter:blur(10px);"><i class="fas fa-camera me-1"></i> Real-World Production System</span>
+                </div>
+
+                <p class="text-dim lead fs-6 mb-4" id="modalTechDescription">Detailed description...</p>
+
+                <!-- STEP BY STEP WORKFLOW EXPLANATION -->
+                <h6 class="fw-bold text-white mb-3"><i class="fas fa-cogs me-2" style="color:var(--cyan);"></i> How It Works (Step-by-Step Workflow):</h6>
+                <div class="row g-2 mb-4" id="modalTechSteps">
+                    <!-- Workflow steps inserted by JS -->
+                </div>
+
+                <!-- WORKFLOW DIAGRAM / ARCHITECTURE IMAGE -->
+                <h6 class="fw-bold text-white mb-3"><i class="fas fa-project-diagram me-2" style="color:var(--magenta);"></i> System Workflow & Architecture Diagram:</h6>
+                <div class="rounded-4 overflow-hidden mb-4" style="border: 1px solid var(--glass-border-magenta);">
+                    <img id="modalTechWorkflowImage" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800" class="img-fluid w-100" style="max-height: 220px; object-fit: cover;" alt="System Architecture Diagram">
+                </div>
+
+                <!-- KEY BUSINESS BENEFITS -->
+                <h6 class="fw-bold text-white mb-3"><i class="fas fa-check-circle me-2" style="color:var(--gold);"></i> Key Business Benefits at Prasan Global:</h6>
+                <div class="row g-2 mb-4" id="modalTechBenefits">
+                    <!-- Dynamic benefits inserted by JS -->
+                </div>
+
+                <div class="p-3 rounded-4" style="background: rgba(255,184,0,0.1); border: 1px solid var(--gold);">
+                    <p class="small text-white mb-0" id="modalTechUsecase"><strong>Real Production Impact:</strong> We build lightning-fast web apps deployed directly on Render static CDN for zero hosting cost.</p>
+                </div>
+            </div>
+            <div class="modal-footer border-0 px-4 pb-4">
+                <button type="button" class="btn btn-outline-light rounded-pill px-4" data-bs-dismiss="modal">Close</button>
+                <a href="https://wa.me/919884050379?text=Hi%20Prasan%20Global!%20I%20want%20to%20know%20more%20about%20this%20technology." target="_blank" class="btn-vibrant-gold">
+                    Discuss Integration on WhatsApp <i class="fab fa-whatsapp ms-2"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/919884050379?text=Hi%20Prasan%20Global!%20I%20want%20more%20information." class="wa-float-btn" target="_blank" title="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- Floating AI Chatbot Trigger & Drawer -->
+<div class="chatbot-trigger" id="chatbotTrigger" onclick="toggleChatbot()" title="Open AI Chat Support">
+    <i class="fas fa-robot"></i>
+</div>
+
+<div class="chatbot-drawer" id="chatbotDrawer">
+    <div class="chatbot-header">
+        <div class="d-flex align-items-center gap-2">
+            <div class="bot-avatar"><i class="fas fa-brain"></i></div>
+            <div>
+                <h6 class="mb-0 fw-bold text-white" style="font-size:0.95rem;">Prasan AI Assistant</h6>
+                <span class="small text-success d-flex align-items-center gap-1" style="font-size: 0.75rem;"><i class="fas fa-circle" style="font-size: 8px;"></i> Online • Instant Support</span>
+            </div>
+        </div>
+        <button class="bg-transparent border-0 text-white fs-5 cursor-pointer" onclick="toggleChatbot()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="chatbot-messages" id="chatMessages">
+        <div class="chat-msg bot">
+            👋 Welcome to <strong>Prasan Global Service</strong>!<br>How can we empower your business today? Select an option or type below:
+            <div class="chat-chips">
+                <button class="chip-btn" onclick="sendChip('Meta Ads Enquiry')">🎯 Meta Ads</button>
+                <button class="chip-btn" onclick="sendChip('Food Billing Software')">🍔 Food Billing POS</button>
+                <button class="chip-btn" onclick="sendChip('Garment Billing Software')">👕 Garments POS</button>
+                <button class="chip-btn" onclick="sendChip('HR Attendance System')">👥 HR & Attendance</button>
+                <button class="chip-btn" onclick="sendChip('Web or App Development')">📱 Custom Apps</button>
+                <button class="chip-btn" onclick="sendChip('Contact Support')">📞 Contact Support</button>
+            </div>
+        </div>
+    </div>
+    <div class="chatbot-footer">
+        <input type="text" id="chatInput" placeholder="Type your query here..." onkeypress="handleChatKey(event)">
+        <button onclick="sendChatMessage()"><i class="fas fa-paper-plane"></i></button>
+    </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
-        <a class="navbar-brand d-flex align-items-center" href="#home">
-            <div class="navbar-logo-container"><img src="logopra.jpg" class="navbar-logo" alt="Logo"></div>
-            <span class="gold-text fw-bold">PRASAN GLOBAL</span>
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+            <div class="navbar-logo-container"><img src="logopra.jpg" class="navbar-logo" alt="Prasan Global Logo"></div>
+            <div>
+                <span class="fs-5 tracking-wider brand-title-prasan">PRASAN <span class="brand-title-global">GLOBAL</span></span>
+                <span class="d-block brand-subtitle-tags"><span class="text-white fw-bold">TECH</span> <span style="color:var(--gold);">•</span> SOFTWARE <span style="color:var(--gold);">•</span> BPO <span style="color:var(--gold);">•</span> CIVIL</span>
+            </div>
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto fw-bold text-uppercase">
-                <li class="nav-item"><a class="nav-link px-3" href="#home">Home</a></li>
-                <li class="nav-item"><a class="nav-link px-3" href="#about">About</a></li>
-                <li class="nav-item"><a class="nav-link px-3" href="#it">IT Solutions</a></li>
-                <li class="nav-item"><a class="nav-link px-3" href="#bpo">BPO Services</a></li>
-                <li class="nav-item"><a class="nav-link px-3" href="#civil">Civil & Home</a></li>
-                <li class="nav-item"><a class="nav-link px-3" href="#contact">Contact</a></li>
+            <ul class="navbar-nav ms-auto align-items-center gap-1">
+                <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="software.html">Products</a></li>
+                <li class="nav-item"><a class="nav-link" href="digital-ai.html">Solutions</a></li>
+                <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#technical-resources">Tech Stack</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#portfolio">Case Studies</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
             </ul>
         </div>
     </div>
 </nav>
 
-<section id="home">
-    <div class="hero-bg"></div>
-    <div class="container">
-        <h6 class="gold-text text-uppercase fw-bold mb-3" data-aos="fade-down" style="letter-spacing: 4px;">Since 2022</h6>
-        <h1 class="display-2 fw-bold mb-4" data-aos="zoom-in">
-            Infinite <span class="gold-text" id="typed-text"></span>
-        </h1>
-        <h2 class="h4 fw-light text-dim mb-5" data-aos="fade-up">Rooted in <span class="text-white fw-bold">Excellence.</span></h2>
-        <p class="lead text-dim mb-5 mx-auto px-3" style="max-width: 800px;">
-            A Global Leader delivering high-end <span class="gold-text">IT Development</span>, 
-            premium <span class="gold-text">BPO Operations</span>, and reliable 
-            <span class="gold-text">Civil Infrastructure</span> solutions.
-        </p>
-        <div class="d-flex flex-wrap justify-content-center gap-3">
-            <a href="#contact" class="btn btn-gold shadow-lg">Get A Quote</a>
-            <a href="#it" class="btn btn-outline-light rounded-pill px-5 py-3 fw-bold text-decoration-none border-opacity-25">Our Expertise</a>
-        </div>
-    </div>
-</section>
-
-<div class="clients-marquee">
-    <div class="marquee-content">
-        <div class="client-item"><i class="fas fa-star"></i> Nithya amirtham</div>
-        <div class="client-item"><i class="fas fa-star"></i> Raji Info Tech</div>
-        <div class="client-item"><i class="fas fa-star"></i> Aaron garments</div>
-        <div class="client-item"><i class="fas fa-star"></i> Shanti gold house</div>
-        <div class="client-item"><i class="fas fa-star"></i> Nithya amirtham</div>
-        <div class="client-item"><i class="fas fa-star"></i> Raji Info Tech</div>
-        <div class="client-item"><i class="fas fa-star"></i> Aaron garments</div>
-        <div class="client-item"><i class="fas fa-star"></i> Shanti gold house</div>
-        <div class="client-item"><i class="fas fa-star"></i> Nithya amirtham</div>
-        <div class="client-item"><i class="fas fa-star"></i> Raji Info Tech</div>
-        <div class="client-item"><i class="fas fa-star"></i> Aaron garments</div>
-        <div class="client-item"><i class="fas fa-star"></i> Shanti gold house</div>
-    </div>
-</div>
-
-<section id="about" class="section-padding">
+<!-- HERO SECTION -->
+<section id="home" style="padding: 150px 0 90px; position: relative;">
     <div class="container">
         <div class="row g-5 align-items-center">
-            <div class="col-lg-6" data-aos="fade-right">
-                <h6 class="gold-text text-uppercase fw-bold mb-3">Our Identity</h6>
-                <h2 class="display-5 fw-bold mb-4">Unified Solutions for a <span class="gold-text">Digital World</span>.</h2>
-                <p class="text-dim mb-4">Prasan Global Service is a multidisciplinary firm based in Chennai, dedicated to providing premium technology and essential structural services under one roof.</p>
+            <div class="col-lg-7 text-lg-start text-center" data-aos="fade-right">
+                <span class="px-3 py-2 rounded-pill fw-bold text-uppercase x-small" style="background: rgba(255, 184, 0, 0.15); border: 1.5px solid var(--gold); color: var(--gold); letter-spacing: 1.5px; box-shadow: 0 0 20px var(--gold-glow); display: inline-block;">
+                    <i class="fas fa-rocket me-2"></i> Enterprise Software & AI Growth Platform
+                </span>
                 
-                <div class="row g-3 mb-4">
-                    <div class="col-6">
-                        <div class="glass-card p-3">
-                            <h6 class="gold-text mb-2"><i class="fas fa-bullseye me-2"></i>Mission</h6>
-                            <p class="small text-dim mb-0">Empowering businesses through automated technology and quality support.</p>
+                <h1 class="display-4 fw-extrabold my-4 text-white" style="letter-spacing: -1px; text-shadow: 0 0 35px rgba(0,210,255,0.4); line-height: 1.15;">
+                    Powering Next-Gen Enterprises With <br>
+                    <span style="color: var(--gold);" id="typed-text"></span>
+                </h1>
+                
+                <p class="lead text-dim mb-4" style="font-weight: 400; font-size: 1.18rem; max-width: 650px; line-height: 1.6;">
+                    Transform your business operations with <span class="text-white fw-bold">custom software engineering</span>, high-converting <span style="color:var(--cyan);" class="fw-bold">Meta Ads campaigns</span>, intelligent 24/7 <span style="color:var(--magenta);" class="fw-bold">AI Chatbots</span>, and multi-branch <span style="color:var(--gold);" class="fw-bold">POS ecosystems</span>.
+                </p>
+
+                <div class="d-flex flex-wrap justify-content-lg-start justify-content-center gap-3 mb-4">
+                    <a href="contact.html" class="btn-vibrant-gold">
+                        <i class="fas fa-calendar-check fs-5 me-1"></i> Get Live Demo & Quote
+                    </a>
+                    <a href="software.html" class="btn-vibrant-cyan">
+                        Explore Products <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- TRUST METRICS BAR -->
+                <div class="d-flex flex-wrap align-items-center justify-content-lg-start justify-content-center gap-4 text-dim x-small">
+                    <span><i class="fas fa-star me-1" style="color:var(--gold);"></i> <strong>200+</strong> Active Clients</span>
+                    <span><i class="fas fa-shield-check me-1" style="color:var(--emerald);"></i> <strong>99.9%</strong> Cloud Uptime</span>
+                    <span><i class="fas fa-headset me-1" style="color:var(--cyan);"></i> <strong>24/7</strong> Dedicated Support</span>
+                </div>
+            </div>
+
+            <!-- HERO FEATURED IMAGE SHOWCASE -->
+            <div class="col-lg-5 text-center" data-aos="fade-left">
+                <div class="position-relative d-inline-block">
+                    <div class="vibrant-card card-cyan p-2" style="border-radius: 32px; border: 2px solid var(--gold); box-shadow: 0 25px 50px rgba(0,0,0,0.8), 0 0 40px var(--gold-glow);">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800" class="img-fluid rounded-4 shadow-lg" style="max-height: 380px; width: 100%; object-fit: cover;" alt="Prasan Global Technology Showcase" fetchpriority="high" decoding="async">
+                    </div>
+                    
+                    <!-- Floating Badge 1 -->
+                    <div class="position-absolute top-0 start-0 translate-middle-y ms-n3 p-3 rounded-4" style="background: rgba(11, 13, 27, 0.92); border: 1.5px solid var(--emerald); backdrop-filter: blur(15px); box-shadow: 0 10px 25px rgba(0,0,0,0.6);">
+                        <div class="d-flex align-items-center gap-2">
+                            <div class="badge-emerald rounded-circle p-2" style="width:36px; height:36px; display:flex; align-items:center; justify-content:center;"><i class="fas fa-robot text-black"></i></div>
+                            <div class="text-start">
+                                <span class="d-block fw-bold text-white small">AI Chatbot</span>
+                                <span class="x-small text-emerald d-flex align-items-center gap-1" style="color:var(--emerald);"><i class="fas fa-circle" style="font-size:7px;"></i> 24/7 Active</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-6">
-                        <div class="glass-card p-3">
-                            <h6 class="gold-text mb-2"><i class="fas fa-eye me-2"></i>Vision</h6>
-                            <p class="small text-dim mb-0">Setting the global standard for integrated outsourcing excellence.</p>
+
+                    <!-- Floating Badge 2 -->
+                    <div class="position-absolute bottom-0 end-0 translate-middle-y me-n3 p-3 rounded-4" style="background: rgba(11, 13, 27, 0.92); border: 1.5px solid var(--gold); backdrop-filter: blur(15px); box-shadow: 0 10px 25px rgba(0,0,0,0.6);">
+                        <div class="d-flex align-items-center gap-2">
+                            <div class="badge-gold rounded-circle p-2" style="width:36px; height:36px; display:flex; align-items:center; justify-content:center;"><i class="fas fa-cash-register text-black"></i></div>
+                            <div class="text-start">
+                                <span class="d-block fw-bold text-white small">Prasan POS & Barcode</span>
+                                <span class="x-small" style="color:var(--gold);">Food, Retail & HRMS</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="d-flex align-items-center">
-                    <img src="sam.jpeg" class="leader-avatar" style="width: 60px; height: 60px;" alt="CEO">
-                    <div>
-                        <p class="small mb-0 italic text-dim">"Quality is our foundation; innovation is our future."</p>
-                        <span class="gold-text fw-bold small">— Sam Santhosh, CEO</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-lg-6">
-                <div class="row g-4 text-center">
-                    <div class="col-6"><div class="glass-card stat-item"><h2 class="counter" data-target="200">0</h2><span class="gold-text h2">+</span><p>Clients</p></div></div>
-                    <div class="col-6"><div class="glass-card stat-item"><h2 class="counter" data-target="150">0</h2><span class="gold-text h2">+</span><p>Projects</p></div></div>
-                    <div class="col-6"><div class="glass-card stat-item"><h2 class="counter" data-target="24">0</h2><span class="gold-text h2">/7</span><p>Support</p></div></div>
-                    <div class="col-6"><div class="glass-card stat-item"><h2 class="counter" data-target="100">0</h2><span class="gold-text h2">%</span><p>Quality</p></div></div>
-                </div>
             </div>
         </div>
     </div>
 </section>
 
-<section id="it" class="section-padding" style="background: var(--surface);">
-    <div class="container text-center">
-        <h6 class="gold-text text-uppercase fw-bold mb-3">Technology</h6>
-        <h2 class="fw-bold mb-5" data-aos="fade-up">Software & <span class="gold-text">IT Excellence</span></h2>
-        <div class="row g-4">
-            <div class="col-md-4">
-                <div class="glass-card">
-                    <img src="https://images.unsplash.com/photo-1556742044-3c52d6e88c62?q=80&w=600" class="card-bg-img" alt="POS">
-                    <div class="icon-box"><i class="fas fa-code"></i></div>
-                    <h5>Web & POS Systems</h5>
-                    <p class="small text-dim">Premium e-commerce and POS billing software designed for business growth and retail automation.</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="glass-card">
-                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=600" class="card-bg-img" alt="Marketing">
-                    <div class="icon-box"><i class="fas fa-chart-line"></i></div>
-                    <h5>Digital Marketing</h5>
-                    <p class="small text-dim">Advanced SEO, social media management, and professional high-end branding for the digital age.</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="glass-card">
-                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=600" class="card-bg-img" alt="Consultancy">
-                    <div class="icon-box"><i class="fas fa-laptop-code"></i></div>
-                    <h5>IT Consultancy</h5>
-                    <p class="small text-dim">Tailored automation and technical strategies to modernize your infrastructure and operations.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="bpo" class="section-padding">
-    <div class="container text-center">
-        <h6 class="gold-text text-uppercase fw-bold mb-3">Operations</h6>
-        <h2 class="fw-bold mb-5" data-aos="fade-up">Global <span class="gold-text">BPO Services</span></h2>
-        <div class="row g-4">
-            <div class="col-md-6 col-lg-3">
-                <div class="glass-card p-4">
-                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=400" class="card-bg-img" alt="Support">
-                    <div class="icon-box mb-3"><i class="fas fa-headset"></i></div>
-                    <h6>Customer Support</h6>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="glass-card p-4">
-                    <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=400" class="card-bg-img" alt="Data">
-                    <div class="icon-box mb-3"><i class="fas fa-database"></i></div>
-                    <h6>Data Entry</h6>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="glass-card p-4">
-                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=400" class="card-bg-img" alt="Backoffice">
-                    <div class="icon-box mb-3"><i class="fas fa-file-invoice"></i></div>
-                    <h6>Back Office</h6>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="glass-card p-4">
-                    <img src="https://images.unsplash.com/photo-1504386106331-3e4e71712b38?q=80&w=400" class="card-bg-img" alt="Archive">
-                    <div class="icon-box mb-3"><i class="fas fa-archive"></i></div>
-                    <h6>Data Archiving</h6>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="civil" class="section-padding" style="background: var(--surface);">
-    <div class="container">
-        <h6 class="gold-text text-uppercase fw-bold mb-3 text-center">Infrastructure</h6>
-        <h2 class="fw-bold text-center mb-5" data-aos="fade-up">Civil & <span class="gold-text">Home Solutions</span></h2>
-        <div class="row g-4">
-            <div class="col-md-6">
-                <div class="glass-card d-flex align-items-center">
-                    <div class="icon-box mb-0 me-4"><i class="fas fa-trowel-bricks"></i></div>
-                    <div>
-                        <h5>General Construction</h5>
-                        <p class="small text-dim mb-0">Quality building, renovations, and structural maintenance.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="glass-card d-flex align-items-center">
-                    <div class="icon-box mb-0 me-4"><i class="fas fa-bolt"></i></div>
-                    <div>
-                        <h5>Electrical & AC</h5>
-                        <p class="small text-dim mb-0">Professional wiring, maintenance, and cooling services.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="glass-card d-flex align-items-center">
-                    <div class="icon-box mb-0 me-4"><i class="fas fa-broom"></i></div>
-                    <div>
-                        <h5>Deep Cleaning</h5>
-                        <p class="small text-dim mb-0">Premium industrial and residential cleaning solutions.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="glass-card d-flex align-items-center">
-                    <div class="icon-box mb-0 me-4"><i class="fas fa-paint-roller"></i></div>
-                    <div>
-                        <h5>Interior & Painting</h5>
-                        <p class="small text-dim mb-0">Custom interior designs and high-quality finish painting.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="faq" class="section-padding">
-    <div class="container" style="max-width: 900px;">
-        <h2 class="fw-bold text-center mb-5" data-aos="fade-up">Expert <span class="gold-text">Insights (FAQ)</span></h2>
-        <div class="accordion" id="faqAccordion">
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f1">
-                        01. What is the Aaron Billing Software?
-                    </button>
-                </h2>
-                <div id="f1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                    <div class="accordion-body text-dim">
-                        Aaron Billing Software is our custom-built multi-store POS management system designed for garments, retail shops, and e-commerce integration.
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f2">
-                        02. Do you provide documentation services?
-                    </button>
-                </h2>
-                <div id="f2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                    <div class="accordion-body text-dim">
-                        Yes, we assist with GST registration, professional online documentation, and government-related applications through our service center.
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f3">
-                        03. Are your BPO services available 24/7?
-                    </button>
-                </h2>
-                <div id="f3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                    <div class="accordion-body text-dim">
-                        Absolutely. We provide round-the-clock customer support and back-office operations to ensure global business continuity.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="contact" class="section-padding bg-black">
-    <div class="container">
-        <div class="row g-5">
-            <div class="col-lg-5" data-aos="fade-right">
-                <h2 class="fw-bold mb-4">Let's <span class="gold-text">Connect</span></h2>
-                <p class="text-dim mb-3"><i class="fas fa-map-marker-alt gold-text me-2"></i> SVM Nagar 2nd Street Ennore, Chennai - 600057</p>
-                <p class="text-dim mb-3"><i class="fas fa-phone-alt gold-text me-2"></i> +91 98840 50379</p>
-                <p class="text-dim mb-3"><i class="fas fa-envelope gold-text me-2"></i> prasanglobalsolution@gmail.com</p>
-                <p class="gold-text fw-bold mb-4 small">GSTIN: 33PHXPS6095C1ZD</p>
-                <div class="d-flex gap-3">
-                    <a href="mailto:prasanglobalsolution@gmail.com" class="btn btn-outline-warning rounded-pill px-4">Email Us</a>
-                    <a href="https://wa.me/919884050379" class="btn btn-outline-success rounded-pill px-4">WhatsApp</a>
-                </div>
-            </div>
-            <div class="col-lg-7" data-aos="fade-left">
-    <div class="map-container">
-        <iframe 
-            src="https://www.google.com/maps?q=Chennai&output=embed"
-            width="100%" 
-            height="350" 
-            style="border:0;" 
-            allowfullscreen="" 
-            loading="lazy">
-        </iframe>
+<!-- CLIENT MARQUEE -->
+<div class="clients-marquee">
+    <div class="marquee-content">
+        <div class="client-item"><i class="fas fa-star"></i> Nithya Amirtham</div>
+        <div class="client-item"><i class="fas fa-star"></i> Raji Info Tech</div>
+        <div class="client-item"><i class="fas fa-star"></i> Aaron Garments</div>
+        <div class="client-item"><i class="fas fa-star"></i> Shanti Gold House</div>
+        <div class="client-item"><i class="fas fa-star"></i> Food & Retail Outlets</div>
+        <div class="client-item"><i class="fas fa-star"></i> Nithya Amirtham</div>
+        <div class="client-item"><i class="fas fa-star"></i> Raji Info Tech</div>
+        <div class="client-item"><i class="fas fa-star"></i> Aaron Garments</div>
+        <div class="client-item"><i class="fas fa-star"></i> Shanti Gold House</div>
     </div>
 </div>
+
+<!-- TECHNOLOGIES & TOOLS STACK -->
+<section class="py-5" style="border-top: 1px solid var(--glass-border);">
+    <div class="container py-4">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <span class="fw-bold text-uppercase tracking-wider small" style="color:var(--cyan);">Modern Ecosystem</span>
+            <h2 class="display-6 fw-bold text-white mt-2">Technologies & <span style="color:var(--cyan);">Tools We Use</span></h2>
+            <p class="text-dim mx-auto" style="max-width: 680px;">We leverage enterprise-grade technologies, AI models, and marketing tools to build scalable applications and drive sales growth.</p>
+        </div>
+
+        <div class="row g-4 text-center">
+            <!-- Tech 1: React -->
+            <div class="col-6 col-md-3" data-aos="zoom-in">
+                <div class="vibrant-card card-cyan p-4 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="icon-badge badge-cyan mx-auto mb-3"><i class="fab fa-react"></i></div>
+                        <h5 class="fw-bold text-white">React JS & Vite</h5>
+                        <p class="x-small text-dim mb-3">High-speed web app frontend framework.</p>
+                    </div>
+                    <button class="btn btn-sm btn-vibrant-cyan w-100 py-2 rounded-pill fw-bold" onclick="openTechModal('react')">
+                        How It Works <i class="fas fa-arrow-right ms-1"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Tech 2: Meta Ads -->
+            <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="100">
+                <div class="vibrant-card p-4 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="icon-badge badge-gold mx-auto mb-3"><i class="fab fa-facebook"></i></div>
+                        <h5 class="fw-bold text-white">Meta Ads Manager</h5>
+                        <p class="x-small text-dim mb-3">Facebook & Instagram ad campaign algorithms.</p>
+                    </div>
+                    <button class="btn btn-sm btn-vibrant-gold w-100 py-2 rounded-pill fw-bold" onclick="openTechModal('meta')">
+                        How It Works <i class="fas fa-arrow-right ms-1"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Tech 3: AI LLMs -->
+            <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="200">
+                <div class="vibrant-card card-magenta p-4 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="icon-badge badge-magenta mx-auto mb-3"><i class="fas fa-brain"></i></div>
+                        <h5 class="fw-bold text-white">OpenAI & Gemini API</h5>
+                        <p class="x-small text-dim mb-3">Custom AI Chatbot & WhatsApp NLP engines.</p>
+                    </div>
+                    <button class="btn btn-sm btn-vibrant-magenta w-100 py-2 rounded-pill fw-bold" onclick="openTechModal('ai')">
+                        How It Works <i class="fas fa-arrow-right ms-1"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Tech 4: Python & Node -->
+            <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="300">
+                <div class="vibrant-card card-emerald p-4 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="icon-badge badge-emerald mx-auto mb-3"><i class="fab fa-python"></i></div>
+                        <h5 class="fw-bold text-white">Python & Node.js</h5>
+                        <p class="x-small text-dim mb-3">Scalable backend microservices & REST APIs.</p>
+                    </div>
+                    <button class="btn btn-sm btn-outline-vibrant w-100 py-2 rounded-pill fw-bold" style="border-color:var(--emerald); color:var(--emerald);" onclick="openTechModal('python')">
+                        How It Works <i class="fas fa-arrow-right ms-1"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Tech 5: Databases -->
+            <div class="col-6 col-md-3" data-aos="zoom-in">
+                <div class="vibrant-card p-4 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="icon-badge badge-gold mx-auto mb-3"><i class="fas fa-database"></i></div>
+                        <h5 class="fw-bold text-white">MySQL & PostgreSQL</h5>
+                        <p class="x-small text-dim mb-3">Secure cloud database storage engines.</p>
+                    </div>
+                    <button class="btn btn-sm btn-vibrant-gold w-100 py-2 rounded-pill fw-bold" onclick="openTechModal('db')">
+                        How It Works <i class="fas fa-arrow-right ms-1"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Tech 6: Barcode -->
+            <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="100">
+                <div class="vibrant-card card-emerald p-4 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="icon-badge badge-emerald mx-auto mb-3"><i class="fas fa-barcode"></i></div>
+                        <h5 class="fw-bold text-white">Thermal Barcode SDK</h5>
+                        <p class="x-small text-dim mb-3">EAN-13, Code-128 & QR label printing toolset.</p>
+                    </div>
+                    <button class="btn btn-sm btn-outline-vibrant w-100 py-2 rounded-pill fw-bold" style="border-color:var(--emerald); color:var(--emerald);" onclick="openTechModal('barcode')">
+                        How It Works <i class="fas fa-arrow-right ms-1"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Tech 7: Biometrics -->
+            <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="200">
+                <div class="vibrant-card card-magenta p-4 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="icon-badge badge-magenta mx-auto mb-3"><i class="fas fa-fingerprint"></i></div>
+                        <h5 class="fw-bold text-white">Biometric & Geo API</h5>
+                        <p class="x-small text-dim mb-3">Facial recognition & GPS attendance punch.</p>
+                    </div>
+                    <button class="btn btn-sm btn-vibrant-magenta w-100 py-2 rounded-pill fw-bold" onclick="openTechModal('biometric')">
+                        How It Works <i class="fas fa-arrow-right ms-1"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Tech 8: Render -->
+            <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="300">
+                <div class="vibrant-card card-cyan p-4 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="icon-badge badge-cyan mx-auto mb-3"><i class="fas fa-cloud"></i></div>
+                        <h5 class="fw-bold text-white">Render & Cloudflare</h5>
+                        <p class="x-small text-dim mb-3">Global static CDN hosting & SSL security.</p>
+                    </div>
+                    <button class="btn btn-sm btn-vibrant-cyan w-100 py-2 rounded-pill fw-bold" onclick="openTechModal('render')">
+                        How It Works <i class="fas fa-arrow-right ms-1"></i>
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 
+<!-- TECHNICAL RESOURCES STACK CATEGORIES -->
+<section id="technical-resources" class="py-5" style="border-top: 1px solid var(--glass-border); background: rgba(11, 13, 27, 0.6);">
+    <div class="container py-4">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <span class="fw-bold text-uppercase tracking-wider small" style="color:var(--gold);">Enterprise Stack</span>
+            <h2 class="display-6 fw-bold text-white mt-2">Our Technical <span style="color:var(--gold);">Resources</span></h2>
+            <p class="text-dim mx-auto" style="max-width: 720px;">Our technical resources encompass the cutting-edge tools and frameworks that power our enterprise software solutions.</p>
+        </div>
+
+        <div class="row g-4 text-center">
+            <!-- Server Tech -->
+            <div class="col-md-4" data-aos="fade-up">
+                <div class="vibrant-card card-cyan p-4">
+                    <div class="icon-badge badge-cyan mx-auto mb-3"><i class="fas fa-server"></i></div>
+                    <h4 class="fw-bold text-white mb-3">Server Technologies</h4>
+                    <div class="d-flex flex-wrap justify-content-center gap-2">
+                        <span class="badge bg-dark border border-info text-cyan px-3 py-2">Go (Golang)</span>
+                        <span class="badge bg-dark border border-info text-cyan px-3 py-2">Java</span>
+                        <span class="badge bg-dark border border-info text-cyan px-3 py-2">C++</span>
+                        <span class="badge bg-dark border border-info text-cyan px-3 py-2">C#</span>
+                        <span class="badge bg-dark border border-info text-cyan px-3 py-2">.NET Core</span>
+                        <span class="badge bg-dark border border-info text-cyan px-3 py-2">ASP.NET</span>
+                        <span class="badge bg-dark border border-info text-cyan px-3 py-2">VB.NET</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Web & Mobile Dev -->
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="vibrant-card p-4">
+                    <div class="icon-badge badge-gold mx-auto mb-3"><i class="fas fa-mobile-screen-button"></i></div>
+                    <h4 class="fw-bold text-white mb-3">Web & Mobile App Dev</h4>
+                    <div class="d-flex flex-wrap justify-content-center gap-2">
+                        <span class="badge bg-dark border border-warning text-warning px-3 py-2">HTML5 & CSS3</span>
+                        <span class="badge bg-dark border border-warning text-warning px-3 py-2">React JS</span>
+                        <span class="badge bg-dark border border-warning text-warning px-3 py-2">AngularJS</span>
+                        <span class="badge bg-dark border border-warning text-warning px-3 py-2">Swift (iOS)</span>
+                        <span class="badge bg-dark border border-warning text-warning px-3 py-2">Objective-C</span>
+                        <span class="badge bg-dark border border-warning text-warning px-3 py-2">Kotlin (Android)</span>
+                        <span class="badge bg-dark border border-warning text-warning px-3 py-2">React Native</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DevOps & Cloud -->
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="vibrant-card card-magenta p-4">
+                    <div class="icon-badge badge-magenta mx-auto mb-3"><i class="fas fa-cloud"></i></div>
+                    <h4 class="fw-bold text-white mb-3">DevOps & Cloud Stack</h4>
+                    <div class="d-flex flex-wrap justify-content-center gap-2">
+                        <span class="badge bg-dark border border-danger text-danger px-3 py-2">AWS</span>
+                        <span class="badge bg-dark border border-danger text-danger px-3 py-2">Google Cloud</span>
+                        <span class="badge bg-dark border border-danger text-danger px-3 py-2">MS Azure</span>
+                        <span class="badge bg-dark border border-danger text-danger px-3 py-2">Docker</span>
+                        <span class="badge bg-dark border border-danger text-danger px-3 py-2">Kubernetes</span>
+                        <span class="badge bg-dark border border-danger text-danger px-3 py-2">Jenkins</span>
+                        <span class="badge bg-dark border border-danger text-danger px-3 py-2">Render & Firebase</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Databases -->
+            <div class="col-md-4" data-aos="fade-up">
+                <div class="vibrant-card card-emerald p-4">
+                    <div class="icon-badge badge-emerald mx-auto mb-3"><i class="fas fa-database"></i></div>
+                    <h4 class="fw-bold text-white mb-3">Databases & Storage</h4>
+                    <div class="d-flex flex-wrap justify-content-center gap-2">
+                        <span class="badge bg-dark border border-success text-emerald px-3 py-2">MongoDB</span>
+                        <span class="badge bg-dark border border-success text-emerald px-3 py-2">MySQL</span>
+                        <span class="badge bg-dark border border-success text-emerald px-3 py-2">PostgreSQL</span>
+                        <span class="badge bg-dark border border-success text-emerald px-3 py-2">MariaDB</span>
+                        <span class="badge bg-dark border border-success text-emerald px-3 py-2">SQLite</span>
+                        <span class="badge bg-dark border border-success text-emerald px-3 py-2">MS SQL Server</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Design & Testing -->
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="vibrant-card p-4">
+                    <div class="icon-badge badge-gold mx-auto mb-3"><i class="fas fa-pen-nib"></i></div>
+                    <h4 class="fw-bold text-white mb-3">UI/UX Design Tools</h4>
+                    <div class="d-flex flex-wrap justify-content-center gap-2">
+                        <span class="badge bg-dark border border-warning text-gold px-3 py-2">Figma</span>
+                        <span class="badge bg-dark border border-warning text-gold px-3 py-2">Adobe XD</span>
+                        <span class="badge bg-dark border border-warning text-gold px-3 py-2">Sketch</span>
+                        <span class="badge bg-dark border border-warning text-gold px-3 py-2">Grafana</span>
+                        <span class="badge bg-dark border border-warning text-gold px-3 py-2">Illustrator</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quality Testing -->
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="vibrant-card card-cyan p-4">
+                    <div class="icon-badge badge-cyan mx-auto mb-3"><i class="fas fa-vial"></i></div>
+                    <h4 class="fw-bold text-white mb-3">Testing & QA</h4>
+                    <div class="d-flex flex-wrap justify-content-center gap-2">
+                        <span class="badge bg-dark border border-info text-cyan px-3 py-2">Selenium</span>
+                        <span class="badge bg-dark border border-info text-cyan px-3 py-2">Postman API</span>
+                        <span class="badge bg-dark border border-info text-cyan px-3 py-2">Jira Test Automation</span>
+                        <span class="badge bg-dark border border-info text-cyan px-3 py-2">Unit Testing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- INDUSTRIES WE SPECIALIZE IN -->
+<section class="py-5">
+    <div class="container py-4">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <span class="fw-bold text-uppercase tracking-wider small" style="color:var(--cyan);">Domain Expertise</span>
+            <h2 class="display-6 fw-bold text-white mt-2">Industries We <span style="color:var(--cyan);">Specialize In</span></h2>
+            <p class="text-dim mx-auto" style="max-width: 760px;">We develop custom software solutions precisely tailored to address the unique challenges and requirements of each domain.</p>
+        </div>
+
+        <div class="row g-4 text-center">
+            <!-- Industry 1: Banking -->
+            <div class="col-6 col-md-3" data-aos="zoom-in">
+                <div class="vibrant-card card-cyan p-4">
+                    <div class="icon-badge badge-cyan mx-auto mb-3"><i class="fas fa-building-columns"></i></div>
+                    <h5 class="fw-bold text-white">Banking & FinTech</h5>
+                    <p class="x-small text-dim mb-0">Secure payment portals & ledger automation.</p>
+                </div>
+            </div>
+            <!-- Industry 2: Healthcare -->
+            <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="100">
+                <div class="vibrant-card card-magenta p-4">
+                    <div class="icon-badge badge-magenta mx-auto mb-3"><i class="fas fa-user-doctor"></i></div>
+                    <h5 class="fw-bold text-white">Health Care & HMS</h5>
+                    <p class="x-small text-dim mb-0">Medify HMS, PMS & Teleconsultation apps.</p>
+                </div>
+            </div>
+            <!-- Industry 3: Retail -->
+            <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="200">
+                <div class="vibrant-card p-4">
+                    <div class="icon-badge badge-gold mx-auto mb-3"><i class="fas fa-cart-shopping"></i></div>
+                    <h5 class="fw-bold text-white">Retail & E-Commerce</h5>
+                    <p class="x-small text-dim mb-0">Garments POS, Barcode printer & online stores.</p>
+                </div>
+            </div>
+            <!-- Industry 4: Logistics -->
+            <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="300">
+                <div class="vibrant-card card-emerald p-4">
+                    <div class="icon-badge badge-emerald mx-auto mb-3"><i class="fas fa-truck-fast"></i></div>
+                    <h5 class="fw-bold text-white">Logistics & Transport</h5>
+                    <p class="x-small text-dim mb-0">GPS fleet tracking & delivery management.</p>
+                </div>
+            </div>
+            <!-- Industry 5: Manufacturing -->
+            <div class="col-6 col-md-3" data-aos="zoom-in">
+                <div class="vibrant-card p-4">
+                    <div class="icon-badge badge-gold mx-auto mb-3"><i class="fas fa-industry"></i></div>
+                    <h5 class="fw-bold text-white">Manufacturing</h5>
+                    <p class="x-small text-dim mb-0">Factory stock control & ERP automation.</p>
+                </div>
+            </div>
+            <!-- Industry 6: Legal -->
+            <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="100">
+                <div class="vibrant-card card-emerald p-4">
+                    <div class="icon-badge badge-emerald mx-auto mb-3"><i class="fas fa-scale-balanced"></i></div>
+                    <h5 class="fw-bold text-white">Legal & Compliance</h5>
+                    <p class="x-small text-dim mb-0">Document archiving & GST registration portals.</p>
+                </div>
+            </div>
+            <!-- Industry 7: Hospitality -->
+            <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="200">
+                <div class="vibrant-card card-cyan p-4">
+                    <div class="icon-badge badge-cyan mx-auto mb-3"><i class="fas fa-hotel"></i></div>
+                    <h5 class="fw-bold text-white">Travel & Hospitality</h5>
+                    <p class="x-small text-dim mb-0">Food Billing POS & hotel booking engines.</p>
+                </div>
+            </div>
+            <!-- Industry 8: Education -->
+            <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="300">
+                <div class="vibrant-card card-magenta p-4">
+                    <div class="icon-badge badge-magenta mx-auto mb-3"><i class="fas fa-graduation-cap"></i></div>
+                    <h5 class="fw-bold text-white">Education & Learning</h5>
+                    <p class="x-small text-dim mb-0">Student attendance HRMS & portal management.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PORTFOLIO SHOWCASE (MEDIFY HMS, PMS, TELECONSULTATION) -->
+<section id="portfolio" class="py-5" style="background: rgba(11, 13, 27, 0.8); border-top: 1px solid var(--glass-border);">
+    <div class="container py-4">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <span class="fw-bold text-uppercase tracking-wider small" style="color:var(--gold);">Featured Projects</span>
+            <h2 class="display-6 fw-bold text-white mt-2">Software Solutions <span style="color:var(--gold);">Portfolio</span></h2>
+            <p class="text-dim mx-auto" style="max-width: 720px;">Explore our portfolio featuring successful software implementations across Healthcare, POS, HRMS, and Lead Generation.</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Portfolio 1: Medify HMS -->
+            <div class="col-md-4" data-aos="fade-up">
+                <div class="vibrant-card card-cyan p-4">
+                    <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=600" class="img-fluid rounded-4 mb-3" style="max-height: 200px; width:100%; object-fit: cover;" alt="Medify HMS">
+                    <span class="badge bg-info text-black fw-bold mb-2">Healthcare Suite</span>
+                    <h4 class="fw-bold text-white mb-2">Medify (Hospital Management System)</h4>
+                    <p class="text-dim small mb-4">Integrates OPD/IPD, electronic health records (EHR), pharmacy, lab tests, and hospital billing into a single cohesive platform.</p>
+                    <a href="https://wa.me/919884050379?text=Hi%20Prasan%20Global!%20I%20want%20a%20demo%20for%20Medify%20Hospital%20Management%20System." target="_blank" class="btn-vibrant-cyan w-100 justify-content-center py-2" style="font-size:0.9rem;">
+                        More Info & Demo <i class="fas fa-arrow-right ms-1"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Portfolio 2: Medify PMS -->
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="vibrant-card card-magenta p-4">
+                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=600" class="img-fluid rounded-4 mb-3" style="max-height: 200px; width:100%; object-fit: cover;" alt="Medify Patient Management">
+                    <span class="badge bg-danger fw-bold mb-2">Patient Records</span>
+                    <h4 class="fw-bold text-white mb-2">Medify (Patient Management System)</h4>
+                    <p class="text-dim small mb-4">Streamlines patient registrations, medical history tracking, appointment scheduling, and automated SMS reminders.</p>
+                    <a href="https://wa.me/919884050379?text=Hi%20Prasan%20Global!%20I%20want%20a%20demo%20for%20Medify%20Patient%20Management." target="_blank" class="btn-vibrant-magenta w-100 justify-content-center py-2" style="font-size:0.9rem;">
+                        More Info & Demo <i class="fas fa-arrow-right ms-1"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Portfolio 3: Medify Teleconsultation -->
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="vibrant-card card-emerald p-4">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=600" class="img-fluid rounded-4 mb-3" style="max-height: 200px; width:100%; object-fit: cover;" alt="Medify Teleconsultation">
+                    <span class="badge bg-success text-black fw-bold mb-2">Tele-Health</span>
+                    <h4 class="fw-bold text-white mb-2">Medify (Teleconsultation Platform)</h4>
+                    <p class="text-dim small mb-4">Encrypted video consultation platform enabling doctors and patients to connect remotely with instant digital prescriptions.</p>
+                    <a href="https://wa.me/919884050379?text=Hi%20Prasan%20Global!%20I%20want%20a%20demo%20for%20Medify%20Teleconsultation." target="_blank" class="btn-vibrant-gold w-100 justify-content-center py-2" style="font-size:0.9rem;">
+                        More Info & Demo <i class="fas fa-arrow-right ms-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WHY CHOOSE US & BOOK DISCOVERY CALL -->
+<section class="py-5" style="border-top: 1px solid var(--glass-border);">
+    <div class="container py-4">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6" data-aos="fade-right">
+                <span class="fw-bold text-uppercase tracking-wider small" style="color:var(--gold);">Client Partnership</span>
+                <h2 class="display-6 fw-bold my-3 text-white">Why Choose <span style="color:var(--gold);">Prasan Global?</span></h2>
+                <p class="text-dim mb-4">We are a bootstrapped software firm that understands the exact growth needs of our clients and delivers high-impact software solutions.</p>
+
+                <div class="d-flex align-items-start mb-3">
+                    <div class="icon-badge badge-gold me-3 flex-shrink-0" style="width:45px; height:45px; font-size:18px;"><i class="fas fa-trophy"></i></div>
+                    <div>
+                        <h6 class="fw-bold text-white mb-1">Proven Track Record</h6>
+                        <p class="x-small text-dim mb-0">Successful deployments across Healthcare, POS Billing, HRMS, and Lead Generation.</p>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-start mb-3">
+                    <div class="icon-badge badge-cyan me-3 flex-shrink-0" style="width:45px; height:45px; font-size:18px;"><i class="fas fa-shield-halved"></i></div>
+                    <div>
+                        <h6 class="fw-bold text-white mb-1">Robust Security & Data Protection</h6>
+                        <p class="x-small text-dim mb-0">Strict encryption protocols and cloud automated daily backups.</p>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-start mb-4">
+                    <div class="icon-badge badge-magenta me-3 flex-shrink-0" style="width:45px; height:45px; font-size:18px;"><i class="fas fa-headset"></i></div>
+                    <div>
+                        <h6 class="fw-bold text-white mb-1">Comprehensive Support</h6>
+                        <p class="x-small text-dim mb-0">End-to-end technical assistance from setup to 24/7 maintenance.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BOOK DISCOVERY CALL CARD -->
+            <div class="col-lg-6" data-aos="fade-left">
+                <div class="vibrant-card card-gold p-5 text-center" style="border: 2px solid var(--gold); box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 30px var(--gold-glow);">
+                    <div class="icon-badge badge-gold mx-auto mb-3" style="width:70px; height:70px; font-size:32px;"><i class="fas fa-calendar-check text-black"></i></div>
+                    <h3 class="fw-bold text-white mb-3">Ready to Take the Next Step?</h3>
+                    <p class="text-dim mb-4">Schedule your discovery call now! Our technical team will analyze your requirements and build a tailored software solution.</p>
+
+                    <a href="https://wa.me/919884050379?text=Hi%20Prasan%20Global!%20I%20want%20to%20book%20a%20Discovery%20Call." target="_blank" class="btn-vibrant-gold btn-lg w-100 justify-content-center py-3">
+                        Book Discovery Call Now <i class="fas fa-arrow-right ms-2"></i>
+                    </a>
+                    <p class="x-small text-dim mt-3 mb-0"><i class="fas fa-lock me-1" style="color:var(--gold);"></i> 100% Free Consultation • Instant Response</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FREQUENTLY ASKED QUESTIONS (Q&A) -->
+<section class="py-5" style="background: rgba(11, 13, 27, 0.8); border-top: 1px solid var(--glass-border);">
+    <div class="container py-4" style="max-width: 920px;">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <span class="fw-bold text-uppercase tracking-wider small" style="color:var(--gold);">Questions & Answers</span>
+            <h2 class="display-6 fw-bold text-white mt-2">Frequently Asked <span style="color:var(--gold);">Questions (FAQ)</span></h2>
+            <p class="text-dim">Everything you need to know about our software POS, Meta Ads, AI Chatbots, and technical support.</p>
+        </div>
+
+        <div class="accordion accordion-flush" id="mainFaqAccordion" data-aos="fade-up">
+            <!-- Q1 -->
+            <div class="accordion-item bg-transparent mb-3 border rounded-4 overflow-hidden" style="border-color: var(--glass-border) !important;">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-dark text-white fw-bold p-4" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                        1. Can your website applications be hosted on Render for free?
+                    </button>
+                </h2>
+                <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#mainFaqAccordion">
+                    <div class="accordion-body bg-dark text-dim p-4 border-top border-secondary">
+                        Yes! All our frontend web applications built with React JS, Vite, or Static HTML/JS are fully optimized for <strong>Render Static Hosting</strong>. Render provides global CDN hosting, free SSL certificates, and 100% uptime with zero server maintenance costs.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="accordion-item bg-transparent mb-3 border rounded-4 overflow-hidden" style="border-color: var(--glass-border) !important;">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-dark text-white fw-bold p-4" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                        2. How does the Barcode Generation & Sticker Printing Software work?
+                    </button>
+                </h2>
+                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#mainFaqAccordion">
+                    <div class="accordion-body bg-dark text-dim p-4 border-top border-secondary">
+                        Our <strong>Barcode Generator Application</strong> allows you to create bulk product barcodes (EAN-13, Code-128, QR Codes) in seconds. You can batch print custom stickers directly to any thermal label printer for garments, retail shops, and warehouses.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q3 -->
+            <div class="accordion-item bg-transparent mb-3 border rounded-4 overflow-hidden" style="border-color: var(--glass-border) !important;">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-dark text-white fw-bold p-4" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                        3. What features are included in Aaron Food Billing POS?
+                    </button>
+                </h2>
+                <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#mainFaqAccordion">
+                    <div class="accordion-body bg-dark text-dim p-4 border-top border-secondary">
+                        Aaron Food Billing POS includes instant Kitchen Order Ticket (KOT) printing, table layout management, dine-in/takeaway billing, Swiggy & Zomato order synchronization, cloud multi-branch reporting, and GST tax invoice generation.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q4 -->
+            <div class="accordion-item bg-transparent mb-3 border rounded-4 overflow-hidden" style="border-color: var(--glass-border) !important;">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-dark text-white fw-bold p-4" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                        4. How do Meta Ads Campaigns generate leads for my business?
+                    </button>
+                </h2>
+                <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#mainFaqAccordion">
+                    <div class="accordion-body bg-dark text-dim p-4 border-top border-secondary">
+                        We design high-converting targeted Facebook & Instagram ads. We target your exact customer demographics in your region and direct interested leads straight to your WhatsApp or lead capture form for high sales conversion.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q5 -->
+            <div class="accordion-item bg-transparent mb-3 border rounded-4 overflow-hidden" style="border-color: var(--glass-border) !important;">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-dark text-white fw-bold p-4" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                        5. How does the HR & Attendance Management System (HRMS) track employee punches?
+                    </button>
+                </h2>
+                <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#mainFaqAccordion">
+                    <div class="accordion-body bg-dark text-dim p-4 border-top border-secondary">
+                        Our HRMS integrates with Biometric facial/fingerprint devices for office staff, as well as Mobile GPS Geo-fencing for field workers. It automatically processes monthly attendance, leave approvals, and automated payroll slips.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q6 -->
+            <div class="accordion-item bg-transparent mb-3 border rounded-4 overflow-hidden" style="border-color: var(--glass-border) !important;">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-dark text-white fw-bold p-4" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+                        6. Can you build a Custom AI Chatbot for my company's WhatsApp and website?
+                    </button>
+                </h2>
+                <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#mainFaqAccordion">
+                    <div class="accordion-body bg-dark text-dim p-4 border-top border-secondary">
+                        Yes! We create custom AI Chatbots trained on your business offerings. The AI chatbot auto-answers customer questions 24/7 on your website and WhatsApp, collects lead details, and routes inquiries to your phone.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="py-5">
+    <div class="container py-5">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <span class="fw-bold text-uppercase tracking-wider small" style="color: var(--cyan);">Core Divisions</span>
+            <h2 class="display-6 fw-bold mt-2">What We Offer For Your <span style="color: var(--gold);">Business Success</span></h2>
+            <p class="text-dim mx-auto" style="max-width: 650px;">Choose a division below to explore our software, digital marketing campaigns, and infrastructure services.</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Division 1: Software POS -->
+            <div class="col-md-6 col-lg-3" data-aos="fade-up">
+                <div class="vibrant-card">
+                    <div class="icon-badge badge-gold"><i class="fas fa-cash-register"></i></div>
+                    <h4 class="fw-bold mb-3">Software POS & HRMS</h4>
+                    <p class="text-dim small mb-4">Aaron Food Billing POS, Garment Retail Billing POS, and Biometric HR & Attendance Management System.</p>
+                    <a href="software.html" class="btn btn-outline-vibrant w-100 justify-content-center">View Software <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Division 2: Meta Ads & AI -->
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                <div class="vibrant-card card-cyan">
+                    <div class="icon-badge badge-cyan"><i class="fab fa-facebook"></i></div>
+                    <h4 class="fw-bold mb-3">Meta Ads & AI Bots</h4>
+                    <p class="text-dim small mb-4">High-ROI Facebook & Instagram Ad Campaigns, WhatsApp AI Bots & Custom AI Support Chatbots.</p>
+                    <a href="digital-ai.html" class="btn-vibrant-cyan w-100 justify-content-center py-2" style="font-size:0.9rem;">View Ads & AI <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Division 3: Web & App Dev -->
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                <div class="vibrant-card card-magenta">
+                    <div class="icon-badge badge-magenta"><i class="fas fa-code"></i></div>
+                    <h4 class="fw-bold mb-3">Web & App Dev</h4>
+                    <p class="text-dim small mb-4">Custom Android, iOS mobile apps, and lightning-fast static or dynamic React web applications.</p>
+                    <a href="digital-ai.html" class="btn-vibrant-magenta w-100 justify-content-center py-2" style="font-size:0.9rem;">View App Dev <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Division 4: BPO & Lead Gen -->
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                <div class="vibrant-card card-emerald">
+                    <div class="icon-badge badge-emerald"><i class="fas fa-headset"></i></div>
+                    <h4 class="fw-bold mb-3">BPO & Lead Gen</h4>
+                    <p class="text-dim small mb-4">Voice Tele-calling, Chat Lead Gen, Data Entry & Custom Jira-like Issue Tracking App.</p>
+                    <a href="services.html" class="btn btn-outline-vibrant w-100 justify-content-center" style="border-color:var(--emerald); color:var(--emerald);">View BPO & Tracker <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT & LEADERSHIP -->
+<section class="py-5" style="background: rgba(11, 13, 27, 0.7); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+    <div class="container py-4">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6" data-aos="fade-right">
+                <span class="fw-bold text-uppercase tracking-wider small" style="color:var(--gold);">Leadership & Identity</span>
+                <h2 class="display-6 fw-bold my-3 text-white">Unified Solutions Driven by <span style="color:var(--cyan);">Innovation</span>.</h2>
+                <p class="text-dim mb-4">Prasan Global Service is a multidisciplinary organization headquartered in Chennai. We bridge software technology, Meta ad campaigns, AI chatbots, BPO operations, and physical civil infrastructure.</p>
+
+                <div class="vibrant-card p-3 mb-4" style="background: rgba(255, 184, 0, 0.05); border: 1px solid var(--glass-border-gold);">
+                    <div class="d-flex align-items-center">
+                        <img src="sam.jpeg" class="leader-avatar" style="width: 48px; height: 48px; border-radius: 50%; border: 2px solid var(--gold); object-fit: cover; margin-right: 12px;" alt="Sam Santhosh">
+                        <div>
+                            <p class="small mb-1 text-dim fst-italic">"Quality is our foundation; innovation is our future."</p>
+                            <span class="fw-bold small" style="color:var(--gold);">— Sam Santhosh, Founder & CEO</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-center gap-4">
+                    <div class="d-flex align-items-center">
+                        <img src="sam.jpeg" class="leader-avatar" style="width: 42px; height: 42px; border-radius: 50%; border: 1.5px solid var(--gold); object-fit: cover; margin-right: 10px;" alt="Sam Santhosh">
+                        <div>
+                            <h6 class="mb-0 fw-bold small" style="color:var(--gold);">Sam Santhosh</h6>
+                            <span class="x-small text-dim">Founder & CEO</span>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <img src="logopra.jpg" class="leader-avatar" style="width: 42px; height: 42px; border-radius: 50%; border: 1.5px solid var(--gold); object-fit: cover; margin-right: 10px;" alt="Praveen Kumar">
+                        <div>
+                            <h6 class="mb-0 fw-bold small" style="color:var(--gold);">Praveen Kumar</h6>
+                            <span class="x-small text-dim">Managing Director</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-left">
+                <div class="row g-3 text-center">
+                    <div class="col-6"><div class="vibrant-card p-3"><h3 class="display-6 fw-bold mb-0" style="color:var(--gold);">200+</h3><p class="x-small text-dim text-uppercase mb-0 mt-1">Active Clients</p></div></div>
+                    <div class="col-6"><div class="vibrant-card card-cyan p-3"><h3 class="display-6 fw-bold mb-0" style="color:var(--cyan);">150+</h3><p class="x-small text-dim text-uppercase mb-0 mt-1">Software POS Deployed</p></div></div>
+                    <div class="col-6"><div class="vibrant-card card-magenta p-3"><h3 class="display-6 fw-bold mb-0" style="color:var(--magenta);">24/7</h3><p class="x-small text-dim text-uppercase mb-0 mt-1">Customer Support</p></div></div>
+                    <div class="col-6"><div class="vibrant-card card-emerald p-3"><h3 class="display-6 fw-bold mb-0" style="color:var(--emerald);">100%</h3><p class="x-small text-dim text-uppercase mb-0 mt-1">Quality Assured</p></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
     <div class="container">
         <div class="row g-4">
             <div class="col-lg-4">
                 <div class="d-flex align-items-center mb-3">
                     <div class="navbar-logo-container"><img src="logopra.jpg" class="navbar-logo" alt="Logo"></div>
-                    <h4 class="gold-text fw-bold mb-0">PRASAN GLOBAL</h4>
+                    <h4 class="fw-bold mb-0 text-white">PRASAN <span style="color:var(--gold);">GLOBAL</span></h4>
                 </div>
-                <p class="small text-dim mb-4">Integrated firm providing elite digital services and civil infrastructure. We bridge the gap between technology and structural excellence.</p>
-                
-                <h6 class="footer-title">Leadership</h6>
-                <div class="mb-4">
-                    <div class="d-flex align-items-center mb-3">
-                        <img src="sam.jpeg" class="leader-avatar" alt="Sam Santhosh">
-                        <div>
-                            <p class="small mb-0 fw-bold gold-text">Sam Santhosh</p>
-                            <p class="x-small text-dim mb-0">Founder & CEO</p>
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-center">
-                        <img src="logopra.jpg" class="leader-avatar" alt="Praveen Kumar">
-                        <div>
-                            <p class="small mb-0 fw-bold gold-text">Praveen Kumar</p>
-                            <p class="x-small text-dim mb-0">Managing Director</p>
-                        </div>
-                    </div>
-                </div>
+                <p class="small text-dim mb-4">Empowering modern retail and commercial enterprises with Software POS, Meta Ads, Custom AI Chatbots, HR Systems, and Civil Infrastructure.</p>
+                <p class="small text-dim mb-0"><i class="fas fa-envelope me-2" style="color:var(--gold);"></i> prasan@prasanglobal.in</p>
+                <p class="small text-dim mb-4"><i class="fas fa-phone-alt me-2" style="color:var(--gold);"></i> +91 98840 50379</p>
             </div>
 
             <div class="col-6 col-lg-2 ms-lg-auto">
-                <h6 class="footer-title">Navigation</h6>
+                <h6 class="footer-title">Pages</h6>
                 <ul class="footer-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About Identity</a></li>
-                    <li><a href="#it">IT Expertise</a></li>
-                    <li><a href="#bpo">BPO Division</a></li>
-                    <li><a href="#civil">Civil Solutions</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="software.html">Software POS</a></li>
+                    <li><a href="digital-ai.html">Meta Ads & AI</a></li>
+                    <li><a href="services.html">BPO & Civil</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
                 </ul>
             </div>
 
-            <div class="col-6 col-lg-2">
-                <h6 class="footer-title">Our Services</h6>
+            <div class="col-6 col-lg-3">
+                <h6 class="footer-title">Services</h6>
                 <ul class="footer-links">
-                    <li><a href="#it">POS Software</a></li>
-                    <li><a href="#it">Web Apps</a></li>
-                    <li><a href="#bpo">Data Entry</a></li>
-                    <li><a href="#civil">Electrical/AC</a></li>
-                    <li><a href="#civil">Deep Cleaning</a></li>
+                    <li><a href="software.html">Food POS Billing</a></li>
+                    <li><a href="software.html">Garments POS</a></li>
+                    <li><a href="software.html">HRMS Attendance</a></li>
+                    <li><a href="digital-ai.html">Meta Ads Lead Gen</a></li>
+                    <li><a href="digital-ai.html">Custom AI Chatbots</a></li>
                 </ul>
             </div>
 
             <div class="col-lg-3">
-                <h6 class="footer-title">Office</h6>
-                <p class="small text-dim">Ennore, Chennai, Tamil Nadu - 600057</p>
-                <p class="gold-text fw-bold mb-4">+91 98840 50379</p>
+                <h6 class="footer-title">Location & Contact</h6>
+                <p class="small text-dim">SVM Nagar 2nd Street Ennore, Chennai - 600057</p>
+                <p class="fw-bold mb-3" style="color:var(--gold);">+91 98840 50379</p>
+                <p class="x-small text-dim">GSTIN: 33PHXPS6095C1ZD</p>
                 
-                <h6 class="footer-title">Social Connect</h6>
                 <div class="d-flex gap-3">
-                    <a href="#" class="gold-text fs-5"><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="gold-text fs-5"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="gold-text fs-5"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" class="gold-text fs-5"><i class="fab fa-twitter"></i></a>
+                    <a href="https://wa.me/919884050379" target="_blank" class="fs-5" style="color:var(--gold);"><i class="fab fa-whatsapp"></i></a>
+                    <a href="mailto:prasan@prasanglobal.in" class="fs-5" style="color:var(--gold);"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
         </div>
 
-        <hr class="my-5 opacity-25" style="border-color: var(--gold-prime);">
+        <hr class="my-5 opacity-25" style="border-color: var(--gold);">
         
         <div class="row align-items-center">
             <div class="col-md-6 text-center text-md-start">
-                <p class="small text-dim mb-0">© 2026 Prasan Global Service. Developed By <span class="gold-text">Prasan Global Solutions</span></p>
+                <p class="small text-dim mb-0">© 2026 Prasan Global Service. Contact: <span style="color:var(--gold);">prasan@prasanglobal.in</span></p>
             </div>
             <div class="col-md-6 text-center text-md-end">
                 <p class="x-small text-dim mb-0 uppercase" style="letter-spacing: 1px;">Quality • Innovation • Reliability</p>
@@ -681,61 +936,238 @@
 <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
 
 <script>
-    // Initialize Animations
-    AOS.init({ duration: 1000, once: true });
+    AOS.init({ duration: 900, once: true });
 
-    // Hero Text Typing Effect
     new Typed('#typed-text', {
-        strings: ['Innovation.', 'Solutions.', 'Engineering.', 'Support.'],
-        typeSpeed: 60,
-        backSpeed: 40,
-        backDelay: 2000,
-        loop: true,
-        showCursor: true,
-        cursorChar: '_'
+        strings: ['Custom Software Engineering.', 'High-ROI Meta Ads Campaigns.', '24/7 AI Support Chatbots.', 'Barcode & Label Systems.', 'Food & Garment POS Suites.', 'Healthcare Medify Platforms.', 'Agile Jira-like Trackers.'],
+        typeSpeed: 45, backSpeed: 25, backDelay: 1800, loop: true, showCursor: true, cursorChar: '|'
     });
 
-    // Auto-close menu when a link is clicked (Mobile Only)
-    const navLinks = document.querySelectorAll('.nav-link');
-    const menuToggle = document.getElementById('navbarNav');
-    const bsCollapse = new bootstrap.Collapse(menuToggle, {toggle:false});
-    
-    navLinks.forEach((l) => {
-        l.addEventListener('click', () => { 
-            if (window.innerWidth < 992) {
-                bsCollapse.hide();
-            }
-        });
+    window.addEventListener('scroll', () => {
+        const nav = document.querySelector('.navbar');
+        if (window.scrollY > 50) nav.classList.add('scrolled');
+        else nav.classList.remove('scrolled');
     });
 
-    // Statistics Counter Animation
-    const counters = document.querySelectorAll('.counter');
-    const startCounters = () => {
-        counters.forEach(counter => {
-            const updateCount = () => {
-                const target = +counter.getAttribute('data-target');
-                const count = +counter.innerText;
-                const speed = 100;
-                const inc = target / speed;
-                if (count < target) {
-                    counter.innerText = Math.ceil(count + inc);
-                    setTimeout(updateCount, 30);
-                } else {
-                    counter.innerText = target;
-                }
-            };
-            updateCount();
-        });
+    function toggleChatbot() {
+        document.getElementById('chatbotDrawer').classList.toggle('active');
+    }
+
+    function sendChatMessage() {
+        const input = document.getElementById('chatInput');
+        const text = input.value.trim();
+        if(!text) return;
+        addMessage(text, 'user');
+        input.value = '';
+        setTimeout(() => botReply(text), 500);
+    }
+
+    function handleChatKey(e) { if(e.key === 'Enter') sendChatMessage(); }
+
+    function sendChip(chipText) {
+        addMessage(chipText, 'user');
+        setTimeout(() => botReply(chipText), 400);
+    }
+
+    function addMessage(msg, sender) {
+        const container = document.getElementById('chatMessages');
+        const div = document.createElement('div');
+        div.className = `chat-msg ${sender}`;
+        div.innerHTML = msg;
+        container.appendChild(div);
+        container.scrollTop = container.scrollHeight;
+    }
+
+    function botReply(userMsg) {
+        const lower = userMsg.toLowerCase();
+        let reply = "";
+        if(lower.includes('meta') || lower.includes('ad')) {
+            reply = "🎯 <strong>Meta Ads Campaigns:</strong> High ROI Facebook & Instagram ad setup to bring leads directly to your business.<br><br>👉 <a href='https://wa.me/919884050379?text=Hi!%20Meta%20Ads' target='_blank' style='color:var(--gold);'>Chat on WhatsApp for Ads Quote</a>";
+        } else if(lower.includes('barcode')) {
+            reply = "🏷️ <strong>Barcode Generation Software:</strong> Bulk EAN-13 & QR creation with thermal sticker printing.<br><br>👉 <a href='https://wa.me/919884050379?text=Barcode%20Demo' target='_blank' style='color:var(--gold);'>Request Barcode Software Demo</a>";
+        } else if(lower.includes('food') || lower.includes('restaurant')) {
+            reply = "🍔 <strong>Food & Restaurant Billing POS:</strong> KOT printing, table layout, cloud sync & GST.<br><br>👉 <a href='https://wa.me/919884050379?text=Food%20POS%20Demo' target='_blank' style='color:var(--gold);'>Request Food POS Demo on WhatsApp</a>";
+        } else if(lower.includes('garment')) {
+            reply = "👕 <strong>Garments & Retail Billing POS:</strong> Fast barcode scan, stock control & multi-store sync.<br><br>👉 <a href='https://wa.me/919884050379?text=Garment%20POS%20Demo' target='_blank' style='color:var(--gold);'>Request Garment POS Demo</a>";
+        } else if(lower.includes('hr') || lower.includes('attendance')) {
+            reply = "👥 <strong>HRMS Attendance System:</strong> Biometric facial recognition, geo-fencing & payroll.<br><br>👉 <a href='https://wa.me/919884050379?text=HRMS%20Demo' target='_blank' style='color:var(--gold);'>Request HRMS Demo</a>";
+        } else {
+            reply = `Thank you! Contact us directly:<br>📧 Email: <a href="mailto:prasan@prasanglobal.in" style="color:var(--gold);">prasan@prasanglobal.in</a><br>📱 WhatsApp: <a href="https://wa.me/919884050379" target="_blank" style="color:var(--gold);">+91 98840 50379</a>`;
+        }
+        addMessage(reply, 'bot');
+    }
+
+    // Tech Card Modal Data Dictionary with Real Work & Workflow Images
+    const techData = {
+        react: {
+            title: "React JS & Vite",
+            category: "Modern Frontend Web Architecture",
+            icon: "fab fa-react",
+            image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=800",
+            workflowImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800",
+            desc: "React JS combined with Vite is our primary choice for building lightning-fast, Single-Page Applications (SPAs). It allows us to deploy rich web platforms on Render Static Hosting with zero server latency.",
+            steps: [
+                "<strong>Step 1: Component Building</strong> — We build modular, reusable UI components using Vite ES-build toolchain.",
+                "<strong>Step 2: Sub-second DOM Rendering</strong> — React Virtual DOM updates UI state instantaneously without page reloads.",
+                "<strong>Step 3: Render Static CDN Deploy</strong> — Compiled bundle is deployed on Render CDN for global high-speed serving."
+            ],
+            benefits: ["⚡ Sub-second Page Load Speed", "🎨 Rich Interactive Components", "📱 100% Mobile & Desktop Responsive", "🚀 Render Static Host Compatible"],
+            usecase: "<strong>Real Production Impact:</strong> Prasan Global builds high-converting business sites and SaaS web portals with React JS, deployed globally on Render CDN."
+        },
+        meta: {
+            title: "Meta Ads Manager",
+            category: "Targeted Customer Acquisition",
+            icon: "fab fa-facebook",
+            image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800",
+            workflowImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800",
+            desc: "Meta Ads Manager uses Facebook & Instagram machine-learning algorithms to place your business ads directly in front of targeted local buyers in Chennai & global markets.",
+            steps: [
+                "<strong>Step 1: Audience & Radius Targeting</strong> — We pinpoint exact demographics, age, interests, and geolocation radius.",
+                "<strong>Step 2: High-Converting Creative Launch</strong> — We deploy engaging video & carousel ad creatives on Instagram & Facebook.",
+                "<strong>Step 3: Instant WhatsApp Lead Routing</strong> — Interested prospects click the ad and connect straight to your WhatsApp."
+            ],
+            benefits: ["🎯 Precise Demographic & Radius Targeting", "📈 High Lead Generation ROI", "📱 Direct WhatsApp & Call Campaign Funnels", "📊 Daily Ad Conversion Analytics"],
+            usecase: "<strong>Real Production Impact:</strong> We create high-converting ad campaigns that generate qualified daily buyer leads for retail shops, restaurants, and software services."
+        },
+        ai: {
+            title: "OpenAI & Gemini API",
+            category: "Generative AI & Customer Support Automation",
+            icon: "fas fa-brain",
+            image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800",
+            workflowImage: "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=800",
+            desc: "Large Language Models (LLMs) from OpenAI (GPT-4) and Google Gemini power our 24/7 intelligent chatbots, understanding natural human language across multiple regional languages.",
+            steps: [
+                "<strong>Step 1: Custom Knowledge Ingestion</strong> — We train the AI model on your company's exact FAQs, prices, and services.",
+                "<strong>Step 2: Multi-Language Intent Understanding</strong> — The bot understands questions in English, Telugu, Tamil, Hindi, or Spanish.",
+                "<strong>Step 3: Automated Conversion & Lead Booking</strong> — The AI bot collects buyer contact details and routes hot leads to your phone."
+            ],
+            benefits: ["🤖 24/7 Automated Customer Answering", "🌐 Multi-Language Support (English, Telugu, Tamil, Hindi)", "📊 Lead Collection & CRM Integration", "⚡ Under 1-Second Instant Response"],
+            usecase: "<strong>Real Production Impact:</strong> We embed custom trained AI chatbots into your website and WhatsApp account to convert visitors into paying clients around the clock."
+        },
+        python: {
+            title: "Python & Node.js",
+            category: "Backend REST APIs & Automation Engines",
+            icon: "fab fa-python",
+            image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800",
+            workflowImage: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=800",
+            desc: "Python and Node.js provide robust, secure backend microservices capable of processing high-volume billing transactions, automated data sync, and API webhooks.",
+            steps: [
+                "<strong>Step 1: RESTful Endpoint Listener</strong> — Node/Python API listens for incoming order payloads and inventory updates.",
+                "<strong>Step 2: Asynchronous Data Processing</strong> — Validates transactions, applies discount engines, and generates GST invoices.",
+                "<strong>Step 3: Secure Third-Party Webhooks</strong> — Pushes real-time alerts to WhatsApp Cloud API, payment gateways, and cloud DBs."
+            ],
+            benefits: ["🔒 Enterprise Data Encryption", "🚀 Async Multi-Threaded Processing", "🔗 Seamless Webhook & Third-Party APIs", "📊 High Performance Cloud Execution"],
+            usecase: "<strong>Real Production Impact:</strong> We write backend microservices for cloud POS sync, Swiggy/Zomato integrations, and barcode generation APIs."
+        },
+        db: {
+            title: "MySQL & PostgreSQL",
+            category: "Cloud Database & Security Infrastructure",
+            icon: "fas fa-database",
+            image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?q=80&w=800",
+            workflowImage: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=800",
+            desc: "Relational cloud databases engineered for 99.99% data integrity, fast query execution, automated daily backups, and strict security compliance.",
+            steps: [
+                "<strong>Step 1: Relational Schema Indexing</strong> — Data tables are structured with index keys for sub-millisecond query execution.",
+                "<strong>Step 2: Multi-Branch Cloud Sync</strong> — Automatically merges local POS offline transactions into central cloud storage.",
+                "<strong>Step 3: Encrypted Daily Backup Vault</strong> — Automated snapshot backups prevent any data loss."
+            ],
+            benefits: ["🛡️ Automated Daily Cloud Backups", "🔒 ACID Compliant Transaction Security", "⚡ Sub-millisecond Query Indexing", "📊 Multi-Store Branch Data Sync"],
+            usecase: "<strong>Real Production Impact:</strong> We securely store retail inventory stock, sales invoices, customer loyalty points, and employee HR logs."
+        },
+        barcode: {
+            title: "Thermal & Barcode SDK",
+            category: "Barcode & Thermal Label Printing Engine",
+            icon: "fas fa-barcode",
+            image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800",
+            workflowImage: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=800",
+            desc: "Industrial Barcode Generation toolset supporting EAN-13, Code-128, UPC-A, and 2D QR Codes with direct ESC/POS thermal printer driver integration.",
+            steps: [
+                "<strong>Step 1: SKU & Price Batch Encoding</strong> — The application generates unique barcode numbers and price tag layouts.",
+                "<strong>Step 2: ESC/POS Thermal Command Stream</strong> — Sends direct raw print commands to TVS, Zebra, or TSC label printers.",
+                "<strong>Step 3: High-Speed POS Scanning</strong> — Retail barcode scanners instantly read generated stickers during customer billing."
+            ],
+            benefits: ["🏷️ Bulk SKU Barcode Batching", "🖨️ Thermal Printer Support (TVS, Zebra, TSC)", "📐 Custom Sticker Size Layouts", "⚡ 1-Click Price Tag Printing"],
+            usecase: "<strong>Real Production Impact:</strong> We empower Garment shops, textile showrooms, and retail outlets to print barcode price stickers directly from our Barcode Application."
+        },
+        biometric: {
+            title: "Biometric & Geo API",
+            category: "Facial Recognition & GPS Attendance Engine",
+            icon: "fas fa-fingerprint",
+            image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800",
+            workflowImage: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=800",
+            desc: "Advanced biometric facial recognition and mobile GPS geo-fencing APIs designed to track employee check-ins accurately without proxy attendance.",
+            steps: [
+                "<strong>Step 1: Face Scan / GPS Geo Punch</strong> — Employee scans face at office terminal or takes GPS-tagged mobile selfie.",
+                "<strong>Step 2: Anti-Spoof Verification</strong> — AI verifies facial liveness and validates office coordinate boundaries.",
+                "<strong>Step 3: Automatic Payroll Slip Sync</strong> — Monthly attendance logs automatically calculate overtime, leaves, and salary slips."
+            ],
+            benefits: ["👤 99.8% Facial Recognition Accuracy", "📍 Mobile GPS Radius Geo-Fencing", "⏱️ Automated Monthly Attendance Calculations", "📄 1-Click Payroll Slip Generator"],
+            usecase: "<strong>Real Production Impact:</strong> Office staff check in using facial biometrics while field workers punch attendance via GPS mobile app."
+        },
+        render: {
+            title: "Render & Cloudflare CDN",
+            category: "Global High-Speed Cloud Hosting & SSL",
+            icon: "fas fa-cloud",
+            image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800",
+            workflowImage: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=800",
+            desc: "Render Static Sites backed by Cloudflare global CDN ensures your website is served from edge locations worldwide with 100% uptime and free SSL.",
+            steps: [
+                "<strong>Step 1: Continuous Git Deployment</strong> — Code updates automatically trigger zero-downtime static builds on Render.",
+                "<strong>Step 2: Cloudflare Edge Distribution</strong> — Website assets are cached across 280+ global CDN edge servers.",
+                "<strong>Step 3: Auto SSL & DDoS Shield</strong> — Automatic HTTPS encryption and DDoS protection shield your site 24/7."
+            ],
+            benefits: ["⚡ Global Edge Server CDN Caching", "🔒 Free Automatic SSL Security Certificate", "💰 Zero Server Maintenance Overhead", "🚀 100% Uptime Guarantee"],
+            usecase: "<strong>Real Production Impact:</strong> All Prasan Global static websites are deployed on Render Static Hosting for zero maintenance and maximum speed."
+        }
     };
 
-    let countStarted = false;
-    window.addEventListener('scroll', () => {
-        const section = document.querySelector('#about');
-        if (section && window.scrollY >= (section.offsetTop - 500) && !countStarted) {
-            startCounters();
-            countStarted = true;
-        }
-    });
+    function openTechModal(key) {
+        const item = techData[key];
+        if(!item) return;
+
+        document.getElementById('modalTechTitle').innerText = item.title;
+        document.getElementById('modalTechCategory').innerText = item.category;
+        document.getElementById('modalTechIcon').className = `icon-badge badge-gold mb-0 ${item.icon}`;
+        document.getElementById('modalTechImage').src = item.image;
+        document.getElementById('modalTechWorkflowImage').src = item.workflowImage;
+        document.getElementById('modalTechDescription').innerText = item.desc;
+        document.getElementById('modalTechUsecase').innerHTML = item.usecase;
+
+        // Render Step-by-Step Workflow
+        const stepsContainer = document.getElementById('modalTechSteps');
+        stepsContainer.innerHTML = item.steps.map(s => `
+            <div class="col-12">
+                <div class="p-3 rounded-4" style="background:rgba(0,210,255,0.06); border:1px solid var(--glass-border-cyan); font-size:0.88rem;">
+                    <span class="text-white">${s}</span>
+                </div>
+            </div>
+        `).join('');
+
+        // Render Benefits
+        const benefitsContainer = document.getElementById('modalTechBenefits');
+        benefitsContainer.innerHTML = item.benefits.map(b => `
+            <div class="col-6">
+                <div class="p-3 rounded-4" style="background:rgba(255,255,255,0.04); border:1px solid var(--glass-border); font-size:0.85rem;">
+                    <span class="text-white">${b}</span>
+                </div>
+            </div>
+        `).join('');
+
+        const modal = new bootstrap.Modal(document.getElementById('techDetailModal'));
+        modal.show();
+    }
+
+    function changeLanguage(lang) {
+        const botMsgs = {
+            en: "👋 Hello! Welcome to <strong>Prasan Global Service</strong>.<br>How can we empower your business today?",
+            te: "👋 నమస్కారం! <strong>ప్రశాం గ్లోబల్ సర్వీస్</strong>కి స్వాగతం.<br>మేము మీకు ఏ సేవలో సహాయం చేయగలము?",
+            ta: "👋 வணக்கம்! <strong>பிரசான் குளோபல் சேவைகளுக்கு</strong> வரவேற்கிறோம்.<br>நாங்கள் உங்களுக்கு எவ்வாறு உதவ முடியும்?",
+            hi: "👋 नमस्ते! <strong>प्रसान ग्लोबल सर्विस</strong> में आपका स्वागत है।<br>आज हम आपके व्यवसाय की कैसे सहायता कर सकते हैं?",
+            es: "👋 ¡Hola! Bienvenido a <strong>Prasan Global Service</strong>.<br>¿Cómo podemos impulsar su negocio hoy?"
+        };
+        addMessage(botMsgs[lang] || botMsgs['en'], 'bot');
+        toggleChatbot();
+    }
 </script>
 </body>
 </html>

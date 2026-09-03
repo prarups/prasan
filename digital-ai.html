@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meta Ads, AI Chatbots & Web Apps | Prasan Global Service</title>
+    <meta name="description" content="Meta Ads Facebook & Instagram campaign management, Custom AI Chatbots, and Custom Web & Mobile App Development by Prasan Global.">
+    
+    <!-- High-Speed Resource Hints & Preconnects for Low Data -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="orb orb-cyan"></div>
+<div class="orb orb-magenta"></div>
+
+<a href="https://wa.me/919884050379?text=Hi%20Prasan%20Global!%20I%20want%20Meta%20Ads/AI%20Chatbot%20quote." class="wa-float-btn" target="_blank" title="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- Floating AI Chatbot -->
+<div class="chatbot-trigger" id="chatbotTrigger" onclick="toggleChatbot()" title="Open AI Chat Support">
+    <i class="fas fa-robot"></i>
+</div>
+
+<div class="chatbot-drawer" id="chatbotDrawer">
+    <div class="chatbot-header">
+        <div class="d-flex align-items-center gap-2">
+            <div class="bot-avatar"><i class="fas fa-brain"></i></div>
+            <div>
+                <h6 class="mb-0 fw-bold text-white" style="font-size:0.95rem;">Prasan AI Assistant</h6>
+                <span class="small text-success d-flex align-items-center gap-1" style="font-size: 0.75rem;"><i class="fas fa-circle" style="font-size: 8px;"></i> Online • AI Support</span>
+            </div>
+        </div>
+        <button class="bg-transparent border-0 text-white fs-5 cursor-pointer" onclick="toggleChatbot()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="chatbot-messages" id="chatMessages">
+        <div class="chat-msg bot">
+            🎯 Welcome to **Meta Ads & AI Chatbots**!<br>Select a service below:
+            <div class="chat-chips">
+                <button class="chip-btn" onclick="sendChip('Meta Ads Enquiry')">🎯 Meta Ads Campaigns</button>
+                <button class="chip-btn" onclick="sendChip('Build AI Chatbot')">🤖 Custom AI Chatbots</button>
+                <button class="chip-btn" onclick="sendChip('Web App Quote')">📱 Web & App Development</button>
+            </div>
+        </div>
+    </div>
+    <div class="chatbot-footer">
+        <input type="text" id="chatInput" placeholder="Type your digital marketing question..." onkeypress="handleChatKey(event)">
+        <button onclick="sendChatMessage()"><i class="fas fa-paper-plane"></i></button>
+    </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+            <div class="navbar-logo-container"><img src="logopra.jpg" class="navbar-logo" alt="Prasan Global Logo"></div>
+            <div>
+                <span class="fs-5 tracking-wider brand-title-prasan">PRASAN <span class="brand-title-global">GLOBAL</span></span>
+                <span class="d-block brand-subtitle-tags"><span class="text-white fw-bold">TECH</span> <span style="color:var(--gold);">•</span> SOFTWARE <span style="color:var(--gold);">•</span> BPO <span style="color:var(--gold);">•</span> CIVIL</span>
+            </div>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-center gap-1">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="software.html">Products</a></li>
+                <li class="nav-item"><a class="nav-link active" href="digital-ai.html">Solutions</a></li>
+                <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#technical-resources">Tech Stack</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#portfolio">Case Studies</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<section style="padding: 150px 0 60px; text-align: center;">
+    <div class="container">
+        <span class="px-4 py-2 rounded-pill fw-bold text-uppercase small" style="background: rgba(0, 210, 255, 0.15); border: 1.5px solid var(--cyan); color: var(--cyan); letter-spacing: 2px;">
+            <i class="fas fa-rocket me-2"></i> Growth, Marketing & AI Innovation
+        </span>
+        <h1 class="display-4 fw-extrabold my-3 text-white">Meta Ads, <span style="color:var(--cyan);">AI Chatbots</span> & Web Apps</h1>
+        <p class="lead text-dim mx-auto" style="max-width: 720px;">Scale your brand revenue with high-performing Facebook/Instagram Ads and 24/7 AI Customer Support Chatbots.</p>
+    </div>
+</section>
+
+<!-- SERVICE 1: META ADS -->
+<section class="py-5">
+    <div class="container py-4">
+        <div class="vibrant-card card-cyan p-5">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="icon-badge badge-cyan"><i class="fab fa-facebook-f"></i></div>
+                    <span class="fw-bold text-uppercase small" style="color:var(--cyan);">Lead Generation Engine</span>
+                    <h2 class="display-6 fw-bold my-3 text-white">Meta Ads <span style="color:var(--cyan);">Campaign Management</span></h2>
+                    <p class="text-dim mb-4">We run high-converting Facebook & Instagram Ad campaigns designed to flood your business with qualified leads and sales inquiries daily. Includes targeted audience research, ad copy creation, and ROAS optimization.</p>
+                    
+                    <ul class="list-unstyled text-dim mb-4">
+                        <li class="mb-2"><i class="fas fa-check-circle me-2" style="color:var(--cyan);"></i> Targeted Facebook & Instagram Lead Ads</li>
+                        <li class="mb-2"><i class="fas fa-check-circle me-2" style="color:var(--cyan);"></i> E-Commerce Sales & Retargeting Campaigns</li>
+                        <li class="mb-2"><i class="fas fa-check-circle me-2" style="color:var(--cyan);"></i> WhatsApp & Direct Call Ad Funnels</li>
+                        <li class="mb-2"><i class="fas fa-check-circle me-2" style="color:var(--cyan);"></i> Weekly Performance & Lead Reporting</li>
+                    </ul>
+
+                    <a href="https://wa.me/919884050379?text=Hi%20Prasan%20Global!%20I%20want%20to%20run%20Meta%20Ads." target="_blank" class="btn-vibrant-cyan">
+                        Launch Meta Ads Campaign <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="col-lg-6 text-center" data-aos="fade-left">
+                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800" class="img-fluid rounded-4 shadow-lg" style="border: 2px solid var(--cyan); max-height: 400px; width: 100%; object-fit: cover;" alt="Meta Ads Marketing">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICE 2: CUSTOM AI CHATBOTS -->
+<section class="py-5">
+    <div class="container py-4">
+        <div class="vibrant-card card-magenta p-5">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6 text-center order-lg-1 order-2" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=800" class="img-fluid rounded-4 shadow-lg" style="border: 2px solid var(--magenta); max-height: 400px; width: 100%; object-fit: cover;" alt="AI Chatbot Development">
+                </div>
+                <div class="col-lg-6 order-lg-2 order-1" data-aos="fade-left">
+                    <div class="icon-badge badge-magenta"><i class="fas fa-robot"></i></div>
+                    <span class="fw-bold text-uppercase small" style="color:var(--magenta);">Customer Service Automation</span>
+                    <h2 class="display-6 fw-bold my-3 text-white">Custom <span style="color:var(--magenta);">AI Chatbot Creation</span></h2>
+                    <p class="text-dim mb-4">Never lose a potential customer! We build custom AI Customer Care Chatbots for your website and WhatsApp that automatically answer FAQs, capture lead details, and book appointments 24/7.</p>
+                    
+                    <ul class="list-unstyled text-dim mb-4">
+                        <li class="mb-2"><i class="fas fa-check-circle me-2" style="color:var(--magenta);"></i> WhatsApp Automated Reply & Sales Bot</li>
+                        <li class="mb-2"><i class="fas fa-check-circle me-2" style="color:var(--magenta);"></i> 24/7 Website AI Customer Support Widget</li>
+                        <li class="mb-2"><i class="fas fa-check-circle me-2" style="color:var(--magenta);"></i> Automated Lead Capture & CRM Sync</li>
+                        <li class="mb-2"><i class="fas fa-check-circle me-2" style="color:var(--magenta);"></i> Multi-Language Support Capability</li>
+                    </ul>
+
+                    <a href="https://wa.me/919884050379?text=Hi%20Prasan%20Global!%20I%20want%20a%20Custom%20AI%20Chatbot." target="_blank" class="btn-vibrant-magenta">
+                        Build AI Chatbot <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICE 3: WEB & MOBILE APP DEV -->
+<section class="py-5">
+    <div class="container py-4">
+        <div class="vibrant-card p-5">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="icon-badge badge-gold"><i class="fas fa-laptop-code"></i></div>
+                    <span class="fw-bold text-uppercase small" style="color:var(--gold);">Custom Engineering</span>
+                    <h2 class="display-6 fw-bold my-3 text-white">Web & Mobile <span style="color:var(--gold);">App Development</span></h2>
+                    <p class="text-dim mb-4">From modern React/Vite static websites to full-stack Android & iOS mobile applications, we build lightning-fast, high-converting digital products tailored for your business vision.</p>
+                    
+                    <ul class="list-unstyled text-dim mb-4">
+                        <li class="mb-2"><i class="fas fa-check-circle me-2" style="color:var(--gold);"></i> High-Speed Static Websites for Render Hosting</li>
+                        <li class="mb-2"><i class="fas fa-check-circle me-2" style="color:var(--gold);"></i> Native & Cross-Platform Mobile Apps (Android & iOS)</li>
+                        <li class="mb-2"><i class="fas fa-check-circle me-2" style="color:var(--gold);"></i> E-Commerce Portals & Payment Gateway Integration</li>
+                        <li class="mb-2"><i class="fas fa-check-circle me-2" style="color:var(--gold);"></i> Full SEO Optimization & Responsive Design</li>
+                    </ul>
+
+                    <a href="https://wa.me/919884050379?text=Hi%20Prasan%20Global!%20I%20need%20a%20Custom%20Website/App." target="_blank" class="btn-vibrant-gold">
+                        Get Web/App Estimate <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="col-lg-6 text-center" data-aos="fade-left">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800" class="img-fluid rounded-4 shadow-lg" style="border: 2px solid var(--gold); max-height: 400px; width: 100%; object-fit: cover;" alt="Web App Development">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- DEVELOPER API & CODE SNIPPETS SECTION -->
+<section class="py-5" style="border-top: 1px solid var(--glass-border);">
+    <div class="container py-4">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <span class="fw-bold text-uppercase tracking-wider small" style="color:var(--gold);">Developer Integrations</span>
+            <h2 class="display-6 fw-bold text-white mt-2">API Code <span style="color:var(--gold);">Snippets & SDKs</span></h2>
+            <p class="text-dim mx-auto" style="max-width: 680px;">Clean 1-line script embeds and REST API code for integrating AI Chatbots, Barcodes, and Lead Webhooks.</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Code Window 1: AI Chatbot Embed -->
+            <div class="col-lg-6" data-aos="fade-right">
+                <div class="code-window">
+                    <div class="code-header">
+                        <div class="code-dots"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span></div>
+                        <span class="code-title">prasan-ai-widget.html</span>
+                        <button class="copy-btn" onclick="copyCode('code1')"><i class="fas fa-copy me-1"></i> Copy</button>
+                    </div>
+                    <pre class="code-body" id="code1"><code><span class="code-comment">&lt;!-- Embed 24/7 AI Chatbot into any Website --&gt;</span>
+&lt;<span class="code-keyword">script</span> <span class="code-func">src</span>=<span class="code-string">"https://cdn.prasanglobal.in/ai-chatbot.js"</span>
+        <span class="code-func">data-bot-id</span>=<span class="code-string">"PRASAN_AI_98840"</span>
+        <span class="code-func">data-theme</span>=<span class="code-string">"vibrant-gold"</span>
+        <span class="code-func">async</span>&gt;&lt;/<span class="code-keyword">script</span>&gt;
+
+<span class="code-comment">// Initialize WhatsApp & Web Chatbot Instant Listener</span>
+<span class="code-keyword">window</span>.<span class="code-func">PrasanAI</span>.<span class="code-func">init</span>({
+    <span class="code-func">autoGreeting</span>: <span class="code-string">"Hi! Welcome to Prasan Global Support"</span>,
+    <span class="code-func">whatsappNumber</span>: <span class="code-string">"+919884050379"</span>
+});</code></pre>
+                </div>
+            </div>
+
+            <!-- Code Window 2: Barcode Generation API -->
+            <div class="col-lg-6" data-aos="fade-left">
+                <div class="code-window">
+                    <div class="code-header">
+                        <div class="code-dots"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span></div>
+                        <span class="code-title">barcode-generator.py</span>
+                        <button class="copy-btn" onclick="copyCode('code2')"><i class="fas fa-copy me-1"></i> Copy</button>
+                    </div>
+                    <pre class="code-body" id="code2"><code><span class="code-keyword">import</span> requests
+
+<span class="code-comment"># Prasan Global Barcode & Sticker Printing API</span>
+url = <span class="code-string">"https://api.prasanglobal.in/v1/barcode/generate"</span>
+payload = {
+    <span class="code-string">"product_sku"</span>: <span class="code-string">"PRASAN-GARMENT-1002"</span>,
+    <span class="code-string">"barcode_type"</span>: <span class="code-string">"EAN-13"</span>,
+    <span class="code-string">"sticker_layout"</span>: <span class="code-string">"50mmx25mm_thermal"</span>
+}
+
+response = requests.<span class="code-func">post</span>(url, json=payload)
+print(<span class="code-string">"Barcode Generated:"</span>, response.json()[<span class="code-string">"barcode_url"</span>])</code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="toast-notice" id="toastNotice"><i class="fas fa-check-circle me-2"></i> Code snippet copied to clipboard!</div>
+<section class="py-5" style="border-top: 1px solid var(--glass-border);">
+    <div class="container py-4">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <span class="fw-bold text-uppercase tracking-wider small" style="color:var(--cyan);">Marketing & AI Stack</span>
+            <h2 class="display-6 fw-bold text-white mt-2">Tools & <span style="color:var(--cyan);">Platforms We Harness</span></h2>
+            <p class="text-dim mx-auto" style="max-width: 680px;">We use official Meta APIs, Google Analytics 4, OpenAI GPT models, and cloud infrastructure.</p>
+        </div>
+
+        <div class="row g-4 text-center">
+            <div class="col-6 col-md-3" data-aos="zoom-in">
+                <div class="vibrant-card card-cyan p-4">
+                    <div class="icon-badge badge-cyan mx-auto mb-3"><i class="fab fa-facebook"></i></div>
+                    <h5 class="fw-bold text-white">Meta Ads Manager</h5>
+                    <p class="x-small text-dim mb-0">Facebook & Instagram targeted campaign ad suites.</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="100">
+                <div class="vibrant-card card-magenta p-4">
+                    <div class="icon-badge badge-magenta mx-auto mb-3"><i class="fas fa-brain"></i></div>
+                    <h5 class="fw-bold text-white">OpenAI & Gemini API</h5>
+                    <p class="x-small text-dim mb-0">Large Language Models for smart AI Chatbots.</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="200">
+                <div class="vibrant-card card-emerald p-4">
+                    <div class="icon-badge badge-emerald mx-auto mb-3"><i class="fab fa-whatsapp"></i></div>
+                    <h5 class="fw-bold text-white">WhatsApp Cloud API</h5>
+                    <p class="x-small text-dim mb-0">Official Business WhatsApp auto-responders.</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="300">
+                <div class="vibrant-card p-4">
+                    <div class="icon-badge badge-gold mx-auto mb-3"><i class="fab fa-google"></i></div>
+                    <h5 class="fw-bold text-white">GA4 & Meta Pixel</h5>
+                    <p class="x-small text-dim mb-0">Conversion tracking & audience retargeting pixel.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- DIGITAL & AI FAQ (Q&A) -->
+<section class="py-5" style="background: rgba(11, 13, 27, 0.8); border-top: 1px solid var(--glass-border);">
+    <div class="container py-4" style="max-width: 900px;">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <span class="fw-bold text-uppercase tracking-wider small" style="color:var(--cyan);">Marketing Q&A</span>
+            <h2 class="display-6 fw-bold text-white mt-2">Meta Ads & AI <span style="color:var(--cyan);">Questions & Answers</span></h2>
+        </div>
+
+        <div class="accordion accordion-flush" id="digitalFaqAccordion" data-aos="fade-up">
+            <div class="accordion-item bg-transparent mb-3 border rounded-4 overflow-hidden" style="border-color: var(--glass-border) !important;">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-dark text-white fw-bold p-4" type="button" data-bs-toggle="collapse" data-bs-target="#df1">
+                        Q1. How fast can Meta Ads start bringing leads to my business?
+                    </button>
+                </h2>
+                <div id="df1" class="accordion-collapse collapse" data-bs-parent="#digitalFaqAccordion">
+                    <div class="accordion-body bg-dark text-dim p-4 border-top border-secondary">
+                        Once your ad account and campaign creatives are launched, lead flow typically starts within <strong>24 to 48 hours</strong>! Interested prospects click directly to your WhatsApp or call line.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item bg-transparent mb-3 border rounded-4 overflow-hidden" style="border-color: var(--glass-border) !important;">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-dark text-white fw-bold p-4" type="button" data-bs-toggle="collapse" data-bs-target="#df2">
+                        Q2. How long does it take to deploy a Custom AI Support Chatbot?
+                    </button>
+                </h2>
+                <div id="df2" class="accordion-collapse collapse" data-bs-parent="#digitalFaqAccordion">
+                    <div class="accordion-body bg-dark text-dim p-4 border-top border-secondary">
+                        A custom AI chatbot trained on your company's FAQs and services is typically deployed within <strong>3 to 5 business days</strong> for your website and WhatsApp account.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item bg-transparent mb-3 border rounded-4 overflow-hidden" style="border-color: var(--glass-border) !important;">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-dark text-white fw-bold p-4" type="button" data-bs-toggle="collapse" data-bs-target="#df3">
+                        Q3. Do you build iOS and Android mobile applications?
+                    </button>
+                </h2>
+                <div id="df3" class="accordion-collapse collapse" data-bs-parent="#digitalFaqAccordion">
+                    <div class="accordion-body bg-dark text-dim p-4 border-top border-secondary">
+                        Yes! We build cross-platform mobile apps for Android and iOS using React Native & Flutter, complete with backend API integrations, admin dashboards, and cloud databases.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer>
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="navbar-logo-container"><img src="logopra.jpg" class="navbar-logo" alt="Logo"></div>
+                    <h4 class="fw-bold mb-0 text-white">PRASAN <span style="color:var(--gold);">GLOBAL</span></h4>
+                </div>
+                <p class="small text-dim mb-4">Accelerating business revenue through Meta Ads, AI Chatbots, and Web Apps.</p>
+                <p class="small text-dim mb-0"><i class="fas fa-envelope me-2" style="color:var(--gold);"></i> prasan@prasanglobal.in</p>
+                <p class="small text-dim mb-4"><i class="fas fa-phone-alt me-2" style="color:var(--gold);"></i> +91 98840 50379</p>
+            </div>
+            <div class="col-6 col-lg-2 ms-lg-auto">
+                <h6 class="footer-title">Pages</h6>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="software.html">Software POS</a></li>
+                    <li><a href="digital-ai.html">Meta Ads & AI</a></li>
+                    <li><a href="services.html">BPO & Civil</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3">
+                <h6 class="footer-title">Contact Us</h6>
+                <p class="small text-dim">SVM Nagar 2nd Street Ennore, Chennai - 600057</p>
+                <p class="fw-bold mb-3" style="color:var(--gold);">+91 98840 50379</p>
+            </div>
+        </div>
+        <hr class="my-5 opacity-25" style="border-color: var(--gold);">
+        <p class="small text-dim text-center mb-0">© 2026 Prasan Global Service. Digital & AI Division. Contact: prasan@prasanglobal.in</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 900, once: true });
+    window.addEventListener('scroll', () => {
+        const nav = document.querySelector('.navbar');
+        if (window.scrollY > 50) nav.classList.add('scrolled');
+        else nav.classList.remove('scrolled');
+    });
+    function toggleChatbot() { document.getElementById('chatbotDrawer').classList.toggle('active'); }
+    function sendChatMessage() {
+        const input = document.getElementById('chatInput');
+        const text = input.value.trim();
+        if(!text) return;
+        addMessage(text, 'user');
+        input.value = '';
+        setTimeout(() => botReply(text), 500);
+    }
+    function handleChatKey(e) { if(e.key === 'Enter') sendChatMessage(); }
+    function sendChip(chipText) { addMessage(chipText, 'user'); setTimeout(() => botReply(chipText), 400); }
+    function addMessage(msg, sender) {
+        const container = document.getElementById('chatMessages');
+        const div = document.createElement('div');
+        div.className = `chat-msg ${sender}`;
+        div.innerHTML = msg;
+        container.appendChild(div);
+        container.scrollTop = container.scrollHeight;
+    }
+    function botReply(userMsg) {
+        addMessage(`Thank you! Chat with us directly for Meta Ads & AI Chatbot pricing:<br>📱 WhatsApp: <a href="https://wa.me/919884050379" target="_blank" style="color:var(--gold);">+91 98840 50379</a>`, 'bot');
+    }
+    function copyCode(elementId) {
+        const text = document.getElementById(elementId).innerText;
+        navigator.clipboard.writeText(text);
+        const toast = document.getElementById('toastNotice');
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+</script>
+</body>
+</html>
